@@ -22,16 +22,16 @@ const bull = (
 
 export default function BasicCard({social_image, social_name}){
   return (
-    <Card>
+    <Card sx={{ display: 'grid', justifyContent: 'center' }}>
       <CardContent>
         <img src={social_image} alt="social-logo" className={"card-social-connect"}/>
-        <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
+        <Typography sx={{fontSize: "2rem", textAlign: "center", padding: "1rem" }} color="text.secondary" gutterBottom>
           {social_name}
         </Typography>
       </CardContent>
 
       <Stack direction="row" spacing={1} alignItems="center">
-        <IOSSwitch sx={{m: 2}} defaultChecked inputProps={{'aria-label': 'ant design'}}/>
+        <IOSSwitch sx={{m: 3}} defaultChecked inputProps={{'aria-label': 'ant design'}}/>
         <Typography>Sync</Typography>
       </Stack>
     </Card>
