@@ -1,0 +1,38 @@
+@import 'src/styles/vars';
+
+.cards-container{
+    height:500px;
+    
+    display: flex;
+    justify-content: center;
+    padding: 60px;
+}
+
+.card{
+    font-size: var(--sm);
+    width: 344px;
+    height: 347px;
+    padding: 0px;
+    gap: 45px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+    border-radius: 4px;
+}
+
+.networks h1{
+
+}
+
+
+/*
+.networks{
+flex-direction: row;
+padding: 0px;
+
+position: relative;
+width: 344px;
+height: 347px;
+background: #FFFFFF;
+box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+border-radius: 4px;
+}*/
