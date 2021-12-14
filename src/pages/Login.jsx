@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '../styles/Login.scss'
+import '../styles/pages/Login.scss'
 
 const Login = () => {
   return (

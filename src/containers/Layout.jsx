@@ -4,7 +4,11 @@ const Layout = ({children}) => {
   return (
     <div className="Layout">
       Layout
+      <br/>
+      <br/>
       {children}
+      <br/>
+      layout
     </div>
   )
 }
