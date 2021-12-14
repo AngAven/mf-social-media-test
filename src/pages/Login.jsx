@@ -4,7 +4,7 @@ import '../styles/pages/Login.scss'
 
 
 const routeChange = () =>{ 
-  let  path="/home"; 
+  let  path="/connect-social"; 
   history.push(path);
 }
 
@@ -21,7 +21,7 @@ const Login = () => {
           <input type="password" id="password" placeholder="*********" className="input input-password" />
 
           <input type="submit" value="Log in" className="primary-button login-button" onClick={routeChange}  />
-          <input type="submit" value="Conectar con LinkedIn" className="primary-button login-button-linkedin" />
+          <input type="submit" value="Connect with LinkedIn" className="primary-button login-button-linkedin" />
 
           <a href="/">Forgot my password</a>
         </form>
