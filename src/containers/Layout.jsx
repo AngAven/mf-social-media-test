@@ -10,14 +10,14 @@ const Layout = ({ children }) => {
       <HeaderContent>
         <Container>
           {/* <Logotype width={140} />   */}
-          < Button
+          {/* < Button
             key="1"
             color="primary"
             size="large"
             variant="contained"
           >
             Sign In
-          </Button>
+          </Button> */}
 
         </Container>
       </HeaderContent >

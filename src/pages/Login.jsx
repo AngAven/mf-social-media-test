@@ -1,12 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 import '../styles/pages/Login.scss'
 
 
-const routeChange = () =>{ 
-  let  path="/connect-social"; 
-  history.push(path);
-}
 
 const Login = () => {
   return (
@@ -20,8 +17,13 @@ const Login = () => {
           <label htmlFor="password" className="label">Password</label>
           <input type="password" id="password" placeholder="*********" className="input input-password" />
 
-          <input type="submit" value="Log in" className="primary-button login-button" onClick={routeChange}  />
-          <input type="submit" value="Connect with LinkedIn" className="primary-button login-button-linkedin" />
+          <Link to="/connect-social">
+            <input type="submit" value="Log in" className="primary-button login-button" />
+          </Link>
+
+          <Link to="/connect-social">
+            <input type="submit" value="Connect with LinkedIn" className="primary-button login-button-linkedin" />
+          </Link>
 
           <a href="/">Forgot my password</a>
         </form>
