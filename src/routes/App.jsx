@@ -5,6 +5,7 @@ import Login from '../pages/Login'
 import NotFound from '../containers/NotFound'
 import Home from '../pages/Home'
 import ConnectSocial from '../containers/ConnectSocial'
+import MainFeatures from '../pages/MainFeatures'
 import '../styles/global.css'
 import Layout from '../containers/Layout'
 
