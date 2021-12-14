@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 
 import { Button, Container } from '@mui/material';
 
-import { Logotype } from '../Logotype/Logotype'; 
+import { Logotype } from '../components/Logotype/Logotype'
+/* import { Logotype } from '../Logotype/Logotype';  */
 
 import { HeaderContent, BtnGroup } from './Header.styles';
 
@@ -11,6 +12,17 @@ const Header = ({ onClickLogin, onClickSignup, isLogged, children }) => {
     <HeaderContent>
       <Container>
        <Logotype width={140} /> 
+       {!isLogged && (
+          <BtnGroup>
+            <Button variant="outlined" size="large" onClick={onClickLogin} type="button">
+              Login
+            </Button>
+            <Button variant="contained" size="large" onClick={onClickSignup} type="button">
+              Sign Up
+            </Button>
+          </BtnGroup>
+        )}
+        {isLogged && children}
       </Container>
     </HeaderContent>
   );

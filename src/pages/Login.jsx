@@ -2,6 +2,12 @@ import React from 'react'
 
 import '../styles/pages/Login.scss'
 
+
+const routeChange = () =>{ 
+  let  path="/home"; 
+  history.push(path);
+}
+
 const Login = () => {
   return (
     <div className="login">
@@ -14,7 +20,7 @@ const Login = () => {
           <label htmlFor="password" className="label">Password</label>
           <input type="password" id="password" placeholder="*********" className="input input-password" />
 
-          <input type="submit" value="Log in" className="primary-button login-button" />
+          <input type="submit" value="Log in" className="primary-button login-button" onClick={routeChange}  />
           <input type="submit" value="Conectar con LinkedIn" className="primary-button login-button-linkedin" />
 
           <a href="/">Forgot my password</a>
