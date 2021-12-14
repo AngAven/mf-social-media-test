@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { HeaderContent, BtnGroup } from '../components/Header/Header.styles';
 import { Button, Container } from '@mui/material';
-import { Logotype } from '../components/Logotype/Logotype'
+import { Logotype } from '../components/Logotype/Logotype';
 
 
 const Layout = ({ children }) => {
@@ -9,15 +9,8 @@ const Layout = ({ children }) => {
     <div className="Layout">
       <HeaderContent>
         <Container>
+          <img src="../public/assets/img/logo.svg" alt="logo" />
           {/* <Logotype width={140} />   */}
-          {/* < Button
-            key="1"
-            color="primary"
-            size="large"
-            variant="contained"
-          >
-            Sign In
-          </Button> */}
 
         </Container>
       </HeaderContent >
