@@ -5,6 +5,7 @@ import Login from '../pages/Login'
 import NotFound from '../containers/NotFound'
 import Home from '../pages/Home'
 import LoginWith from '../components/LoginWith'
+import MainFeatures from '../pages/MainFeatures'
 import '../styles/global.css'
 import Layout from '../containers/Layout'
 
@@ -17,6 +18,7 @@ const App = () => {
           <Route exact path="/home" component={Home}/>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/login_with" component={LoginWith}/>
+          <Route exact path="/main_features" component={MainFeatures}/>
         </Layout>
       </Switch>
     </BrowserRouter>
