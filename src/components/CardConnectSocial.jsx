@@ -8,17 +8,8 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Stack from '@mui/material/Stack'
-
 import {IOSSwitch} from './SwitchRadioButton'
 
-const bull = (
-  <Box
-    component="span"
-    sx={{display: 'inline-block', mx: '2px', transform: 'scale(0.8)'}}
-  >
-    Social Network Name
-  </Box>
-)
 
 export default function BasicCard({social_image, social_name}){
   return (
@@ -26,7 +17,7 @@ export default function BasicCard({social_image, social_name}){
       <CardContent>
         <img src={social_image} alt="social-logo" className={"card-social-connect"}/>
         <Typography sx={{fontSize: "2rem", textAlign: "center", padding: "1rem" }} color="text.secondary" gutterBottom>
-          {social_name}
+          Sync your profile with {social_name}, and get your profile information.
         </Typography>
       </CardContent>
 
