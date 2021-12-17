@@ -5,7 +5,7 @@ import '../styles/pages/Login.scss';
 
 const Login = () => {
   return (
-    
+
     <div className="login">
       <div className="form-container">
 
@@ -16,7 +16,7 @@ const Login = () => {
           <label htmlFor="password" className="label">Password</label>
           <input type="password" id="password" placeholder="*********" className="input input-password" />
 
-          <Link to="/dashboard">
+          <Link to="/main_features">
             <input type="submit" value="Log in" className="primary-button login-button" />
           </Link>
 
