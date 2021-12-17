@@ -29,7 +29,7 @@ const App = () => {
       </Switch> */}
       <Layout>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Login} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/connect-social" component={ConnectSocial} />
