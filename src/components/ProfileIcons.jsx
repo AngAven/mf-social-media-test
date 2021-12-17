@@ -3,8 +3,7 @@ import MessageIcon from '@mui/icons-material/MarkunreadOutlined';
 import CallIcon from '@mui/icons-material/Call';
 import LanguageIcon from '@mui/icons-material/Language';
 import LinkIcon from '@mui/icons-material/Link';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
+
 
 const ProfileIcons = () => {
     return (
@@ -12,16 +11,16 @@ const ProfileIcons = () => {
         <div>
             <ul>
                 <li>
-                    <CallIcon />
+                    <CallIcon/>+1 519 616 1523
                 </li>
                 <li>
-                    <MessageIcon />
+                    <MessageIcon /> ing.alejadiaz@gmail.com
                 </li>
                 <li>
-                    <LanguageIcon />
+                    <LanguageIcon /> alejandradiaz.com
                 </li>
                 <li>
-                    <LinkIcon />
+                    <LinkIcon /> @alejandradiaz
                 </li>
             </ul>
 

@@ -19,7 +19,7 @@ const Img = styled('img')({
 
 export default function ProfileLinkedIn() {
     return (
-        <Paper sx={{ p: 2, margin: 5, flexGrow: 1 }}>
+        <Paper sx={{ p: 2, margin: 5 }}>
             <Grid container spacing={2}>
                 <Grid item >
                     <Avatar sx={{ bgcolor: indigo['A100'], width: 150, height: 150 }}>

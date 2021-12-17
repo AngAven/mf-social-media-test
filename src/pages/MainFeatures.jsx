@@ -2,6 +2,7 @@ import React from 'react'
 
 import '../styles/pages/MainFeatures.scss'
 import Header from '../components/Header/Header'
+import { Link } from 'react-router-dom';
 
 function handleClick() {
     history.push("/home");
@@ -20,7 +21,12 @@ const MainFeatures = () => {
                         <p>
                             Sync your profile with available social media
                         </p>
-                        <button claasName="gradient">GO </button></div>
+                        <Link to="/connect-social">
+                            <button claasName="gradient">
+                                GO
+                            </button>
+                        </Link></div>
+
                     <div class='card'><h1>Statistics</h1>
                         <img id="imgstats" src='/img/stats.jpg'></img>
                         <p> Check your statistics</p>

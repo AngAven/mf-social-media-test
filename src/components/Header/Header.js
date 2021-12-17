@@ -25,7 +25,7 @@ const Header = ({ onClickLogin, onClickSignup, isLogged, children, route }) => {
             <ul className='ul-header' >
               <li  >
                 <Link to="/dashboard">
-                  <input type="submit" value="Log in" className="log-button" />
+                  <input type="submit" value="Sign Up" className="log-button" />
                 </Link>
               </li>
               <li  >

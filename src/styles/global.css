@@ -20,3 +20,6 @@ body {
 .css-diy1t4-MuiPaper-root-MuiCard-root{
     justify-items: center;
 }
+ul {
+    list-style: none ;
+}
