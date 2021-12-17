@@ -9,10 +9,13 @@ body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
 }
-.title {
-    font-size: 1.5em;
-    font-weight: bold;
-    text-align: center;
-    margin: 0;
-    padding: 2rem;
+
+.css-46bh2p-MuiCardContent-root {
+    display: grid;
+    grid-gap: 5px;
+    justify-items: center;
+}
+
+.css-diy1t4-MuiPaper-root-MuiCard-root{
+    justify-items: center;
 }
