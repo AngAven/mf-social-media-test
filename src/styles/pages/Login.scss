@@ -68,8 +68,14 @@
   }
   
   .login-button-linkedin {
+<<<<<<< HEAD
+    margin-top: 14px;
+    margin-bottom: 30px;
+    background: var(--linkedin);
+=======
     margin-top: 10px;
     background-color: var(--linkedin);
+>>>>>>> main
   }
   @media (max-width: 640px) {
     .logo {
