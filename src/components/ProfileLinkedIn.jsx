@@ -49,11 +49,7 @@ export default function ProfileLinkedIn() {
                             </Typography>
                             <ProfileIcons />
                         </Grid>
-                        <Grid item>
-                            <Typography variant="body1">
-                                Remove
-                            </Typography>
-                        </Grid>
+                      
                     </Grid>
                     <Grid item>
                         <Img src={ld} />
