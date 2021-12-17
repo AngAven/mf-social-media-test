@@ -1,12 +1,11 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-import '../styles/pages/Login.scss'
-
-
+import '../styles/pages/Login.scss';
 
 const Login = () => {
   return (
+    
     <div className="login">
       <div className="form-container">
 
@@ -35,4 +34,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Login;
