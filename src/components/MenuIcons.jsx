@@ -36,7 +36,7 @@ export default function AccessibilityTooltips() {
             </Tooltip>
             <Tooltip title="Account settings">
                 <IconButton onClick={handleClick}>
-                    <Avatar>M</Avatar>
+                    <Avatar>A</Avatar>
                 </IconButton>
             </Tooltip>
         </div>

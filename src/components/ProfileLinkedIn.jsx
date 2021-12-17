@@ -8,7 +8,7 @@ import ButtonBase from '@mui/material/ButtonBase';
 import { indigo } from '@mui/material/colors';
 import ld from '@icons/li-icon.svg';
 import flag from '@icons/flag-col.svg';
-import InputLabel from '@mui/material/InputLabel';
+import ProfileIcons from '/src/components/ProfileIcons';
 
 const Img = styled('img')({
     margin: 'auto',
@@ -17,8 +17,6 @@ const Img = styled('img')({
     maxHeight: '50%',
 });
 
-const fullname =  "Full Name";
-
 export default function ProfileLinkedIn() {
     return (
         <Paper sx={{ p: 2, margin: 5, flexGrow: 1 }}>
@@ -26,7 +24,7 @@ export default function ProfileLinkedIn() {
                 <Grid item >
                     <Avatar sx={{ bgcolor: indigo['A100'], width: 150, height: 150 }}>
                         <Typography variant='h1' >
-                            M
+                            A
                         </Typography>
                     </Avatar>
                     <Img src={flag} width={32} alt="Col" />
@@ -35,18 +33,24 @@ export default function ProfileLinkedIn() {
                     <Grid item xs container direction="column" spacing={2}>
                         <Grid item xs>
                             <Typography gutterBottom variant="h3" component="div">
-                            <InputLabel variant="filled" >{fullname}</InputLabel>
-                                Full Name
+                                Alejandra Díaz Rojas
                             </Typography>
-                            <Typography variant="body2" gutterBottom>
-                                Job title
+                            <Typography variant="body" gutterBottom>
+                                Software Developer
+                            </Typography>
+                            <Typography variant="body1" gutterBottom>
+                                About me
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
-                                ID: 1030114
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                             </Typography>
+                            <Typography variant="body1" gutterBottom>
+                                English Level : B2
+                            </Typography>
+                            <ProfileIcons />
                         </Grid>
                         <Grid item>
-                            <Typography sx={{ cursor: 'pointer' }} variant="body2">
+                            <Typography variant="body1">
                                 Remove
                             </Typography>
                         </Grid>
