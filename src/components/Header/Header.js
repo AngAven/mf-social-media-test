@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Button, Container } from '@mui/material';
+import { Container } from '@mui/material';
 import logo from '@logos/logo.svg'
 import MenuIcons from '/src/components/MenuIcons';
 import '/src/styles/components/Header.scss';
 
-/* import { Logotype } from '@master-c8/commons'; */
 
 import { HeaderContent, BtnGroup } from './Header.styles';
 
@@ -22,27 +21,35 @@ const Header = ({ onClickLogin, onClickSignup, isLogged, children, route }) => {
         </div>
 
         {!isLogged && (
-          <BtnGroup>
-            <Button variant="outlined" size="large" onClick={onClickLogin} type="button">
-              Login
-            </Button>
-            <Button variant="contained" size="large" onClick={onClickSignup} type="button">
-              Sign Up
-            </Button>
-          </BtnGroup>
+          <div className="navbar-right">
+            <ul className='ul-header' >
+              <li  >
+                <Link to="/dashboard">
+                  <input type="submit" value="Log in" className="log-button" />
+                </Link>
+              </li>
+              <li  >
+                <Link to="/dashboard">
+                  <input type="submit" value="Log in" className="sign-button" />
+                </Link>
+              </li>
+              
+            </ul>
+          </div>
         )}
-        {isLogged && children}
+        {isLogged &&
+          (
+            <div className="navbar-right">
+              <ul>
+                <li className="navbar-email">email@example.com</li>
+                <li>
+                  <MenuIcons />
+                </li>
 
-
-        <div className="navbar-right">
-          <ul>
-            <li className="navbar-email">email@example.com</li>
-            <li>
-              <MenuIcons />
-            </li>
-            
-          </ul>
-        </div>
+              </ul>
+            </div>
+          )
+        }
 
       </Container>
     </HeaderContent>

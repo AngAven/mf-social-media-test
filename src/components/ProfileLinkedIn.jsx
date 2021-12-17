@@ -23,7 +23,7 @@ export default function ProfileLinkedIn() {
     return (
         <Paper sx={{ p: 2, margin: 5, flexGrow: 1 }}>
             <Grid container spacing={2}>
-                <Grid item>
+                <Grid item >
                     <Avatar sx={{ bgcolor: indigo['A100'], width: 150, height: 150 }}>
                         <Typography variant='h1' >
                             M
@@ -35,7 +35,7 @@ export default function ProfileLinkedIn() {
                     <Grid item xs container direction="column" spacing={2}>
                         <Grid item xs>
                             <Typography gutterBottom variant="h3" component="div">
-                            <InputLabel variant='h3' >{fullname}</InputLabel>
+                            <InputLabel variant="filled" >{fullname}</InputLabel>
                                 Full Name
                             </Typography>
                             <Typography variant="body2" gutterBottom>
