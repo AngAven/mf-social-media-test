@@ -14,7 +14,7 @@ const ConnectSocial = () => {
     <>
       <Header onClickLogin={handleClick} onClickSignup={handleClick} isLogged />
       <div>
-        <div class="container">
+        <div className="container">
           <Container >
             <CardConnectSocial social_name={"Twitter"} social_image={'https://raw.githubusercontent.com/AngAven/mf-social-media-test/bbc084e1fb1cb40b2ec3033efbf34910a47b74af/public/icons/tw-icon.svg'} />
             <CardConnectSocial social_name={"Facebook"} social_image={'https://raw.githubusercontent.com/AngAven/mf-social-media-test/bbc084e1fb1cb40b2ec3033efbf34910a47b74af/public/icons/fb-icon.svg'} />
@@ -23,7 +23,7 @@ const ConnectSocial = () => {
           </Container>
           <div className="buttonContainer">
             <Link to="/dashboard">
-              <button class="go-profile">Go to my profile </button>
+              <button className="go-profile">Go to my profile </button>
             </Link>
 
           </div>
