@@ -5,13 +5,14 @@
     height: 100vh;
     display: grid;
     place-items: center;
+    font-family: var(--mulish);
   }
   .form-container {
     display: grid;
     grid-template-rows: auto 1fr auto;
     width: 300px;
   }
-  
+
   .form {
     display: flex;
     flex-direction: column;
@@ -21,7 +22,7 @@
     font-size: var(--sm);
     text-align: center;
     text-decoration: none;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
   .label {
     font-size: var(--sm);
@@ -36,41 +37,45 @@
     font-size: var(--md);
     padding: 6px;
     margin-bottom: 12px;
+    font-family: var(--mulish);
   }
   .input-email {
     margin-bottom: 22px;
   }
   .primary-button {
-    background-color: var(--gethired);
-    border-radius: 8px;
+    background: linear-gradient(90deg, rgba(95, 100, 255, 0.7) 0%, rgba(174, 78, 255, 0.85) 100%);
+  border-radius: 6px;
     border: none;
     color: var(--white);
     width: 100%;
     cursor: pointer;
+    font-family: var(--mulish);
     font-size: var(--md);
     font-weight: bold;
     height: 50px;
+
   }
   .secondary-button {
     background-color: var(--white);
     border-radius: 8px;
     border: 1px solid var(--gethired);
-    color: var(--gethired);
+    color: var(--white);
     width: 100%;
     cursor: pointer;
+    font-family: var(--mulish);
     font-size: var(--md);
     font-weight: bold;
     height: 50px;
   }
   .login-button {
     margin-top: 14px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
-  
+
   .login-button-linkedin {
     margin-top: 14px;
     margin-bottom: 30px;
-    background-color: var(--linkedin);
+    background: var(--linkedin);
   }
   @media (max-width: 640px) {
     .logo {

@@ -5,18 +5,21 @@ import '../styles/pages/MainFeatures.scss'
 const MainFeatures = () => {
 return (
     <div className="mainfeatures">
-
-    Main features
-        ALejandragrijegoiejrog
         <section className='cards-container'>
-            <div class='card'><h1></h1>Networks
+            <div class='card'><h1>Networks</h1>
+            <img id="imgnetwroks" src='/img/networks.jpg'></img>
             <p>
                 Sync your profile with available social media
-            </p></div>
-            <div class='card'>Statistics
-            <p> Chekc your statistics</p></div>
-            <div class='card'>Tracker
-            <p>MAke a tracking of your job applications</p></div>
+            </p>
+            <button claasName="gradient">GO </button></div>
+            <div class='card'><h1>Statistics</h1>
+            <img id="imgstats" src='/img/stats.jpg'></img>
+            <p> Check your statistics</p>
+            <button>GO </button></div>
+            <div class='card'><h1>Tracker</h1>
+            <img id="imgtracker" src='/img/tracker.jpg'></img>
+            <p>Make a tracking of your job applications</p>
+            <button> GO </button></div>
 
 
 
