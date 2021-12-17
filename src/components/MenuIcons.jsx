@@ -20,7 +20,7 @@ export default function AccessibilityTooltips() {
                 </IconButton>
             </Tooltip>
             <Tooltip title="Notifications">
-                <IconButton size="large">
+                <IconButton sx={{bgcolor:"var(--white)"}} size="large">
                     <NotificationsIcon />
                 </IconButton>
             </Tooltip>

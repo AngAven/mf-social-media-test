@@ -11,7 +11,7 @@ return (
             <p>
                 Sync your profile with available social media
             </p>
-            <button>GO </button></div>
+            <button claasName="gradient">GO </button></div>
             <div class='card'><h1>Statistics</h1>
             <img id="imgstats" src='/img/stats.jpg'></img>
             <p> Check your statistics</p>
