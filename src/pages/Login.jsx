@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import ButtonLoginLinkedIn from '../components/ButtonLoginLinkedIn';
 
 import '../styles/pages/Login.scss'
 
@@ -21,9 +22,11 @@ const Login = () => {
             <input type="submit" value="Log in" className="primary-button login-button" />
           </Link>
 
-          <Link to="/connect-social">
+          {/* <Link to="/connect-social">
             <input type="submit" value="Connect with LinkedIn" className="primary-button login-button-linkedin" />
-          </Link>
+          </Link> */}
+
+          <ButtonLoginLinkedIn/>
 
           <a href="/">Forgot my password</a>
         </form>
