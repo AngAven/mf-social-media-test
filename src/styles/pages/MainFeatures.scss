@@ -2,25 +2,49 @@
 
 .cards-container{
     height:500px;
-    
     display: flex;
-    justify-content: center;
+    justify-content:  center;
+    gap:45px;
     padding: 60px;
+    font-family: var(--mulish);
+
+}
+
+.cards-container img {
+    object-fit: cover;
+    width: 344px;
+    height: 194px;
 }
 
 .card{
     font-size: var(--sm);
     width: 344px;
-    height: 347px;
+    height: 355px;
     padding: 0px;
     gap: 45px;
     background: #FFFFFF;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
     border-radius: 4px;
+    cursor: pointer;
 }
 
-.networks h1{
+.cards-container button{
 
+    height:42px;
+    width:65px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    border-color:var(--gethired);
+    text-align: 43px;
+    cursor: pointer;
+}
+
+.cards-container h1{
+    margin-left: 80px;
+}
+
+.cards-container p{
+    margin-left: 15px;
 }
 
 
