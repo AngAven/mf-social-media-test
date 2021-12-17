@@ -8,6 +8,7 @@ import ConnectSocial from '../containers/ConnectSocial'
 import MainFeatures from '../pages/MainFeatures'
 import '../styles/global.css'
 import Layout from '../containers/Layout'
+import DashBoard from '../pages/Dashboard'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route exact path="/login" component={Login}/>
           <Route exact path="/connect-social" component={ConnectSocial}/>
           <Route exact path="/main_features" component={MainFeatures}/>
+          <Route exact path="/dashboard" component={DashBoard}/>
         </Layout>
       </Switch>
     </BrowserRouter>

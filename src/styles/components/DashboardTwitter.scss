@@ -1,0 +1,16 @@
+.twitter-chunk{
+  display: grid;
+  grid-template-areas: "search search logo" "content content content";
+}
+
+.twitter-chunk .search{
+  grid-area: search;
+}
+
+.twitter-chunk .content{
+  grid-area: content;
+}
+
+.twitter-chunk .logo-dashboard-card{
+  grid-area: logo;
+}
