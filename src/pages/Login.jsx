@@ -25,7 +25,7 @@ const Login = () => {
             <input type="password" id="password" placeholder="*********" className="input input-password" />
 
             <Link to="/main_features">
-              <input type="submit" value="Log in" className="primary-button login-button" />
+              <input type="submit" value="Login" className="primary-button login-button" />
             </Link>
 
             <Link to="/connect-social">

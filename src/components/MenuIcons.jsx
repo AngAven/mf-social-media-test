@@ -6,39 +6,54 @@ import IntegrationIcon from '@mui/icons-material/AppRegistrationOutlined';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
+import { Grid } from '@mui/material';
 
 const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
 };
 
-export default function AccessibilityTooltips() {
+export default function MenuIcons() {
     return (
-        <div>
-            <Tooltip title="Message">
-                <IconButton size="large">
-                    <MessageIcon />
-                </IconButton>
-            </Tooltip>
-            <Tooltip title="Notifications">
-                <IconButton sx={{bgcolor:"var(--white)"}} size="large">
-                    <NotificationsIcon />
-                </IconButton>
-            </Tooltip>
-            <Tooltip title="Jobs">
-                <IconButton size="large">
-                    <JobsIcon />
-                </IconButton>
-            </Tooltip>
-            <Tooltip title="Integration">
-                <IconButton size="large">
-                    <IntegrationIcon />
-                </IconButton>
-            </Tooltip>
-            <Tooltip title="Account settings">
-                <IconButton onClick={handleClick}>
-                    <Avatar>A</Avatar>
-                </IconButton>
-            </Tooltip>
+        <div className="navbar-right">
+
+            <ul className='ul-header' >
+                <li className="navbar-email">email@example.com</li>
+                <li>
+                    <Tooltip title="Message">
+                        <IconButton size="large">
+                            <MessageIcon />
+                        </IconButton>
+                    </Tooltip>
+                </li>
+                <li>
+                    <Tooltip title="Notifications">
+                        <IconButton sx={{ bgcolor: "var(--white)" }} size="large">
+                            <NotificationsIcon />
+                        </IconButton>
+                    </Tooltip>
+                </li>
+                <li>
+                    <Tooltip title="Jobs">
+                        <IconButton size="large">
+                            <JobsIcon />
+                        </IconButton>
+                    </Tooltip>
+                </li>
+                <li>
+                    <Tooltip title="Integration">
+                        <IconButton size="large">
+                            <IntegrationIcon />
+                        </IconButton>
+                    </Tooltip>
+                </li>
+                <li>
+                    <Tooltip title="Account settings">
+                        <IconButton onClick={handleClick}>
+                            <Avatar>A</Avatar>
+                        </IconButton>
+                    </Tooltip>
+                </li>
+            </ul>
         </div>
     );
 }
