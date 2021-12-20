@@ -14,6 +14,7 @@ const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
+    position:'relative'
 }));
 
 export default function ProfileLinkedIn() {
@@ -27,9 +28,7 @@ export default function ProfileLinkedIn() {
                 <Grid container spacing={1}>
 
                     <Grid item xs>
-                        <Item>
-                            <ProfilePicture/>
-                        </Item>
+                        <ProfilePicture />
                     </Grid>
                     <Grid item xs={6}>
                         <Item >

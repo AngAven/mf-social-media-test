@@ -7,13 +7,16 @@ import Typography from '@mui/material/Typography';
 
 export default function ProfilePicture() {
     return (
-        <Grid item alignItems={'center'} display={'flex'} >
+        <Grid style ={{justifyContent: "center", display: "flex" }} >
             <Avatar sx={{ bgcolor: indigo['A100'], width: 150, height: 150}}>
                 <Typography variant='h1' >
                     A
                 </Typography>
             </Avatar>
-            <img src={flag} width={32} alt="Col"  />
+            <Grid paddingTop={'120px'} >
+            <img src={flag} width={32} alt="Col" position={'absolute'} />
+            </Grid>
+            
         </Grid>
     )
 };
