@@ -31,8 +31,8 @@ export default function ProfileLinkedIn() {
                         <ProfilePicture />
                     </Grid>
                     <Grid item xs={6}>
-                        <Item >
-                            <Grid item xs>
+                        
+                            <Grid item xs  >
                                 <Typography variant='h3' fontFamily={'var(--mulish)'}>
                                     Alejandra Díaz Rojas
                                 </Typography>
@@ -50,12 +50,12 @@ export default function ProfileLinkedIn() {
                                 </Typography>
 
                             </Grid>
-                        </Item>
+                        
                     </Grid>
                     <Grid item xs>
-                        <Item>
+                        
                             <ProfileIcons />
-                        </Item>
+                        
                     </Grid>
                 </Grid>
             </Box>

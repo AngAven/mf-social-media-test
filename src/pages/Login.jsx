@@ -28,8 +28,16 @@ const Login = () => {
               <input type="submit" value="Login" className="primary-button login-button" />
             </Link>
 
+            <label className="label"  >Connect with</label>
+
             <Link to="/connect-social">
-              <input type="submit" value="Connect with LinkedIn" className="primary-button login-button-linkedin" />
+              <input type="submit" value="LinkedIn" className="primary-button login-button-linkedin" />
+            </Link>
+            <Link to="/connect-social">
+              <input type="submit" value="Facebook" className="primary-button login-button-facebook" />
+            </Link>
+            <Link to="/connect-social">
+              <input type="submit" value="Twitter" className="primary-button login-button-twitter" />
             </Link>
 
             <a href="/">Forgot my password</a>

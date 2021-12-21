@@ -73,6 +73,12 @@
     margin-top: 14px;
     background: var(--linkedin);
   }
+  .login-button-facebook {
+    background: var(--facebook);
+  }
+  .login-button-twitter {
+    background: var(--twitter);
+  }
   @media (max-width: 640px) {
     .logo {
       display: block;
