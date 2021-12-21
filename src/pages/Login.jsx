@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Grid from '@mui/material/Grid';
+import LoginSocialButtons from '../components/LoginSocialButtons';
 
 import '../styles/pages/Login.scss';
 import Header from '../components/Header/Header'
@@ -12,7 +14,7 @@ function handleClick() {
 const Login = () => {
   return (
     <div>
-      <Header onClickLogin={handleClick} onClickSignup={handleClick}  />
+      <Header onClickLogin={handleClick} onClickSignup={handleClick} />
 
       <div className="login">
         <div className="form-container">
@@ -29,16 +31,7 @@ const Login = () => {
             </Link>
 
             <label className="label"  >Connect with</label>
-
-            <Link to="/connect-social">
-              <input type="submit" value="LinkedIn" className="primary-button login-button-linkedin" />
-            </Link>
-            <Link to="/connect-social">
-              <input type="submit" value="Facebook" className="primary-button login-button-facebook" />
-            </Link>
-            <Link to="/connect-social">
-              <input type="submit" value="Twitter" className="primary-button login-button-twitter" />
-            </Link>
+            <LoginSocialButtons/>
 
             <a href="/">Forgot my password</a>
           </form>

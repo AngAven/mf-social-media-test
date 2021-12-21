@@ -69,15 +69,33 @@
     margin-top: 14px;
   }
 
+  .social-button {  
+    background-color: var(--white);
+    border-radius: 6px;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    font-family: var(--mulish);
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+    margin: 3px;
+    width: 31%;
+  }
+
   .login-button-linkedin {
+    background-color: var(--white);
     margin-top: 14px;
-    background: var(--linkedin);
+    color: var(--linkedin);
+    border: 1px solid var(--linkedin);
   }
   .login-button-facebook {
-    background: var(--facebook);
+    color: var(--facebook);
+    border: 1px solid var(--facebook);
   }
   .login-button-twitter {
-    background: var(--twitter);
+    color: var(--twitter);
+    border: 1px solid var(--twitter);
   }
   @media (max-width: 640px) {
     .logo {

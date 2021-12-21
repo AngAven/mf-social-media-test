@@ -14,7 +14,7 @@ const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
-    position:'relative'
+    position: 'relative'
 }));
 
 export default function ProfileLinkedIn() {
@@ -31,31 +31,29 @@ export default function ProfileLinkedIn() {
                         <ProfilePicture />
                     </Grid>
                     <Grid item xs={6}>
-                        
-                            <Grid item xs  >
-                                <Typography variant='h3' fontFamily={'var(--mulish)'}>
-                                    Alejandra Díaz Rojas
-                                </Typography>
-                                <Typography variant="h4" gutterBottom>
-                                    Software Developer
-                                </Typography>
-                                <Typography variant="h5" gutterBottom>
-                                    About me
-                                </Typography>
-                                <Typography variant="h6" color="text.secondary">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                </Typography>
-                                <Typography variant="h5" gutterBottom>
-                                    English Level : B2
-                                </Typography>
 
-                            </Grid>
-                        
+                        <Grid item xs  >
+                            <Typography variant='h3' fontFamily={'var(--mulish)'}>
+                                Alejandra Díaz Rojas
+                            </Typography>
+                            <Typography variant="h4" gutterBottom>
+                                Software Developer
+                            </Typography>
+                            <Typography variant="h5" gutterBottom>
+                                About me
+                            </Typography>
+                            <Typography variant="h6" color="text.secondary">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                            </Typography>
+                            <Typography variant="h5" gutterBottom>
+                                English Level : B2
+                            </Typography>
+
+                        </Grid>
+
                     </Grid>
                     <Grid item xs>
-                        
-                            <ProfileIcons />
-                        
+                        <ProfileIcons />
                     </Grid>
                 </Grid>
             </Box>
