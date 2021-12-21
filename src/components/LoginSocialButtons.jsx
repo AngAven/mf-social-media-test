@@ -22,15 +22,3 @@ export default function LoginSocialButtons() {
 
     )
 };
-
-/* <Grid style ={{justifyContent: "center", display: "flex" }} >
-          <Avatar sx={{ bgcolor: indigo['A100'], width: 150, height: 150}}>
-              <Typography variant='h1' >
-                  A
-              </Typography>
-          </Avatar>
-          <Grid paddingTop={'120px'} >
-          <img src={flag} width={32} alt="Col" position={'absolute'} />
-          </Grid>
-          
-      </Grid> */
