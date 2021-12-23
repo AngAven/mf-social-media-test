@@ -24,6 +24,10 @@ const App = () => {
             <Route exact path="/main_features" component={MainFeatures} />
             <Route exact path="/integration_profile" component={IntegrationProfile} />
             <Route exact path="/dashboard" component={DashBoard} />
+            <Route exact path="/authLinkedin" component={() => {
+              window.location.href = "https://ms-social-media.vercel.app/api/v1/loginLinkedin";
+              return null;
+            }}/>
             <Route path="*" component={NotFound} />
           </Switch>
         </Layout>
