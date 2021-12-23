@@ -1,62 +1,64 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import Avatar from '@mui/material/Avatar';
+import ProfilePicture from '@components/ProfilePicture';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import ButtonBase from '@mui/material/ButtonBase';
-import { indigo } from '@mui/material/colors';
 import ld from '@icons/li-icon.svg';
-import flag from '@icons/flag-col.svg';
-import InputLabel from '@mui/material/InputLabel';
+import ProfileIcons from '/src/components/ProfileIcons';
+import Box from '@mui/material/Box';
+import '/src/styles/pages/MainFeatures.scss'
 
-const Img = styled('img')({
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '50%',
-    maxHeight: '50%',
-});
 
-const fullname =  "Full Name";
+const Item = styled(Paper)(({ theme }) => ({
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    position: 'relative'
+}));
 
 export default function ProfileLinkedIn() {
     return (
-        <Paper sx={{ p: 2, margin: 5, flexGrow: 1 }}>
-            <Grid container spacing={2}>
-                <Grid item>
-                    <Avatar sx={{ bgcolor: indigo['A100'], width: 150, height: 150 }}>
-                        <Typography variant='h1' >
-                            M
-                        </Typography>
-                    </Avatar>
-                    <Img src={flag} width={32} alt="Col" />
-                </Grid>
-                <Grid item xs={12} sm container>
-                    <Grid item xs container direction="column" spacing={2}>
-                        <Grid item xs>
-                            <Typography gutterBottom variant="h3" component="div">
-                            <InputLabel variant='h3' >{fullname}</InputLabel>
-                                Full Name
-                            </Typography>
-                            <Typography variant="body2" gutterBottom>
-                                Job title
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                ID: 1030114
-                            </Typography>
-                        </Grid>
-                        <Grid item>
-                            <Typography sx={{ cursor: 'pointer' }} variant="body2">
-                                Remove
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                    <Grid item>
-                        <Img src={ld} />
-                    </Grid>
-                </Grid>
+        <Paper sx={{ p: 2, margin: 5, spacing: 2 }}>
+            <Grid display={'flex'} justifyContent={'end'} paddingBottom={'20px'} >
+                <img src={ld} alt="logo" width={'60px'} />
             </Grid>
+            <Box sx={{ flexGrow: 1 }}>
+
+                <Grid container spacing={1}>
+
+                    <Grid item xs>
+                        <ProfilePicture />
+                    </Grid>
+                    <Grid item xs={6}>
+
+                        <Grid item xs  >
+                            <Typography variant='h3' fontFamily={'var(--mulish)'}>
+                                Alejandra Díaz Rojas
+                            </Typography>
+                            <Typography variant="h4" gutterBottom>
+                                Software Developer
+                            </Typography>
+                            <Typography variant="h5" gutterBottom>
+                                About me
+                            </Typography>
+                            <Typography variant="h6" color="text.secondary">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                            </Typography>
+                            <Typography variant="h5" gutterBottom>
+                                English Level : B2
+                            </Typography>
+
+                        </Grid>
+
+                    </Grid>
+                    <Grid item xs>
+                        <ProfileIcons />
+                    </Grid>
+                </Grid>
+            </Box>
         </Paper>
+
     );
 }
 

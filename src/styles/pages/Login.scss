@@ -19,13 +19,11 @@
   }
   .form a {
     color: var(--gethired);
-    font-size: var(--sm);
     text-align: center;
     text-decoration: none;
     margin-bottom: 25px;
   }
   .label {
-    font-size: var(--sm);
     font-weight: bold;
     margin-bottom: 4px;
   }
@@ -44,7 +42,7 @@
   }
   .primary-button {
     background: linear-gradient(90deg, rgba(95, 100, 255, 0.7) 0%, rgba(174, 78, 255, 0.85) 100%);
-  border-radius: 6px;
+    border-radius: 6px;
     border: none;
     color: var(--white);
     width: 100%;
@@ -59,7 +57,7 @@
     background-color: var(--white);
     border-radius: 8px;
     border: 1px solid var(--gethired);
-    color: var(--white);
+    color: var(--gethired);
     width: 100%;
     cursor: pointer;
     font-family: var(--mulish);
@@ -69,13 +67,35 @@
   }
   .login-button {
     margin-top: 14px;
-    margin-bottom: 20px;
+  }
+
+  .social-button {  
+    background-color: var(--white);
+    border-radius: 6px;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    font-family: var(--mulish);
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+    margin: 3px;
+    width: 31%;
   }
 
   .login-button-linkedin {
+    background-color: var(--white);
     margin-top: 14px;
-    margin-bottom: 30px;
-    background: var(--linkedin);
+    color: var(--linkedin);
+    border: 1px solid var(--linkedin);
+  }
+  .login-button-facebook {
+    color: var(--facebook);
+    border: 1px solid var(--facebook);
+  }
+  .login-button-twitter {
+    color: var(--twitter);
+    border: 1px solid var(--twitter);
   }
   @media (max-width: 640px) {
     .logo {

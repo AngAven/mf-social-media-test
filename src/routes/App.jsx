@@ -11,38 +11,26 @@ import '../styles/global.css'
 import Layout from '../containers/Layout'
 import DashBoard from '../pages/Dashboard'
 
+
 const App = () => {
   return (
-    <BrowserRouter>
-      {/* <Switch>
+    <BrowserRouter>      
         <Layout>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/home" component={Home}/>
-          <Route exact path="/login" component={Login}/>
-          <Route exact path="/connect-social" component={ConnectSocial}/>
-          <Route exact path="/main_features" component={MainFeatures}/>
-          <Route exact path="/authLinkedin" component={() => {
-            window.location.href = "https://ms-social-media.vercel.app/api/v1/loginLinkedin";
-            return null;
-          }}/>
+          <Switch>
+            <Route exact path="/" component={Login} />
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/connect-social" component={ConnectSocial} />
+            <Route exact path="/main_features" component={MainFeatures} />
+            <Route exact path="/integration_profile" component={IntegrationProfile} />
+            <Route exact path="/dashboard" component={DashBoard} />
+            <Route path="*" component={NotFound} />
+            <Route exact path="/authLinkedin" component={() => {
+              window.location.href = "https://ms-social-media.vercel.app/api/v1/loginLinkedin";
+              return null;
+            }}/>
+          </Switch>
         </Layout>
-      </Switch> */}
-      <Layout>
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/connect-social" component={ConnectSocial} />
-          <Route exact path="/main_features" component={MainFeatures} />
-          <Route exact path="/integration_profile" component={IntegrationProfile} />
-          <Route exact path="/dashboard" component={DashBoard}/>
-          <Route exact path="/authLinkedin" component={() => {
-            window.location.href = "https://ms-social-media.vercel.app/api/v1/loginLinkedin";
-            return null;
-          }}/>
-          <Route path="*" component={NotFound} />
-        </Switch>
-      </Layout>
     </BrowserRouter>
   )
 }
