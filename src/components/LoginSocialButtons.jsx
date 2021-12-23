@@ -20,9 +20,11 @@ export default function LoginSocialButtons() {
                     <FacebookIcon fontSize='large' />
                 </button>
             </Link>
-            <button type="submit"  className="social-button login-button-twitter">
-                <TwitterIcon fontSize='large'/>
-            </button>
+            <Link to="/authTwitter">
+                <button type="submit"  className="social-button login-button-twitter">
+                    <TwitterIcon fontSize='large'/>
+                </button>
+            </Link>
         </Grid>
 
     )
