@@ -28,6 +28,10 @@ const App = () => {
               window.location.href = "https://ms-social-media.vercel.app/api/v1/loginLinkedin";
               return null;
             }}/>
+            <Route exact path="/authFacebook" component={() => {
+              window.location.href = "https://ms-social-media.vercel.app/api/v1/loginFacebook";
+              return null;
+            }}/>
             <Route path="*" component={NotFound} />
           </Switch>
         </Layout>

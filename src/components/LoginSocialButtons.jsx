@@ -15,9 +15,11 @@ export default function LoginSocialButtons() {
                     <LinkedInIcon fontSize='large' />
                 </button>
             </Link>
-            <button type="submit"  className="social-button login-button-facebook">
-                <FacebookIcon fontSize='large' />
-            </button>
+            <Link to="/authFacebook">
+                <button type="submit"  className="social-button login-button-facebook">
+                    <FacebookIcon fontSize='large' />
+                </button>
+            </Link>
             <button type="submit"  className="social-button login-button-twitter">
                 <TwitterIcon fontSize='large'/>
             </button>
