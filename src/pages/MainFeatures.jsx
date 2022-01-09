@@ -22,12 +22,10 @@ const MainFeatures = () => {
                 <section className='cards-container'>
                     <div className='card'><h1>Networks</h1>
                         <img id="imgnetwroks" src={networks}></img>
-                        <p>
-                            Sync your profile with available social media
+                        <p>Sync your profile with available social media
                         </p>
                         <Link to="/connect-social">
-                            <button className="gradient">
-                                GO
+                            <button> GO
                             </button>
                         </Link></div>
 
