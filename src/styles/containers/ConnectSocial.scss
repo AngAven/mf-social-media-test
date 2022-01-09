@@ -15,8 +15,15 @@
 }
 
 .go-profile{
-  height:42px;
-  width:175px;
-  margin-top: 2rem;
-  border-color:var(--gethired);
-}
+  background: linear-gradient(90deg, rgba(95, 100, 255, 0.7) 0%, rgba(174, 78, 255, 0.85) 100%);
+    border-radius: 6px;
+    border:none;
+    color: var(--white);
+    height:4rem;
+    width:17.5rem;
+    font-family: var(--mulish);
+    font-size: var(--md);
+    font-weight: bold;
+    margin:1rem;
+    cursor: pointer;}
+
