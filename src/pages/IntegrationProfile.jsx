@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileLinkedIn from '/src/components/ProfileLinkedIn'
+import MainProfile from '/src/components/MainProfile'
 import Header from '../components/Header/Header'
 
 function handleClick() {
@@ -10,9 +10,9 @@ const IntegrationProfile = () => {
     return (
       <div>
         <Header onClickLogin={handleClick} onClickSignup={handleClick} isLogged />
-          <ProfileLinkedIn/>
+          <MainProfile/>
       </div>
     )
   }
-  
+
   export default IntegrationProfile
