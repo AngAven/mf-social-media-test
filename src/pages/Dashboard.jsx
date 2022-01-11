@@ -18,40 +18,32 @@ function handleClick() {
 const DashBoard = () => {
   return (
     <div>
-
       <Header onClickLogin={handleClick} onClickSignup={handleClick} isLogged />
-
       <div className="dashboard">
       <LateralMenu></LateralMenu>
-      <div className='MainProfile'>
-        <h1>Profile Dashboard</h1>
-         <Grid container spacing={2} marginTop={3}>
-        <Grid>
-        <ProfilePicture />
-        </Grid>
-
-        <Grid>
-            <Paper sx={{width:660}}>
-                <Typography variant='h3' fontFamily={'var(--mulish)'}>
+        <div className='MainProfile'>
+          <h1>Profile Dashboard</h1>
+          <Grid container spacing={2} marginTop={3}>
+            <Grid>
+              <ProfilePicture />
+            </Grid>
+            <Grid>
+              <Paper sx={{width:660}}>
+                  <Typography variant='h3' fontFamily={'var(--mulish)'}>
                     Alejandra Díaz Rojas
-                </Typography>
-                <ProfileIcons />
-            </Paper>
-        </Grid>
-        </Grid>
-        <Paper sx={{height:200, width:970,marginTop:4}}>
-        <Typography variant='h3' fontFamily={'var(--mulish)'}>
+                  </Typography>
+                  <ProfileIcons />
+              </Paper>
+            </Grid>
+          </Grid>
+          <Paper sx={{height:200, width:970,marginTop:4}}>
+            <Typography variant='h3' fontFamily={'var(--mulish)'}>
                     Highlights Information
-                </Typography>
-        </Paper>
-    </div>
-    /<DashboardTwitter/>
+            </Typography>
+          </Paper>
         </div>
-
-
-
-
-
+      <DashboardTwitter></DashboardTwitter>
+      </div>
     </div>
   )
 }
