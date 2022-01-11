@@ -1,7 +1,7 @@
 import React from 'react';
 import Facebook from '@material-ui/icons/Facebook'
 import Twitter from '@material-ui/icons/Twitter'
-import Linkedin from '@material-ui/icons/Linkedin'
+import Linkedin from '@material-ui/icons/LinkedIn'
 import Web from '@material-ui/icons/Web'
 import LeftArrow from '@mui/icons-material/ArrowCircleLeftSharp'
 import '../styles/components/LateralMenu.scss';
