@@ -42,7 +42,7 @@ const DashBoard = () => {
             </Typography>
           </Paper>
         </div>
-      <DashboardTwitter></DashboardTwitter>
+      /<DashboardTwitter></DashboardTwitter>
       </div>
     </div>
   )
