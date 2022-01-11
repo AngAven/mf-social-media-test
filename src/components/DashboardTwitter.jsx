@@ -14,7 +14,7 @@ import '../styles/components/DashboardTwitter.scss'
 
 const DashboardTwitter = () => {
   return (
-    <Paper sx={{p: 2, margin: 5, flexGrow: 1}}>
+    <Paper sx={{p: 2, margin: 3, flexGrow: 1}}>
       <div className={'twitter-chunk'}>
         <div className={'search'}>
           <Paper
@@ -74,6 +74,7 @@ const DashboardTwitter = () => {
         </div>
       </div>
     </Paper>
+
   )
 }
 

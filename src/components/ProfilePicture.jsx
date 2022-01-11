@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 
 export default function ProfilePicture() {
     return (
-        <Grid style ={{justifyContent: "left", display: "flex" , marginLeft:160}} >
+        <Grid style ={{justifyContent: "left", display: "flex" }} >
             <Avatar sx={{ bgcolor: indigo['A100'], width: 280, height: 280}}>
                 <Typography variant='h1' >
                     A
