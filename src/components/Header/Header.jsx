@@ -19,14 +19,14 @@ const Header = ({ onClickLogin, onClickSignup, isLogged, children, route }) => {
           </Link>
         </div>
 
-        {!isLogged && (
+        {/* {!isLogged && (
           <div className="navbar-right">
             <Grid display={'flex'} gap={'1rem'} justifyContent={'end'} >
               <input type="submit" value="Sign up" className="sign-button" />
               <input type="submit" value="Login" className="log-button" />
             </Grid>
           </div>
-        )}
+        )} */}
         {isLogged &&
           (
             <MenuIcons />

@@ -8,21 +8,20 @@ import ld from '@icons/li-icon.svg';
 import ProfileIcons from '/src/components/ProfileIcons';
 import Box from '@mui/material/Box';
 import '/src/styles/pages/MainFeatures.scss'
-
-
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
-    textAlign: 'center',
-    position: 'relative'
+    textAlign: 'center'
 }));
 
 export default function ProfileLinkedIn() {
     return (
         <Paper sx={{ p: 2, margin: 5, spacing: 2 }}>
-            <Grid display={'flex'} justifyContent={'end'} paddingBottom={'20px'} >
-                <img src={ld} alt="logo" width={'60px'} />
+            
+            <Grid justifyContent={'end'} paddingBottom={'20px'} >
+                <img src={ld} alt="linkedIn" width={'60px'} />
             </Grid>
+            
             <Box sx={{ flexGrow: 1 }}>
 
                 <Grid container spacing={1}>
@@ -48,7 +47,7 @@ export default function ProfileLinkedIn() {
                             <Typography variant="h5" gutterBottom>
                                 English Level : B2
                             </Typography>
-
+                           
                         </Grid>
 
                     </Grid>
