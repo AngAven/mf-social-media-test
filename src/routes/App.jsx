@@ -10,7 +10,6 @@ import IntegrationProfile from '../pages/IntegrationProfile'
 import '../styles/global.css'
 import Layout from '../containers/Layout'
 import DashBoard from '../pages/Dashboard'
-import ProfileLinkedIn from '../components/ProfileLinkedIn'
 
 const App = () => {
   return (
@@ -23,7 +22,6 @@ const App = () => {
             <Route exact path="/connect-social" component={ConnectSocial} />
             <Route exact path="/main_features" component={MainFeatures} />
             <Route exact path="/integration_profile" component={IntegrationProfile} />
-            <Route exact path="/profile_linkedin" component={ProfileLinkedIn} />
             <Route exact path="/dashboard" component={DashBoard} />
             <Route exact path="/authLinkedin" component={() => {
               window.location.href = "https://ms-social-media.vercel.app/api/v1/loginLinkedin";
