@@ -1,6 +1,6 @@
 import React from 'react';
 import Avatar from '@mui/material/Avatar';
-import { deepPurple } from '@mui/material/colors';
+import { indigo } from '@mui/material/colors';
 import flag from '@icons/flag-col.svg';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
