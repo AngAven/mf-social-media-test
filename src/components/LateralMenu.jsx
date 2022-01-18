@@ -14,7 +14,6 @@ const LateralMenu = () => {
 					<a href="/dashboard"><Web className="icon"/><br/>Dashboard</a>
 				</li>
                 <li className="fb">
-
 					<a href="/dashboard"> <Facebook className="icon"/><br/>Facebook</a>
 				</li>
                 <li className="tw">

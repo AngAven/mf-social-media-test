@@ -8,42 +8,70 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ProfileIcons from '/src/components/ProfileIcons';
 import '/src/styles/pages/MainFeatures.scss'
-import LateralMenu from '../components/LateralMenu.jsx'
+import LateralMenu2 from '../components/LateralMenu2.jsx'
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import { padding } from '@mui/system';
+
 
 function handleClick() {
   history.push("/home");
 }
-
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 const DashBoard = () => {
   return (
-    <div>
+    <Box sx={{ flexGrow: 1 }}>
       <Header onClickLogin={handleClick} onClickSignup={handleClick} isLogged />
-      <div className="dashboard">
-      <LateralMenu></LateralMenu>
-        <div className='MainProfile'>
-          <h1>Profile Dashboard</h1>
-          <Grid container spacing={2} marginTop={3}>
-            <Grid>
-              <ProfilePicture />
-            </Grid>
-            <Grid>
-              <Paper sx={{width:660}}>
-                  <Typography variant='h3' fontFamily={'var(--mulish)'}>
-                    Alejandra Díaz Rojas
-                  </Typography>
-                  <ProfileIcons />
-              </Paper>
-            </Grid>
-          </Grid>
-          <Paper sx={{height:200, width:970,marginTop:4}}>
+      <Grid container spacing={3}>
+        <Grid item xs={2}>
+          <Item sx={{ height: ('100%') }}>
+            {/* <LateralMenu2 /> */}
+          </Item>
+        </Grid>
+
+        <Grid item xs={7}>
+          <h1 item xs={10} >Profile Dashboard</h1>
+          <Item>
+            <div className='MainProfile'>
+
+              {<Grid container spacing={2} marginTop={3}>
+                {<Grid>
+                  <ProfilePicture />
+                </Grid>}
+                {/* <Grid> */}
+                  {/* <Paper sx={{ width: 660 }}> */}
+                    <Typography variant='h3' fontFamily={'var(--mulish)'}>
+                      Alejandra Díaz Rojas
+                    </Typography>
+                    <ProfileIcons />
+                 {/*  </Paper> */}
+              {/*   </Grid> */}
+              </Grid>}
+
+            </div>
+          </Item>
+          <h1></h1>
+          <Item>
             <Typography variant='h3' fontFamily={'var(--mulish)'}>
-                    Highlights Information
+              Highlights Information
             </Typography>
-          </Paper>
-        </div>
-      /<DashboardTwitter></DashboardTwitter>
-      </div>
-    </div>
+          </Item>
+
+        </Grid>
+        <Grid item /* xs="auto" */ xs={3} sx={{ paddingTop: ('20px') }}  >
+          <h1 className='h1Margin' >.</h1>
+          <Item >
+            Twitter Info Tags
+          </Item>
+        </Grid>
+        
+      </Grid>
+    </Box>
   )
 }
 

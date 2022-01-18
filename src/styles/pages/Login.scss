@@ -36,17 +36,25 @@
     font-family: var(--mulish);
     font-size: var(--md);
     height: 50px;
-    margin-top: 10px;
+    margin-top: 15px;
     width: 100%;
   }
 
-  .login-button-linkedin {
+  .center-text{
+    text-align: center;
+  }
+  .display-center{
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .login-button-lk {
     background-color: var(--linkedin);
   }
-  .login-button-facebook {
+  .login-button-fb {
     background-color: var(--facebook);
   }
-  .login-button-twitter {
+  .login-button-tw {
     background-color: var(--twitter);
   }
   @media (max-width: 640px) {

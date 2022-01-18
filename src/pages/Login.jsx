@@ -1,13 +1,11 @@
 import React from 'react';
 import LoginSocialButtons from '../components/LoginSocialButtons';
-
 import '../styles/pages/Login.scss';
 import Header from '../components/Header/Header'
 
 function handleClick() {
   history.push("/home");
 }
-
 
 const Login = () => {
   return (

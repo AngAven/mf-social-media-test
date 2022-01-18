@@ -1,0 +1,94 @@
+@import 'src/styles/vars';
+
+  :root {
+    --nav-link: #5e6a81;
+    --nav-link-active: var(--gethired);
+    --list-item-hover: var(--gethired);
+    --main-color: #fff;
+    --secondary-color: #5e6a81;
+    --color-light: rgba(52, 129, 210, .2);
+  }
+
+  .h1Margin
+  {
+    margin-top: 20px;
+  }
+
+  .profilePicture
+  {
+    width: 200px;
+  }
+
+  .LateralMenu{
+    color:#555BFF;
+    height:100%;
+    position: fixed;
+}
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  button { cursor: pointer; }
+  
+  .nav-list {
+    margin-top: 40px;
+  }
+  
+  .nav-list-item {
+    margin-bottom: 12px;
+    
+    &:not(.active):hover {
+      background-color: var(--list-item-hover);
+    }
+    
+    &.active {
+      .nav-list-link {
+        color: var(--nav-link-active);
+        
+        &:after {
+          height: 100%;
+          opacity: 1;
+        }
+      }
+      
+      svg {
+        stroke: var(--app-logo);
+      }
+    }
+  }
+  
+  .nav-list-link {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 8px 20px;
+    color: var(--nav-link);
+    display: inline-flexbox;
+    align-items: center;
+    position: relative;
+    
+    svg {
+      margin-right: 10px;
+    }
+    
+    &:after {
+      content: '';
+      height: 100%;
+      width: 2px;
+      background-color: var(--app-logo);
+      right: 0;
+      top: 0;
+      position: absolute;
+      border-radius: 2px;
+      opacity: 0;
+      height: 0;
+    }
+  }
+  

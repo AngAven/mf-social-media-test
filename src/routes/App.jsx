@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-
+import Index from '../pages/index'
 import Login from '../pages/Login'
 import NotFound from '../containers/NotFound'
 import Home from '../pages/Home'
@@ -17,6 +17,7 @@ const App = () => {
         <Layout>
           <Switch>
             <Route exact path="/" component={Login} />
+            <Route exact path="/index" component={Index} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/connect-social" component={ConnectSocial} />
