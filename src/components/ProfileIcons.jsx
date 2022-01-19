@@ -11,7 +11,7 @@ import LinkIcon from '@mui/icons-material/Link';
 import Divider from '@mui/material/Divider';
 import { Typography } from '@mui/material';
 
-export default function ProfileIcons() {
+export default function ProfileIcons({email}) {
   return (
     <List
       sx={{
@@ -27,7 +27,7 @@ export default function ProfileIcons() {
           </Avatar>
         </ListItemAvatar>
         <Typography variant='h6' >+1 519 615 48 78</Typography>
-      
+
       </ListItem>
       <Divider variant="inset" component="li" />
       <ListItem>
@@ -36,7 +36,7 @@ export default function ProfileIcons() {
             <MessageIcon />
           </Avatar>
         </ListItemAvatar>
-        <Typography variant='h6' >ing.alejadiaz@gmail.com</Typography>
+        <Typography variant='h6' >{email}</Typography>
       </ListItem>
       <Divider variant="inset" component="li" />
       <ListItem>

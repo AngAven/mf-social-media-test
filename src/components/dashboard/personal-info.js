@@ -14,7 +14,7 @@ export const PersonalInfo = (props) => (
           <Typography variant='h3' fontFamily={'var(--mulish)'}>
             Alejandra Díaz Rojas
           </Typography>
-          <ProfileIcons />
+          <ProfileIcons email={props.email}/>
         </Grid>
       </Grid>
     </CardContent>

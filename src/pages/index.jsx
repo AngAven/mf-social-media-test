@@ -1,5 +1,6 @@
 /* import Head from 'next/head'; */
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios';
 import { Box, Container, Grid } from '@mui/material';
 import { ProfilePicture} from '../components/dashboard/profile-picture';
 import { LatestOrders } from '../components/dashboard/latest-orders';
@@ -20,9 +21,25 @@ function handleClick() {
   history.push("/home");
 }
 
-const Dashboard = () => (
+const Dashboard = () => {
+  const API_Facebook = 'https://my.api.mockaroo.com/facebook.json?key=f5fe39d0'
+  const API_Linkedin = 'https://my.api.mockaroo.com/linked_in.json?key=d48cf750'
+  const [facebookData, setFacebookData] = useState({})
+  const [linkedinData, setLinkedinData] = useState({})
 
-  
+ useEffect(async () => {
+   const {data} = await axios.get(API_Facebook)
+   console.log('Facebook', data)
+   setFacebookData(data)
+ }, [])
+
+//  useEffect(async () => {
+//    const {data} = await axios.get(linkedinData)
+//    console.log('LinkedIn', data)
+//    setLinkedinData(data)
+//  })
+
+  return(
   <>
     {/*  <Head> */}
     <title>
@@ -60,7 +77,7 @@ const Dashboard = () => (
             sm={6}
             xs={12}
           >
-            <PersonalInfo />
+            <PersonalInfo email={facebookData.email}/>
           </Grid>
           <Grid
             item
@@ -79,7 +96,7 @@ const Dashboard = () => (
             sm={6}
             xs={12}
           >
-          
+
             <TotalProfit sx={{ height: '100%' }} />
           </Grid>
           <Grid
@@ -122,7 +139,8 @@ const Dashboard = () => (
       </Container>
     </Box>
   </>
-);
+  )
+}
 
 
 Dashboard.getLayout = (page) => (
