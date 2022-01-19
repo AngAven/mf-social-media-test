@@ -23,3 +23,13 @@ body {
 ul {
     list-style: none ;
 }
+
+.figure-avatar{
+    position: relative;
+}
+.flag-position{
+    position: absolute;
+    bottom: 1.1rem;
+    right: .5rem;
+    z-index: 1;
+}

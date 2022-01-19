@@ -14,8 +14,8 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import { padding } from '@mui/system';
 
-const API_Facebook = 'https://my.api.mockaroo.com/facebook.json?key=d48cf750'
-const API_Linkedin = 'https://my.api.mockaroo.com/linked_in.json?key=d48cf750'
+const API_Facebook = 'https://my.api.mockaroo.com/facebook.json?key=f5fe39d0'
+// const API_Linkedin = 'https://my.api.mockaroo.com/linked_in.json?key=d48cf750'
 
 function handleClick() {
   history.push("/home");
@@ -28,19 +28,19 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 const DashBoard = () => {
   const [facebookData, setFacebookData] = useState({})
-  const [linkedinData, setLinkedinData] = useState({})
+  // const [linkedinData, setLinkedinData] = useState({})
 
   useEffect(async () => {
     const {data} = await axios.get(API_Facebook)
     console.log('Facebook', data)
-    facebookData(data)
+    setFacebookData(data)
   }, [])
 
-  useEffect(async () => {
-    const {data} = await axios.get(API_Linkedin)
-    console.log('LinkedIn', data)
-    setLinkedinData(data)
-  }, [])
+  // useEffect(async () => {
+  //   const {data} = await axios.get(API_Linkedin)
+  //   console.log('LinkedIn', data)
+  //   setLinkedinData(data)
+  // }, [])
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -66,7 +66,7 @@ const DashBoard = () => {
                     <Typography variant='h3' fontFamily={'var(--mulish)'}>
                       Alejandra Díaz Rojas
                     </Typography>
-                    <ProfileIcons profileEmail={facebookData.email}/>
+                    <ProfileIcons email={facebookData.email}/>
                  {/*  </Paper> */}
               {/*   </Grid> */}
               </Grid>}
