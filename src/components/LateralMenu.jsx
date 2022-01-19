@@ -8,18 +8,18 @@ import '../styles/components/LateralMenu.scss';
 
 const LateralMenu = () => {
 	return (
-		<div className="LateralMenu">
+		<div /* className="LateralMenu" */>
 			<ul className="icons">
-                <li className="Dash">
+                <li className="Dash nav-list-item">
 					<a href="/dashboard"><Web className="icon"/><br/>Dashboard</a>
 				</li>
-                <li className="fb">
+                <li className="nav-list-item">
 					<a href="/dashboard"> <Facebook className="icon"/><br/>Facebook</a>
 				</li>
-                <li className="tw">
+                <li className="nav-list-item">
 					<a href="/dashboard"><Twitter className="icon"/><br/>Twitter</a>
 				</li>
-                <li className="lk">
+                <li className="nav-list-item">
 					<a href="/dashboard"><Linkedin className="icon" /><br/>Linkedin</a>
 				</li>
             </ul>

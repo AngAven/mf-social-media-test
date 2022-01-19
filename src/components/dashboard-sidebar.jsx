@@ -15,7 +15,8 @@ import { User as UserIcon } from '../components/icons/user';
 import { UserAdd as UserAddIcon } from '../components/icons/user-add';
 import { Users as UsersIcon } from '../components/icons/users';
 import { XCircle as XCircleIcon } from '../components/icons/x-circle';
-/* import { Logo } from './logo'; */
+import logo from '@logos/logo.svg'
+import LateralMenu from '../components/LateralMenu.jsx'
 import { NavItem } from './nav-item';
 
 const items = [
@@ -60,8 +61,29 @@ const items = [
     title: 'Error'
   }
 ];
+export const DashboardSidebar = (props) => {
+  const { open, onClose } = props;
+  /* const router = useRouter(); */
+/*   const router = Route(); */
+  const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'), {
+    defaultMatches: true,
+    noSsr: false
+  });
 
-export const DashboardSidebar = () => {
+  useEffect(
+    () => {
+     /*  if (!router.isReady) {
+        return;
+      } */
+
+      if (open) {
+        onClose?.();
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  /*   [router.asPath] */
+  );
+
 
   const content = (
     <>
@@ -74,12 +96,14 @@ export const DashboardSidebar = () => {
       >
         <div>
           <Box sx={{ p: 3 }}>
+          <img src={logo} alt="logo" />
            {/*  <NextLink
               href="/"
               passHref
             >
-              <a>
-                <Logo
+              <a>/*
+               
+                /*<Logo
                   sx={{
                     height: 42,
                     width: 42
@@ -134,7 +158,10 @@ export const DashboardSidebar = () => {
           }}
         />
         <Box sx={{ flexGrow: 1 }}>
-          {/* {items.map((item) => (
+
+    
+        <LateralMenu/>
+         {/*  {items.map((item) => (
             <NavItem
               key={item.title}
               icon={item.icon}
@@ -173,10 +200,7 @@ export const DashboardSidebar = () => {
               }
             }}
           >
-            <img
-              alt="Go to pro"
-              src="/static/images/sidebar_pro.png"
-            />
+            
           </Box>
          {/*  <NextLink
             href="https://material-kit-pro-react.devias.io/"
@@ -237,7 +261,7 @@ export const DashboardSidebar = () => {
   ); */
 };
 
-/* DashboardSidebar.propTypes = {
+DashboardSidebar.propTypes = {
   onClose: PropTypes.func,
   open: PropTypes.bool
-}; */
+};

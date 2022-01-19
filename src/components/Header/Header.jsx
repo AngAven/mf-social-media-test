@@ -6,6 +6,7 @@ import logo from '@logos/logo.svg'
 import MenuIcons from '/src/components/MenuIcons';
 import '/src/styles/components/Header.scss';
 
+
 import { HeaderContent, BtnGroup } from './Header.styles';
 
 const Header = ({ onClickLogin, onClickSignup, isLogged, children, route }) => {

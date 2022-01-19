@@ -38,3 +38,22 @@
     bottom: 0px;
     left:40px;
 }
+.nav-list-item {
+    margin-bottom: 12px;
+    
+    &:not(.active):hover {
+      background-color: var(--avatar);
+    }
+    
+    &.active {
+      .nav-list-link {
+        color: var(--avatar);
+        
+        &:after {
+          height: 100%;
+          opacity: 1;
+        }
+      }
+      
+    }
+  }
