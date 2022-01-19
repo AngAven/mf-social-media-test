@@ -10,6 +10,7 @@ import IntegrationProfile from '../pages/IntegrationProfile'
 import '../styles/global.css'
 import Layout from '../containers/Layout'
 import DashBoard from '../pages/Dashboard'
+import { DashboardLayout } from '../components/dashboard-layout'
 
 const App = () => {
   return (

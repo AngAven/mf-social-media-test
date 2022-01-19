@@ -14,16 +14,19 @@ import { DashboardNavbar } from '../components/dashboard-navbar';
 import { DashboardSidebar } from '../components/dashboard-sidebar';
 
 
+
 const Dashboard = () => (
+
+  
   <>
     {/*  <Head> */}
     <title>
       Dashboard | Material Kit
     </title>
    {/*  {/*    </Head> */}
-    <DashboardSidebar /> 
-   <DashboardNavbar />
-
+  
+   {<DashboardNavbar />}
+   <DashboardSidebar />
     <Box
       component="main"
       sx={{
@@ -113,6 +116,7 @@ const Dashboard = () => (
     </Box>
   </>
 );
+
 
 Dashboard.getLayout = (page) => (
   <DashboardLayout>

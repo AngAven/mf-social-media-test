@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import ProfileIcons from '/src/components/ProfileIcons';
 import '/src/styles/pages/MainFeatures.scss'
 import LateralMenu2 from '../components/LateralMenu2.jsx'
+import LateralMenu from '../components/LateralMenu.jsx'
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import { padding } from '@mui/system';
@@ -29,9 +30,10 @@ const DashBoard = () => {
       <Header onClickLogin={handleClick} onClickSignup={handleClick} isLogged />
       <Grid container spacing={3}>
         <Grid item xs={2}>
-          <Item sx={{ height: ('100%') }}>
+          {/* <Item sx={{ height: ('100%') }}> */}
             {/* <LateralMenu2 /> */}
-          </Item>
+            <LateralMenu/>
+         {/*  </Item> */}
         </Grid>
 
         <Grid item xs={7}>
@@ -64,7 +66,7 @@ const DashBoard = () => {
 
         </Grid>
         <Grid item /* xs="auto" */ xs={3} sx={{ paddingTop: ('20px') }}  >
-          <h1 className='h1Margin' >.</h1>
+          <h1 className='h1Margin' ></h1>
           <Item >
             Twitter Info Tags
           </Item>

@@ -1,35 +1,35 @@
-import * as React from 'react';
-/* import { useRoutes } from 'react-router' */
+import React from 'react'
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+/* import NextLink from 'next/link'; */
 /* import { useRouter } from 'next/router'; */
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Box, Button, Divider, Drawer, Typography, useMediaQuery } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import StatisticIcon from '@mui/icons-material/BarChart';
-import { Cog as CogIcon } from './icons/cog'; 
-import { Lock as LockIcon } from './icons/lock';
-import { Selector as SelectorIcon } from './icons/selector';
-import { ShoppingBag as ShoppingBagIcon } from './icons/shopping-bag';
-import { User as UserIcon } from './icons/user';
-import { UserAdd as UserAddIcon } from './icons/user-add'; 
-import { Users as UsersIcon } from './icons/users';
-import { XCircle as XCircleIcon } from './icons/x-circle';
-import { Logo } from './logo';
+import { ChartBar as ChartBarIcon } from '../components/icons/chart-bar';
+import { Cog as CogIcon } from '../components/icons/cog';
+import { Lock as LockIcon } from '../components/icons/lock';
+import { Selector as SelectorIcon } from '../components/icons/selector';
+import { ShoppingBag as ShoppingBagIcon } from '../components/icons/shopping-bag';
+import { User as UserIcon } from '../components/icons/user';
+import { UserAdd as UserAddIcon } from '../components/icons/user-add';
+import { Users as UsersIcon } from '../components/icons/users';
+import { XCircle as XCircleIcon } from '../components/icons/x-circle';
+/* import { Logo } from './logo'; */
 import { NavItem } from './nav-item';
 
-const content = [
+const items = [
   {
     href: '/',
-    icon: (<StatisticIcon fontSize="small" />),
+    icon: (<ChartBarIcon fontSize="small" />),
     title: 'Dashboard'
   },
- {
+  {
     href: '/customers',
     icon: (<UsersIcon fontSize="small" />),
     title: 'Customers'
   },
-   {
+  {
     href: '/products',
     icon: (<ShoppingBagIcon fontSize="small" />),
     title: 'Products'
@@ -61,28 +61,7 @@ const content = [
   }
 ];
 
- export const DashboardSidebar = (props) => { 
-  const { open, onClose } = props;
- /*  const router = useRouter(); */
-/*   const router = useRoutes(); */
-  const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'), {
-    defaultMatches: true,
-    noSsr: false
-  });
-
-  useEffect(
-    () => {
-      /* if (!router.isReady) {
-        return;
-      } */
-
-      if (open) {
-        onClose?.();
-      }
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-   /*  [router.asPath] */
-  );
+export const DashboardSidebar = () => {
 
   const content = (
     <>
@@ -95,9 +74,9 @@ const content = [
       >
         <div>
           <Box sx={{ p: 3 }}>
-            <Link
+           {/*  <NextLink
               href="/"
-             /*  passHref */
+              passHref
             >
               <a>
                 <Logo
@@ -107,7 +86,7 @@ const content = [
                   }}
                 />
               </a>
-            </Link>
+            </NextLink> */}
           </Box>
           <Box sx={{ px: 2 }}>
             <Box
@@ -135,7 +114,7 @@ const content = [
                 >
                   Your tier
                   {' '}
-                  : Premium
+                  : Angela
                 </Typography>
               </div>
               <SelectorIcon
@@ -155,14 +134,14 @@ const content = [
           }}
         />
         <Box sx={{ flexGrow: 1 }}>
-          {items.map((item) => (
+          {/* {items.map((item) => (
             <NavItem
               key={item.title}
               icon={item.icon}
               href={item.href}
               title={item.title}
             />
-          ))}
+          ))} */}
         </Box>
         <Divider sx={{ borderColor: '#2D3748' }} />
         <Box
@@ -199,7 +178,7 @@ const content = [
               src="/static/images/sidebar_pro.png"
             />
           </Box>
-          <Link
+         {/*  <NextLink
             href="https://material-kit-pro-react.devias.io/"
             passHref
           >
@@ -213,13 +192,13 @@ const content = [
             >
               Pro Live Preview
             </Button>
-          </Link>
+          </NextLink> */}
         </Box>
       </Box>
     </>
   );
 
-  if (lgUp) {
+ /*  if (lgUp) { */
     return (
       <Drawer
         anchor="left"
@@ -236,9 +215,9 @@ const content = [
         {content}
       </Drawer>
     );
-  }
+  /* } */
 
-  return (
+  /* return (
     <Drawer
       anchor="left"
       onClose={onClose}
@@ -255,10 +234,10 @@ const content = [
     >
       {content}
     </Drawer>
-  );
+  ); */
 };
 
-DashboardSidebar.propTypes = {
+/* DashboardSidebar.propTypes = {
   onClose: PropTypes.func,
   open: PropTypes.bool
-};
+}; */
