@@ -1,5 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import AppContext from '../context/AppContext'
+import useInitialState from '../hooks/useInitialState'
 
 import Login from '../pages/Login'
 import NotFound from '../containers/NotFound'
@@ -12,7 +14,10 @@ import Layout from '../containers/Layout'
 import DashBoard from '../pages/Dashboard'
 
 const App = () => {
+  const initialState = useInitialState()
+
   return (
+    <AppContext.Provider value={initialState}>
     <BrowserRouter>      
         <Layout>
           <Switch>
@@ -39,6 +44,7 @@ const App = () => {
           </Switch>
         </Layout>
     </BrowserRouter>
+    </AppContext.Provider>
   )
 }
 
