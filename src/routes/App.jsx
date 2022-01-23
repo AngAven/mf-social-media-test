@@ -11,7 +11,10 @@ import '../styles/global.css'
 import Layout from '../containers/Layout'
 import DashBoard from '../pages/Dashboard'
 
+import { useAuth0 } from "@auth0/auth0-react";
+
 const App = () => {
+  const { loginWithRedirect } = useAuth0();
   return (
     <BrowserRouter>      
         <Layout>
@@ -24,15 +27,15 @@ const App = () => {
             <Route exact path="/integration_profile" component={IntegrationProfile} />
             <Route exact path="/dashboard" component={DashBoard} />
             <Route exact path="/authLinkedin" component={() => {
-              window.location.href = "https://ms-social-media.vercel.app/api/v1/loginLinkedin";
+              loginWithRedirect({connection: 'linkedin'});
               return null;
             }}/>
             <Route exact path="/authFacebook" component={() => {
-              window.location.href = "https://ms-social-media.vercel.app/api/v1/loginFacebook";
+              loginWithRedirect({connection: 'facebook'});
               return null;
             }}/>
             <Route exact path="/authTwitter" component={() => {
-              window.location.href = "https://ms-social-media.vercel.app/api/v1/loginTwitter";
+              loginWithRedirect({connection: 'twitter'});
               return null;
             }}/>
             <Route path="*" component={NotFound} />

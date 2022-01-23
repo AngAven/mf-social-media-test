@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@auth0/auth0-react": "^1.9.0",
     "@babel/core": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
     "@babel/preset-react": "^7.16.5",
@@ -20,6 +21,7 @@
     "@material-ui/icons": "^4.11.2",
     "@mui/icons-material": "^5.2.4",
     "@mui/material": "^5.2.3",
+    "axios": "^0.24.0",
     "babel-loader": "^8.2.3",
     "html-loader": "^3.0.1",
     "html-webpack-plugin": "^5.5.0",
