@@ -11,6 +11,7 @@ const initialState = {
         linkedin: {},
         custom: {}
     },
+    isLogged: false,
 }
 
 const useInitialState = () => {
@@ -25,7 +26,7 @@ const useInitialState = () => {
     }, [])
 
     useEffect(async () => {
-        // const {data} = await axios.get(API_Facebook)
+        // const {data} = await axios.get(API_Linkedin)
         // setLinkedinData(data)
         // state.socialData.linkedin = data
     }, [])
