@@ -21,11 +21,11 @@ import {ThemeProvider} from '@emotion/react'
 const theme = createTheme({
   palette: {
     primary: {
-      main: deepPurple[300],
+      main: '#555BFF',
     },
   },
   typography: {
-    fontFamily: 'Montserrat',
+    fontFamily: 'Mulish',
     fontSize: 16,
     fontWeightLight: 300,
     fontWeightRegular: 400,

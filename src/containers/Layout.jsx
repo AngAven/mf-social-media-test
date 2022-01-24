@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Divider from '@mui/material/Divider';
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
@@ -11,10 +11,13 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import WebIcon from '@mui/icons-material/Web'
-import {ListItemIcon} from '@material-ui/core'
-import {deepPurple, purple} from '@material-ui/core/colors'
-import {Drawer} from '@material-ui/core'
-import {makeStyles} from '@material-ui/core'
+import { ListItemIcon } from '@material-ui/core'
+import { deepPurple, purple } from '@material-ui/core/colors'
+import { Drawer } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
+import logo from '@logos/logo.svg'
+import { Box } from '@mui/system';
+import MenuIcons from '../components/MenuIcons'
 
 const drawerWidth = 200
 
@@ -33,8 +36,9 @@ const useStyles = makeStyles((theme) => {
       backgroundColor: '#f4f4f4',
     },
     editionTitle: {
-      padding: theme.spacing(2),
-      color: purple[300],
+      marginTop:20,
+      marginBottom: 20,
+      padding: theme.spacing(2)
     },
     appbar: {
       borderBottom: `solid ${deepPurple[500]} 2px`,
@@ -43,12 +47,6 @@ const useStyles = makeStyles((theme) => {
     avatar: {
       marginLeft: theme.spacing(2),
     },
-    listIcon: {
-      fontSize: 20,
-    },
-    toolbarText: {
-      color: purple[500],
-    },
     toolbarTitle: {
       flexGrow: 1,
       color: purple[500],
@@ -56,46 +54,49 @@ const useStyles = makeStyles((theme) => {
   }
 })
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   const classes = useStyles()
   const menuItems = [
     {
       text: 'Dashboard',
-      icon: <WebIcon color="primary" style={{fontSize: 30}} />,
+      icon: <WebIcon color="primary" style={{ fontSize: 30 }} />,
       path: '/facebook',
     },
     {
       text: 'Facebook',
-      icon: <FacebookIcon color="primary" style={{fontSize: 30}} />,
+      icon: <FacebookIcon color="primary" style={{ fontSize: 30 }} />,
       path: '/facebook',
     },
     {
       text: 'Twitter',
-      icon: <TwitterIcon color="primary" style={{fontSize: 30}} />,
+      icon: <TwitterIcon color="primary" style={{ fontSize: 30 }} />,
       path: '/twitter',
     },
     {
       text: 'LinkedIn',
-      icon: <LinkedInIcon color="primary" style={{fontSize: 30}} />,
+      icon: <LinkedInIcon color="primary" style={{ fontSize: 30 }} />,
       path: '/linkedin',
     }
   ]
+  
+  const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <div className={classes.root}>
+    <Box className={classes.root}>
       <AppBar
         style={{
           backgroundColor: 'white',
           width: `calc(100% - ${drawerWidth}px)`,
-      }}
+        }}
         className={classes.appbar}
         elevation={0}>
         <Toolbar>
+          <img src={logo} alt="logo" />
           <Typography className={classes.toolbarTitle}>
-            Gethired
           </Typography>
-          <Typography className={classes.toolbarText}>Alejandra</Typography>
-          <Avatar className={classes.avatar} src="/mario-av.png"/>
+          <MenuIcons/>
+          <Typography  color='primary' >Alejandra</Typography>
+          <Avatar className={classes.avatar} src="/mario-av.png" />
         </Toolbar>
       </AppBar>
 
@@ -108,11 +109,11 @@ const Layout = ({children}) => {
         }}
       >
         <div>
-          <Typography variant="h3" className={classes.editionTitle}>
+          <Typography variant="h4" className={classes.editionTitle} color='primary'>
             Edition
           </Typography>
         </div>
-
+        <Divider />
         <List>
           {
             menuItems.map(item => (
@@ -127,7 +128,7 @@ const Layout = ({children}) => {
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText
                   primary={item.text}
-                  primaryTypographyProps={{fontSize: '1.8rem'}}/>
+                  primaryTypographyProps={{ fontSize: '1.7rem' }} />
               </ListItem>
             ))
           }
@@ -137,7 +138,7 @@ const Layout = ({children}) => {
       <div>
         {children}
       </div>
-    </div>
+    </Box>
   )
 }
 export default Layout
