@@ -1,7 +1,6 @@
 import React from 'react'
 
 import '../styles/pages/MainFeatures.scss'
-import Header from '../components/Header/Header'
 import { Link } from 'react-router-dom';
 
 import networks from '@img/networks.jpg';
@@ -16,7 +15,6 @@ function handleClick() {
 const MainFeatures = () => {
     return (
         <div>
-            <Header onClickLogin={handleClick} onClickSignup={handleClick} isLogged />
 
             <div className="mainfeatures">
                 <section className='cards-container'>

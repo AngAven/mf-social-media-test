@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../components/Header/Header'
 import DashBoard from '/src/pages/Dashboard';
 
 function handleClick() {
@@ -9,7 +8,6 @@ function handleClick() {
 const IntegrationProfile = () => {
     return (
       <div>
-        <Header onClickLogin={handleClick} onClickSignup={handleClick} isLogged />
           <DashBoard/>
       </div>
     )

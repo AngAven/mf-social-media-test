@@ -2,7 +2,6 @@ import React from 'react'
 import { Container } from '@mui/material'
 import CardConnectSocial from '../components/CardConnectSocial'
 import '../styles/containers/ConnectSocial.scss'
-import Header from '../components/Header/Header'
 import { Link } from 'react-router-dom';
 
 function handleClick() {
@@ -12,7 +11,6 @@ function handleClick() {
 const ConnectSocial = () => {
   return (
     <>
-      <Header onClickLogin={handleClick} onClickSignup={handleClick} isLogged />
       <div>
         <div className="container">
           <Container >
