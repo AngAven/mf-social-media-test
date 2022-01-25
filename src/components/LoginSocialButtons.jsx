@@ -5,8 +5,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom';
-import { padding } from '@mui/system';
-import { pink } from '@mui/material/colors';
+
 
 export default function LoginSocialButtons() {
     return (

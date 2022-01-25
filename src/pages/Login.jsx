@@ -1,16 +1,13 @@
+import { Container } from '@material-ui/core';
 import React from 'react';
 import LoginSocialButtons from '../components/LoginSocialButtons';
 
 import '../styles/pages/Login.scss';
 
-function handleClick() {
-  history.push("/home");
-}
-
 
 const Login = () => {
   return (
-    <div>
+    <Container>
       <div className="login">
         <div className="form-container">
           <form action="/" className="form">
@@ -19,7 +16,7 @@ const Login = () => {
           </form>
         </div>
       </div>
-    </div>
+    </Container>
   )
 }
 

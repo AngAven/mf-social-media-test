@@ -11,13 +11,15 @@ const initialState = {
         linkedin: {},
         custom: {}
     },
-    isLogged: false,
+    isLogged: true,
+    fbData: {}
 }
 
 const useInitialState = () => {
     const [state, setState] = useState(initialState)
     const [facebookData, setFacebookData] = useState({})
     const [linkedinData, setLinkedinData] = useState({})
+    const [fbData, setfbData] = useState([])
 
     useEffect(async () => {
         // const {data} = await axios.get(API_Facebook)
@@ -30,6 +32,12 @@ const useInitialState = () => {
         // setLinkedinData(data)
         // state.socialData.linkedin = data
     }, [])
+
+    useEffect(() => {
+        fetch('http://localhost:8000/fb')
+          .then(res => res.json())
+          .then(data => setfbData(data))
+      }, [])
 
     const addSocialData = (payload, socialNetwork) => {
         if (socialNetwork === 'facebook') {

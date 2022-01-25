@@ -3,7 +3,6 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import AppContext from '@context/AppContext'
 import useInitialState from '@hooks/useInitialState'
-import {deepPurple} from '@material-ui/core/colors'
 import {createTheme} from '@mui/material'
 
 import Layout from '@containers/Layout'
