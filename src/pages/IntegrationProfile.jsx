@@ -4,10 +4,11 @@ import { Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { Grid } from '@mui/material';
 import CardProfilePicture from '../components/CardProfilePicture';
+import CardBasicInfo from '../components/CardBasicInfo';
 
-const useStyles = makeStyles( {
-    profilecard: {
-     marginTop: 20
+const useStyles = makeStyles({
+  profilecard: {
+    margin: 20
   }
 })
 
@@ -25,15 +26,24 @@ const IntegrationProfile = () => {
 
 
   return (
-    <Container>
-      <Grid className={classes.profilecard} >
+    <Container >
+
+      <Grid  margin={'10px'}>
         <CardProfilePicture />
+        
+      </Grid>
+
+      <Grid margin={'10px'} >
         <div>
-          {fbData.map(data =>(
-            <p key={data.id}> {data.firstname} </p>
+          {fbData.map(fbdata => (
+            <div key={fbdata.id}>
+              <CardBasicInfo fbdata={fbdata} />
+            </div>
           ))}
         </div>
       </Grid>
+
+
     </Container>
   )
 }
