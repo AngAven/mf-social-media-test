@@ -1,7 +1,6 @@
 import React from 'react'
 import DashboardTwitter from '../components/DashboardTwitter'
 import '../styles/pages/Dashboard.scss'
-import ProfilePicture from '@components/ProfilePicture';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';

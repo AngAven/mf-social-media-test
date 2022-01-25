@@ -2,17 +2,16 @@ import React from 'react'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@mui/material/Typography'
-import { makeStyles } from '@material-ui/core'
+import { IconButton, makeStyles } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import { yellow, green, pink, blue } from '@material-ui/core/colors'
 import EmailIcon from '@mui/icons-material/Email';
 import CakeIcon from '@mui/icons-material/Cake';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LanguageIcon from '@mui/icons-material/Language';
-import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
-import ListItemText from '@mui/material/ListItemText'
-import { ListItemIcon } from '@material-ui/core'
+import { List } from '@mui/material'
+
 
 const useStyles = makeStyles({
     avatar: {
@@ -28,7 +27,7 @@ const useStyles = makeStyles({
 export default function CardBasicInfo({ fbdata }) {
     const classes = useStyles(fbdata)
 
-    const menuItems = [
+    const IconItems = [
         {
             text: 'Email',
             icon: <EmailIcon color="primary" style={{ fontSize: 30 }} />,
@@ -54,25 +53,32 @@ export default function CardBasicInfo({ fbdata }) {
                     <Typography variant='h4'>
                         {fbdata.name}
                     </Typography>
-                    <List>
-                        {
-                            menuItems.map(item => (
-                                <ListItem
-                                    button
-                                    key={item.text}
-                                    onClick={() => {
-                                        history.push(item.path)
-                                    }}
-                                    className={location.pathname === item.path ? classes.active : null}
-                                >
-                                    <ListItemIcon>{item.icon}</ListItemIcon>
-                                    <ListItemText
-                                        primary={item.text}
-                                        primaryTypographyProps={{ fontSize: '1.7rem' }} />
-                                </ListItem>
-                            ))
-                        }
-                    </List>
+
+                    <ListItem>
+                        <IconButton ><EmailIcon color='primary' fontSize='large' /> </IconButton>
+                        <Typography variant='h5' >{fbdata.email} </Typography>
+                    </ListItem>
+                    <ListItem>
+                        <IconButton ><CakeIcon color='primary' fontSize='large' /> </IconButton>
+                        <Typography variant='h5' >{fbdata.birthday} </Typography>
+                    </ListItem>
+                    <ListItem>
+                        <IconButton ><TwitterIcon color='primary' fontSize='large' /> </IconButton>
+                        <Typography variant='h5' >{fbdata.twitter} </Typography>
+                    </ListItem>
+                    <ListItem>
+                        <IconButton ><LanguageIcon color='primary' fontSize='large' /> </IconButton>
+                        <Typography variant='h5' >{fbdata.language} </Typography>
+                    </ListItem>
+
+
+                    {  /*  IconItems.map(item => (
+                            <ListItem key={item.text}>
+                                <IconButton >{item.icon} </IconButton>
+                                <Typography variant='h5' >{item.text} </Typography>
+                            </ListItem>
+                        )) */
+                    }
                 </CardContent>
             </Card>
         </div>
