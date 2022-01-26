@@ -9,7 +9,7 @@ import Avatar from '@material-ui/core/Avatar'
 import { yellow, green, pink, blue } from '@material-ui/core/colors'
 import EmailIcon from '@mui/icons-material/Email'
 import CakeIcon from '@mui/icons-material/Cake'
-import TwitterIcon from '@mui/icons-material/Twitter'
+import FlagIcon from '@mui/icons-material/Flag';
 import LanguageIcon from '@mui/icons-material/Language'
 import ListItem from '@mui/material/ListItem'
 import { List } from '@mui/material'
@@ -40,11 +40,11 @@ export default function CardBasicInfo() {
       icon: <CakeIcon color="primary" style={{ fontSize: 30 }} />,
     },
     {
-      text: <>{facebook.twitter}</>,
-      icon: <TwitterIcon color="primary" style={{ fontSize: 30 }} />,
+      text: <>{facebook.nationality}</>,
+      icon: <FlagIcon color="primary" style={{ fontSize: 30 }} />,
     },
     {
-      text: <>{facebook.language}</>,
+      text: <>{facebook.languages}</>,
       icon: <LanguageIcon color="primary" style={{ fontSize: 30 }} />,
     }
   ]

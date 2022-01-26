@@ -33,7 +33,7 @@ const IntegrationProfile = () => {
     {
       text: 'Education',
       icon: <SchoolIcon color="primary" style={{fontSize: 30}}/>,
-      comp: <CardEducation/>
+      comp: <CardEducation state={state}/>
     },
     {
       text: 'Work',
