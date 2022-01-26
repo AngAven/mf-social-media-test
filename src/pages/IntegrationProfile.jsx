@@ -61,7 +61,7 @@ const IntegrationProfile = () => {
 
         {
           IconCards.map(item => (
-            <Grid item xs={12} md={3} lg={3} key={item.text}>
+            <Grid item xs={12} md={4} lg={6} key={item.text}>
               <CardIntegration item={item}/>
             </Grid>
           ))
