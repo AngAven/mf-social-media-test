@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, {useContext} from 'react'
 import AppContext from '@context/AppContext'
 import Divider from '@mui/material/Divider'
 import AppBar from '@mui/material/AppBar'
@@ -12,14 +12,14 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import WebIcon from '@mui/icons-material/Web'
-import { ListItemIcon } from '@material-ui/core'
-import { deepPurple, purple } from '@material-ui/core/colors'
-import { Drawer } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core'
+import {ListItemIcon} from '@material-ui/core'
+import {deepPurple, purple} from '@material-ui/core/colors'
+import {Drawer} from '@material-ui/core'
+import {makeStyles} from '@material-ui/core'
 import logo from '@logos/logo.svg'
-import { Box } from '@mui/system'
+import {Box} from '@mui/system'
 import MenuIcons from '../components/MenuIcons'
-import { useHistory } from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 const drawerWidth = 200
 
@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => {
   }
 })
 
-const Layout = ({ children }) => {
+const Layout = ({children}) => {
   const classes = useStyles()
   const {state} = useContext(AppContext)
   const {facebook, linkedin, twitter} = state
@@ -70,22 +70,22 @@ const Layout = ({ children }) => {
   const menuItems = [
     {
       text: 'Dashboard',
-      icon: <WebIcon color="primary" style={{ fontSize: 30 }} />,
+      icon: <WebIcon color="primary" style={{fontSize: 30}}/>,
       path: '/integration_profile',
     },
     {
       text: 'Facebook',
-      icon: <FacebookIcon color="primary" style={{ fontSize: 30 }} />,
+      icon: <FacebookIcon color="primary" style={{fontSize: 30}}/>,
       path: '/login',
     },
     {
       text: 'Twitter',
-      icon: <TwitterIcon color="primary" style={{ fontSize: 30 }} />,
+      icon: <TwitterIcon color="primary" style={{fontSize: 30}}/>,
       path: '/twitter',
     },
     {
       text: 'LinkedIn',
-      icon: <LinkedInIcon color="primary" style={{ fontSize: 30 }} />,
+      icon: <LinkedInIcon color="primary" style={{fontSize: 30}}/>,
       path: '/linkedin',
     }
   ]
@@ -100,15 +100,15 @@ const Layout = ({ children }) => {
         className={classes.appbar}
         elevation={0}>
         <Toolbar>
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="logo"/>
           {
             state.isLogged && (
               <>
                 <Typography className={classes.toolbarTitle}>
                 </Typography>
-                <MenuIcons />
+                <MenuIcons/>
                 <Typography color="primary">{state.facebook.name}</Typography>
-                <Avatar className={classes.avatar}  />
+                <Avatar className={classes.avatar}/>
               </>
 
             )}
@@ -131,7 +131,7 @@ const Layout = ({ children }) => {
                   Edition
                 </Typography>
               </div>
-              <Divider />
+              <Divider/>
               <List>
                 {
                   menuItems.map(item => (
@@ -146,7 +146,7 @@ const Layout = ({ children }) => {
                       <ListItemIcon>{item.icon}</ListItemIcon>
                       <ListItemText
                         primary={item.text}
-                        primaryTypographyProps={{ fontSize: '1.7rem' }} />
+                        primaryTypographyProps={{fontSize: '1.7rem'}}/>
                     </ListItem>
                   ))
                 }
@@ -156,10 +156,10 @@ const Layout = ({ children }) => {
         )
       }
 
-      <div className={classes.page} >
+      <div className={classes.page}>
         <div className={classes.toolbar}></div>
-          {children}
-        </div>
+        {children}
+      </div>
     </Box>
   )
 }

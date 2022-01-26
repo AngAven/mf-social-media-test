@@ -16,7 +16,6 @@ const useInitialState = () => {
   const [state, setState] = useState(initialState)
   const [facebookData, setFacebookData] = useState({})
   const [linkedinData, setLinkedinData] = useState({})
-  const [fbData, setfbData] = useState([])
 
   useEffect(async () => {
     const {data} = await axios.get(API_Facebook)
@@ -36,10 +35,17 @@ const useInitialState = () => {
     if (socialNetwork === 'facebook') {
       setState({
         ...state,
-        socialData: {
-          ...state.socialData,
-          facebook: payload,
-        },
+        facebook: payload,
+      })
+    } else if (socialNetwork === 'linkedin') {
+      setState({
+        ...state,
+        linkedin: payload,
+      })
+    } else if (socialNetwork === 'twitter') {
+      setState({
+        ...state,
+        twitter: payload,
       })
     }
   }
