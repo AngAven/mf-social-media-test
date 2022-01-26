@@ -10,6 +10,7 @@ ReactDOM.render(
     <Auth0Provider
       domain="platzimaster.us.auth0.com"
       clientId="2KsRikMLcvPmKDsIaxJMGIcHJoc9D0Z7"
+      audience="https://platzimaster.us.auth0.com/api/v2/"
       redirectUri={window.location.origin}
     >
       <App />

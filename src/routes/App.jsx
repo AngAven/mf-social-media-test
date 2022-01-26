@@ -13,8 +13,21 @@ import DashBoard from '../pages/Dashboard'
 
 import { useAuth0 } from "@auth0/auth0-react";
 
+function getToken() {
+  const { getAccessTokenSilently } = useAuth0();
+  getAccessTokenSilently()
+  .then((token) => {
+    console.log(token);
+  })
+  .catch(error => console.log(error));
+
+}
+
 const App = () => {
-  const { loginWithRedirect } = useAuth0();
+
+  const { loginWithRedirect, user } = useAuth0();
+  
+  getToken();
   return (
     <BrowserRouter>      
         <Layout>
