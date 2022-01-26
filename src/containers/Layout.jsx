@@ -63,7 +63,9 @@ const useStyles = makeStyles((theme) => {
 
 const Layout = ({ children }) => {
   const classes = useStyles()
-  const { state } = useContext(AppContext)
+  const {state} = useContext(AppContext)
+  const {facebook, linkedin, twitter} = state
+  console.log('state => ', facebook)
   const history = useHistory()
   const menuItems = [
     {
@@ -105,7 +107,7 @@ const Layout = ({ children }) => {
                 <Typography className={classes.toolbarTitle}>
                 </Typography>
                 <MenuIcons />
-                <Typography color="primary">Alejandra</Typography>
+                <Typography color="primary">{state.facebook.name}</Typography>
                 <Avatar className={classes.avatar}  />
               </>
 
