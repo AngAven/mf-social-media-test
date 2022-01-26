@@ -1,8 +1,9 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 
-const API_Facebook = 'http://localhost:8000/fb'
-const API_Linkedin = 'https://my.api.mockaroo.com/linked_in.json?key=d48cf750'
+const API_Facebook = 'http://localhost:8000/data'
+const API_Linkedin = 'http://localhost:8000/data'
+const API_Twitter = 'http://localhost:8000/data'
 
 const initialState = {
   facebook: {},
@@ -16,20 +17,30 @@ const useInitialState = () => {
   const [state, setState] = useState(initialState)
   const [facebookData, setFacebookData] = useState({})
   const [linkedinData, setLinkedinData] = useState({})
+  const [twitterData, setTwitterData] = useState({})
 
   useEffect(async () => {
     const {data} = await axios.get(API_Facebook)
-    setFacebookData({...data[0]})
+    const fb = {...data[0].fb}
+    setFacebookData({...fb[0]})
   }, [])
 
-  state.facebook = facebookData
 
   useEffect(async () => {
     const {data} = await axios.get(API_Linkedin)
-    setLinkedinData({...data[0]})
+    const li = {...data[0].lk}
+    setLinkedinData({...li[0]})
   }, [])
 
+  useEffect(async () => {
+    const {data} = await axios.get(API_Twitter)
+    const tw = {...data[0].tw}
+    setTwitterData({...tw[0]})
+  }, [])
+
+  state.facebook = facebookData
   state.linkedin = linkedinData
+  state.twitter = twitterData
 
   const addSocialData = (payload, socialNetwork) => {
     if (socialNetwork === 'facebook') {

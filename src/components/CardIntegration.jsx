@@ -9,11 +9,11 @@ import { makeStyles } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import { yellow, green, pink, blue } from '@material-ui/core/colors'
 
-export default function CardIntegration({ item}) {
+export default function CardIntegration({item}) {
   return (
     <div>
       <Card elevation={1}>
-        <CardHeader 
+        <CardHeader
           action={
             <IconButton >
               {item.icon}
@@ -25,7 +25,7 @@ export default function CardIntegration({ item}) {
         />
         <CardContent>
           <Typography variant="h6" color="textSecondary">
-            Contenido
+            {item.comp}
           </Typography>
         </CardContent>
       </Card>

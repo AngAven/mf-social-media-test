@@ -65,7 +65,6 @@ const Layout = ({children}) => {
   const classes = useStyles()
   const {state} = useContext(AppContext)
   const {facebook, linkedin, twitter} = state
-  console.log('state => ', facebook)
   const history = useHistory()
   const menuItems = [
     {

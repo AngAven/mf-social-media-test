@@ -18,7 +18,6 @@ export default function FullWidthGrid() {
   const {state, addSocialData} = useContext(AppContext)
 
   const handleClick = () => {
-    console.log('entro')
     addSocialData({'test': 'test'}, 'facebook')
   }
 

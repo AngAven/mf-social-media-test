@@ -1,9 +1,15 @@
-import React from "react";
+import React, {useContext} from 'react'
+import AppContext from '@context/AppContext'
 
-export default function CardWork() {
-    return (
-        <div>
+function CardWork(){
+  const {state} = useContext(AppContext)
+  const {facebook, linkedin, twitter} = state
 
-        </div>
-    )
+  return (
+    <>
+      hola
+    </>
+  )
 }
+
+export default CardWork
