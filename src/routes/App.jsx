@@ -33,8 +33,21 @@ const theme = createTheme({
   }
 })
 
+import { useAuth0 } from "@auth0/auth0-react";
+
+function getToken() {
+  const { getAccessTokenSilently } = useAuth0();
+  getAccessTokenSilently()
+  .then((token) => {
+    console.log(token);
+  })
+  .catch(error => console.log(error));
+
+}
+
 const App = () => {
-  const initialState = useInitialState()
+  const initialState = useInitialState();
+  const { loginWithRedirect, user } = useAuth0();
 
   return (
     <ThemeProvider theme={theme}>
@@ -50,15 +63,15 @@ const App = () => {
               <Route exact path="/integration_profile" component={IntegrationProfile}/>
               <Route exact path="/dashboard" component={DashBoard}/>
               <Route exact path="/authLinkedin" component={() => {
-                window.location.href = 'https://ms-social-media.vercel.app/api/v1/loginLinkedin'
+                loginWithRedirect({connection: 'linkedin'});
                 return null
               }}/>
               <Route exact path="/authFacebook" component={() => {
-                window.location.href = 'https://ms-social-media.vercel.app/api/v1/loginFacebook'
+                loginWithRedirect({connection: 'facebook'});
                 return null
               }}/>
               <Route exact path="/authTwitter" component={() => {
-                window.location.href = 'https://ms-social-media.vercel.app/api/v1/loginTwitter'
+                loginWithRedirect({connection: 'twitter'});
                 return null
               }}/>
               <Route path="*" component={NotFound}/>
@@ -67,7 +80,7 @@ const App = () => {
         </Router>
       </AppContext.Provider>
     </ThemeProvider>
-  )
+  );
 }
 
 export default App
