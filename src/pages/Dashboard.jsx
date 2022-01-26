@@ -22,6 +22,7 @@ const DashBoard = () => {
   }
   return (
     <div>
+      <p>{user.name}</p>
     </div>
   )
 }
