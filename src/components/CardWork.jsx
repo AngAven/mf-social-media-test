@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import AppContext from '@context/AppContext'
+import ListWorks from '@components/ListWorks'
 
 function CardWork(){
   const {state} = useContext(AppContext)
@@ -7,7 +8,7 @@ function CardWork(){
 
   return (
     <>
-      hola
+      <ListWorks/>
     </>
   )
 }
