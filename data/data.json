@@ -38,7 +38,7 @@
               "id": 1,
               "company": "IBM",
               "position": "Frontend Developer",
-              "description": "Description 1: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry"s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+              "description": "Description 1: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
               "time_period": "1985-1995",
               "city": "Mexico",
               "habilities": ["javascript", "html", "css"]
@@ -47,7 +47,7 @@
               "id": 2,
               "company": "AMAZON",
               "position": "Fullstack Developer",
-              "description": "Description 2: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry"s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+              "description": "Description 2: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
               "time_period": "1985-1995",
               "city": "Colombia",
               "habilities": ["javascript", "html", "css"]
@@ -133,7 +133,7 @@
               "logo": "/static/logos/empresa2.jpeg",
               "institute": "Instituto Tecnologico de Morelia",
               "time_period": "2002-2008",
-              "title": "Barchelo"s degree, Computer Software Engineering",
+              "title": "Barchelo's degree, Computer Software Engineering",
               "country": "Mexico"
             }
           ],
