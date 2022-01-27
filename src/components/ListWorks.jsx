@@ -1,87 +1,101 @@
 import React, {useContext, useState, useEffect} from 'react'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemText from '@mui/material/ListItemText'
-import ListItemAvatar from '@mui/material/ListItemAvatar'
-import Avatar from '@mui/material/Avatar'
-import WorkIcon from '@material-ui/icons/Work'
-import SchoolIcon from '@mui/icons-material/School'
-import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
-import InterestsIcon from '@mui/icons-material/Interests'
-import CardInterest from './CardInterest'
-import ShortTextIcon from '@mui/icons-material/ShortText'
-import ListSubheader from '@mui/material/ListSubheader'
-import ListItemButton from '@mui/material/ListItemButton'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import ExpandLess from '@material-ui/icons/ExpandLess'
-import Collapse from '@material-ui/core/Collapse'
-import StarBorder from '@material-ui/icons/StarBorder'
-import ExpandMore from '@material-ui/icons/ExpandMore'
 import AppContext from '@context/AppContext'
+import Accordion from '@mui/material/Accordion'
+import AccordionDetails from '@mui/material/AccordionDetails'
+import AccordionSummary from '@mui/material/AccordionSummary'
+import Typography from '@mui/material/Typography'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday'
+import Chip from '@mui/material/Chip'
+import Stack from '@mui/material/Stack'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
+import FaceIcon from '@mui/icons-material/Face'
+import { styled } from '@mui/material/styles'
+import Paper from '@mui/material/Paper'
+import TagFacesIcon from '@mui/icons-material/TagFaces'
 
 const ListWorks = () => {
   const {state} = useContext(AppContext)
   const {facebook, linkedin, twitter} = state
-  const [works, setWorks] = useState([])
-  const [open, setOpen] = useState(false)
-  const handleClick = () => {
-    setOpen(!open)
+  const [expanded, setExpanded] = React.useState(false)
+
+  const ListItem = styled('li')(({ theme }) => ({
+    margin: theme.spacing(0.5),
+  }));
+
+
+
+  const [chipData, setChipData] = useState([
+    { key: 0, label: 'Angular' },
+    { key: 1, label: 'jQuery' },
+    { key: 2, label: 'Polymer' },
+    { key: 3, label: 'React' },
+    { key: 4, label: 'Vue.js' },
+  ])
+
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false)
   }
 
-
   return (
-    <List
-      sx={{width: '100%', bgcolor: 'background.paper'}}
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      // subheader={
-      //   <ListSubheader component="div" id="nested-list-subheader">
-      //     Historical
-      //   </ListSubheader>
-      // }
-    >
-      {
-        facebook.works && facebook.works.map(work => {
-          const title = `${work.company} - ${work.position}`
-          return (
-            <>
-              <ListItemButton onClick={handleClick}>
-                <ListItemIcon>
-                  <WorkIcon/>
-                </ListItemIcon>
-                <ListItemText sx={{}} primary={work.company} secondary={work.position}/>
-                {open ? <ExpandLess/> : <ExpandMore/>}
-              </ListItemButton>
-              <Collapse in={open} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <ListItemButton sx={{pl: 4}}>
-                    <ListItemIcon>
-                      <ShortTextIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary={work.description}/>
-                  </ListItemButton>
-                  <ListItemButton sx={{pl: 4}}>
-                    <ListItemIcon>
-                      <CalendarTodayIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary={work.time_period}/>
-                  </ListItemButton>
-                  <ListItemButton sx={{pl: 4}}>
-                    <ListItemIcon>
-                      <LocationOnIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary={work.city}/>
-                  </ListItemButton>
-                </List>
-              </Collapse>
-            </>
-          )
-        })
-      }
+    <>
+      { facebook.works && facebook.works.map((work, i) => {
+        return(
+          <Accordion expanded={expanded === 'panel' + i} onChange={handleChange('panel' +i)} elevation={0}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1bh-content"
+              id="panel1bh-header"
+            >
+              <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                {work.company}
+              </Typography>
+              <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                {work.time_period}
+              </Typography>
+              <Typography sx={{ color: 'text.secondary' }}>{work.position}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                {work.description}
+              </Typography>
+              <Paper
+                elevation={0}
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  flexWrap: 'wrap',
+                  listStyle: 'none',
+                  p: 0.5,
+                  m: 0,
+                }}
+                component="ul"
+              >
+                {chipData.map((data) => {
+                  let icon;
 
-    </List>
+                  if (data.label === 'React') {
+                    icon = <TagFacesIcon />;
+                  }
+
+                  return (
+                    <ListItem key={data.key}>
+                      <Chip
+                        icon={icon}
+                        label={data.label}
+                      />
+                    </ListItem>
+                  );
+                })}
+              </Paper>
+            </AccordionDetails>
+          </Accordion>
+        )
+      })
+
+      }
+    </>
   )
 }
 
