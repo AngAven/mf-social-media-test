@@ -56,22 +56,22 @@
           "groups": [
             {
               "id": 1,
-              "name": "",
+              "name": "Comunidad platzi",
               "description": "",
-              "followers": "",
+              "followers": 23767,
               "state": "public"
             },
             {
-              "id": 1,
-              "name": "",
+              "id": 2,
+              "name": "Startup Colombia",
               "description": "",
-              "followers": "",
-              "state": "public"
+              "followers": 24744,
+              "state": "private"
             }
           ],
           "last_work": 2,
           "member_since": "05/04/2019",
-          "follow_people": 245,
+          "follow_people": 240,
           "follow_pages": [
             {
               "id": 1,
@@ -159,7 +159,7 @@
           ],
           "last_work": 1,
           "member_since": "05/04/2019",
-          "follow_people": 245,
+          "follow_people": 241,
           "follow_pages": [
             {
               "id": 1,
@@ -253,22 +253,22 @@
           "groups": [
             {
               "id": 1,
-              "name": "",
+              "name": "Crypto Cositas",
               "description": "",
-              "followers": "",
+              "followers": 36867.60,
               "state": "public"
             },
             {
-              "id": 1,
-              "name": "",
+              "id": 2,
+              "name": "Tech Insider",
               "description": "",
-              "followers": "",
+              "followers": 477634,
               "state": "public"
             }
           ],
           "last_work": 2,
           "member_since": "05/04/2019",
-          "follow_people": 245,
+          "follow_people": 242,
           "follow_pages": [
             {
               "id": 1,
@@ -279,7 +279,7 @@
               "name": ""
             }
           ],
-          "followers": 2000,
+          "followers": 2001,
           "website": "",
           "nationality": "Mexico",
           "current_location": "Mexico",
@@ -366,7 +366,7 @@
               "name": ""
             }
           ],
-          "followers": 2000,
+          "followers": 2002,
           "website": "",
           "nationality": "Mexico",
           "current_location": "Mexico",
