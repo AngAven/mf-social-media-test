@@ -42,7 +42,7 @@ const ListWorks = () => {
     <>
       { facebook.works && facebook.works.map((work, i) => {
         return(
-          <Accordion expanded={expanded === 'panel' + i} onChange={handleChange('panel' +i)} elevation={0}>
+          <Accordion key={work.id} expanded={expanded === 'panel' + i} onChange={handleChange('panel' +i)} elevation={0}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1bh-content"

@@ -22,7 +22,7 @@ export default function CardInterest() {
                 flexWrap='wrap'
             >
                 {facebook.groups && facebook.groups.map(group=>(
-                    <Chip label={group.name} >
+                    <Chip key={group.id} label={group.name} >
                     </Chip>
                 ))}
             </Stack>
@@ -35,7 +35,7 @@ export default function CardInterest() {
                 flexWrap='wrap'
             >
                 {twitter.groups && twitter.groups.map(group=>(
-                    <Chip label={group.name}>
+                    <Chip key={group.id} label={group.name}>
                     </Chip>
                 ))}
             </Stack>
@@ -48,7 +48,7 @@ export default function CardInterest() {
                 flexWrap='wrap'
             >
                 {linkedin.groups && linkedin.groups.map(group=>(
-                    <Chip label={group.name}>
+                    <Chip key={group.id} label={group.name}>
                     </Chip>
                 ))}
             </Stack>

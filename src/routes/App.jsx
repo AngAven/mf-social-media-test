@@ -12,6 +12,7 @@ import ConnectSocial from '@containers/ConnectSocial'
 import MainFeatures from '@pages/MainFeatures'
 import IntegrationProfile from '@pages/IntegrationProfile'
 import DashBoard from '@pages/Dashboard'
+import TwitterBoard from '@pages/TwitterBoard'
 import NotFound from '@containers/NotFound'
 
 import '@styles/global.css'
@@ -62,6 +63,7 @@ const App = () => {
               <Route exact path="/main_features" component={MainFeatures}/>
               <Route exact path="/integration_profile" component={IntegrationProfile}/>
               <Route exact path="/dashboard" component={DashBoard}/>
+              <Route exact path="/twitter" component={TwitterBoard}/>
               <Route exact path="/authLinkedin" component={() => {
                 loginWithRedirect({connection: 'linkedin'});
                 return null

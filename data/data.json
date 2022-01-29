@@ -55,14 +55,14 @@
           ],
           "groups": [
             {
-              "id": 1,
+              "id": "1",
               "name": "Comunidad platzi",
               "description": "",
               "followers": 23767,
               "state": "public"
             },
             {
-              "id": 2,
+              "id": "2",
               "name": "Startup Colombia",
               "description": "",
               "followers": 24744,
@@ -150,7 +150,7 @@
           ],
           "groups": [
             {
-              "id": 1,
+              "id": "1",
               "name": "Microsoft Company",
               "description": "At Microsoft, our mission is to empower every person and every organization on the planet to achieve more. Microsoft enables digital transformation for the era of an intelligent cloud and an intelligent edge. Microsoft operates in 190 countries and is made up of 181,000 passionate employees worldwide.",
               "followers": 16.1,
@@ -339,14 +339,14 @@
           ],
           "groups": [
             {
-              "id": 1,
+              "id": "1",
               "name": "",
               "description": "",
               "followers": "",
               "state": "public"
             },
             {
-              "id": 1,
+              "id": "2",
               "name": "",
               "description": "",
               "followers": "",
