@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import AppContext from '@context/AppContext'
 import Divider from '@mui/material/Divider'
-import AppBar from '@mui/material/AppBar'
+import MuiAppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Avatar from '@mui/material/Avatar'
@@ -14,16 +14,88 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import WebIcon from '@mui/icons-material/Web'
 import {ListItemIcon} from '@material-ui/core'
 import {deepPurple, purple} from '@material-ui/core/colors'
-import {Drawer} from '@material-ui/core'
+import MuiDrawer from '@material-ui/core/Drawer'
 import {makeStyles} from '@material-ui/core'
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import logo from '@logos/logo.svg'
 import {Box} from '@mui/system'
-import MenuIcons from '../components/MenuIcons'
+import { IconButton } from '@mui/material'
+import Menu from '@mui/icons-material/Menu'
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import {useHistory} from 'react-router-dom'
+import { styled, useTheme } from '@mui/material/styles';
 
-const drawerWidth = 200
+const drawerWidth = 200;
+
+const openedMixin = (theme) => ({
+  width: drawerWidth,
+  transition: theme.transitions.create('width', {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.enteringScreen,
+  }),
+  overflowX: 'hidden',
+});
+
+const closedMixin = (theme) => ({
+  transition: theme.transitions.create('width', {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  overflowX: 'hidden',
+  width: `calc(${theme.spacing(7)} + 1px)`,
+  [theme.breakpoints.up('sm')]: {
+    width: `calc(${theme.spacing(9)} + 1px)`,
+  },
+});
+
+const DrawerHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+}));
+
+const AppBar = styled(MuiAppBar, {
+  shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme, open }) => ({
+  zIndex: theme.zIndex.drawer + 1,
+  transition: theme.transitions.create(['width', 'margin'], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  ...(open && {
+    marginLeft: drawerWidth,
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+}));
+
+const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
+  ({ theme, open }) => ({
+    width: drawerWidth,
+    flexShrink: 0,
+    whiteSpace: 'nowrap',
+    boxSizing: 'border-box',
+    ...(open && {
+      ...openedMixin(theme),
+      '& .MuiDrawer-paper': openedMixin(theme),
+    }),
+    ...(!open && {
+      ...closedMixin(theme),
+      '& .MuiDrawer-paper': closedMixin(theme),
+    }),
+  }),
+);
+
+
 
 const useStyles = makeStyles((theme) => {
+
   return {
     page: {
       background: '#f9f9f9',
@@ -62,10 +134,23 @@ const useStyles = makeStyles((theme) => {
 })
 
 const Layout = ({children}) => {
+
   const classes = useStyles()
   const {state} = useContext(AppContext)
   const {facebook, linkedin, twitter} = state
   const history = useHistory()
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(false);
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
+
+
   const menuItems = [
     {
       text: 'Dashboard',
@@ -90,22 +175,35 @@ const Layout = ({children}) => {
   ]
 
   return (
-    <Box className={classes.root}>
+
+    <Box className={classes.root} sx={{ display: 'flex' }}>
       <AppBar
+        open={open}
         style={{
           backgroundColor: 'white',
-          width: state.isLogged ? `calc(100% - ${drawerWidth}px)` : '100%'
+          //width: state.isLogged ? `calc(100% - ${drawerWidth}px)` : '100%'
         }}
         className={classes.appbar}
         elevation={0}>
         <Toolbar>
+          <IconButton
+              color="primary"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                marginRight: '3px',
+                ...(open && { display: 'none' }),
+              }}
+            >
+              <MenuOpenIcon style={{ fontSize: 40 }}/>
+            </IconButton>
           <img src={logo} alt="logo"/>
           {
             state.isLogged && (
               <>
                 <Typography className={classes.toolbarTitle}>
                 </Typography>
-                <MenuIcons/>
                 <Typography color="primary">{state.facebook.name}</Typography>
                 <Avatar className={classes.avatar}/>
               </>
@@ -120,15 +218,21 @@ const Layout = ({children}) => {
             <Drawer
               className={classes.drawer}
               variant="permanent"
+              open={open}
               anchor="left"
               classes={{
                 paper: classes.drawerPaper,
               }}
             >
+            <DrawerHeader>
+            <IconButton onClick={handleDrawerClose} color="primary"  >
+            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <Menu style={{ fontSize: 40 }} />}
+          </IconButton>
+            </DrawerHeader>
               <div>
-                <Typography variant="h4" className={classes.editionTitle} color="primary">
+                {/* <Typography variant="h4" className={classes.editionTitle} color="primary">
                   Edition
-                </Typography>
+                </Typography> */}
               </div>
               <Divider/>
               <List>
@@ -137,10 +241,6 @@ const Layout = ({children}) => {
                     <ListItem
                       button
                       key={item.text}
-                      onClick={() => {
-                        history.push(item.path)
-                      }}
-                      className={location.pathname === item.path ? classes.active : null}
                     >
                       <ListItemIcon>{item.icon}</ListItemIcon>
                       <ListItemText
