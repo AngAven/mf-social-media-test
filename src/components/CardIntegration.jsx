@@ -4,10 +4,6 @@ import CardHeader from '@material-ui/core/CardHeader'
 import CardContent from '@material-ui/core/CardContent'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@mui/material/Typography';
-import DeleteOutlined from '@material-ui/icons/DeleteOutlined'
-import { makeStyles } from '@material-ui/core'
-import Avatar from '@material-ui/core/Avatar'
-import { yellow, green, pink, blue } from '@material-ui/core/colors'
 
 export default function CardIntegration({item}) {
   return (

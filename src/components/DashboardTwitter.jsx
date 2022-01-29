@@ -6,9 +6,6 @@ import {InputBase} from '@mui/material'
 import {IconButton} from '@mui/material'
 import {Divider} from '@mui/material'
 import SearchIcon from '@material-ui/icons/Search'
-import CardActions from '@mui/material/CardActions'
-import Button from '@mui/material/Button'
-import {Box} from '@mui/material'
 
 import '../styles/components/DashboardTwitter.scss'
 

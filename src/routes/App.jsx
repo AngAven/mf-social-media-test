@@ -1,10 +1,8 @@
 import React from 'react'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-
 import AppContext from '@context/AppContext'
 import useInitialState from '@hooks/useInitialState'
 import {createTheme} from '@mui/material'
-
 import Layout from '@containers/Layout'
 import Home from '@pages/Home'
 import Login from '@pages/Login'

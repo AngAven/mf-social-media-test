@@ -1,26 +1,17 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import { Divider } from '@mui/material'
-import { Box } from '@mui/system';
 import { Paper } from '@material-ui/core'
-import { Grid } from '@material-ui/core'
-import { Card } from '@material-ui/core'
-import { ListItemButton } from '@mui/material'
-import { ListItemIcon } from '@material-ui/core'
-import { ListItemText } from '@material-ui/core'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Typography } from "@mui/material";
+
 import AppContext from '@context/AppContext'
-import { styled } from '@mui/material/styles';
+
 
 export default function CardFollows() {
 

@@ -1,18 +1,15 @@
 import React, { useContext } from 'react'
 import AppContext from '@context/AppContext'
 import Card from '@material-ui/core/Card'
-import { CardMedia } from '@mui/material'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@mui/material/Typography'
 import { IconButton, makeStyles } from '@material-ui/core'
-import Avatar from '@material-ui/core/Avatar'
-import { yellow, green, pink, blue } from '@material-ui/core/colors'
+import { yellow, blue } from '@material-ui/core/colors'
 import EmailIcon from '@mui/icons-material/Email'
 import CakeIcon from '@mui/icons-material/Cake'
 import FlagIcon from '@mui/icons-material/Flag';
 import LanguageIcon from '@mui/icons-material/Language'
 import ListItem from '@mui/material/ListItem'
-import { List } from '@mui/material'
 
 
 const useStyles = makeStyles({
@@ -51,7 +48,7 @@ export default function CardBasicInfo() {
 
   return (
     <div>
-    
+
       <Card elevation={1}>
         <CardContent>
           <Typography variant="h4">

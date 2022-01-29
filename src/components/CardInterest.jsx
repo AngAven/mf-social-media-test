@@ -1,9 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Divider, Stack } from '@mui/material'
 import { Chip } from '@mui/material'
-import { Grid } from '@material-ui/core'
 import AppContext from '@context/AppContext'
-import { Box } from '@mui/system';
 
 export default function CardInterest() {
 

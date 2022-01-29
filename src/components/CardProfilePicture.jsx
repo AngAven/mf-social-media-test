@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import flag from '@icons/flag-col.svg';
+/* import flag from '@icons/flag-col.svg'; */
 import CardMedia from '@mui/material/CardMedia';
 
 export default function CardProfilePicture() {
