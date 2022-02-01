@@ -24,6 +24,7 @@ import Menu from '@mui/icons-material/Menu'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import {useHistory} from 'react-router-dom'
 import { styled, useTheme } from '@mui/material/styles';
+import MenuIcons from '@components/MenuIcons'
 
 const drawerWidth = 200;
 
@@ -202,8 +203,10 @@ const Layout = ({children}) => {
           {
             state.isLogged && (
               <>
+             
                 <Typography className={classes.toolbarTitle}>
                 </Typography>
+                <MenuIcons/>
                 <Typography color="primary">{state.facebook.name}</Typography>
                 <Avatar className={classes.avatar}/>
               </>
