@@ -41,7 +41,8 @@
               "description": "Description 1: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
               "time_period": "1985-1995",
               "city": "Mexico",
-              "habilities": ["javascript", "html", "css"]
+              "habilities": ["javascript", "html", "css", "React", "SQL"],
+              "current": false
             },
             {
               "id": 2,
@@ -50,7 +51,28 @@
               "description": "Description 2: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
               "time_period": "1985-1995",
               "city": "Colombia",
-              "habilities": ["javascript", "html", "css"]
+              "habilities": ["javascript", "html", "css", "Docker"],
+              "current": true
+            },
+            {
+              "id": 3,
+              "company": "SPOTIFY",
+              "position": "Fullstack Developer",
+              "description": "Description 2: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
+              "time_period": "1985-1995",
+              "city": "Colombia",
+              "habilities": ["javascript", "html", "linux", "java"],
+              "current": false
+            },
+            {
+              "id": 4,
+              "company": "APPLE",
+              "position": "Fullstack Developer",
+              "description": "Description 2: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
+              "time_period": "1985-1995",
+              "city": "Colombia",
+              "habilities": ["figma", "css"],
+              "current": false
             }
           ],
           "groups": [
