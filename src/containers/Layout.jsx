@@ -1,4 +1,5 @@
 import React, {useContext} from 'react'
+import {Link} from "react-router-dom"
 import AppContext from '@context/AppContext'
 import Divider from '@mui/material/Divider'
 import MuiAppBar from '@mui/material/AppBar'
@@ -161,7 +162,7 @@ const Layout = ({children}) => {
     {
       text: 'Facebook',
       icon: <FacebookIcon color="primary" style={{fontSize: 30}}/>,
-      path: '/login',
+      path: '/facebook'
     },
     {
       text: 'Twitter',
@@ -203,7 +204,7 @@ const Layout = ({children}) => {
           {
             state.isLogged && (
               <>
-             
+
                 <Typography className={classes.toolbarTitle}>
                 </Typography>
                 <MenuIcons/>
@@ -244,6 +245,7 @@ const Layout = ({children}) => {
                     <ListItem
                       button
                       key={item.text}
+                      component={Link} to ={item.path}
                     >
                       <ListItemIcon>{item.icon}</ListItemIcon>
                       <ListItemText
