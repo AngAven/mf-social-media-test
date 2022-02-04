@@ -72,5 +72,12 @@ module.exports = {
     historyApiFallback: true,
     compress: true,
     port: 3001,
+    proxy: {
+      '/api/**': {
+        target: 'https://ms-social-media.vercel.app',
+        changeOrigin: true,
+        secure: true
+      }
+    }
   }
 }

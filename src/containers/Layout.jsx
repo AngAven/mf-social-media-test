@@ -26,7 +26,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import {useHistory} from 'react-router-dom'
 import { styled, useTheme } from '@mui/material/styles';
 import MenuIcons from '@components/MenuIcons'
-
+import { useAuth0 } from "@auth0/auth0-react";
 
 const drawerWidth = 200;
 
@@ -152,7 +152,7 @@ const Layout = ({children}) => {
     setOpen(false);
   };
 
-
+  const { isAuthenticated, logout } = useAuth0();
 
   const menuItems = [
     {
@@ -189,7 +189,9 @@ const Layout = ({children}) => {
         className={classes.appbar}
         elevation={0}>
         <Toolbar>
-          <IconButton
+          {
+            isAuthenticated && (
+            <IconButton
               color="primary"
               aria-label="open drawer"
               onClick={handleDrawerOpen}
@@ -200,17 +202,19 @@ const Layout = ({children}) => {
               }}
             >
               <MenuOpenIcon style={{ fontSize: 40 }}/>
-            </IconButton>
+            </IconButton>)
+          }
           <img src={logo} alt="logo"/>
           {
-            state.isLogged && (
+            isAuthenticated && (
               <>
 
                 <Typography className={classes.toolbarTitle}>
                 </Typography>
                 <MenuIcons/>
                 <Typography color="primary">{state.facebook.name}</Typography>
-                <Avatar className={classes.avatar}/>
+                {/* <Avatar className={classes.avatar}/> */}
+                <button onClick={() => logout({ returnTo: window.location.origin})}>Logout</button>
               </>
 
             )}
@@ -218,7 +222,7 @@ const Layout = ({children}) => {
       </AppBar>
 
       {
-        state.isLogged && (
+        isAuthenticated && (
           <>
             <Drawer
               className={classes.drawer}
