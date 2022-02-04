@@ -3,12 +3,30 @@ import { Container } from '@mui/material'
 import CardConnectSocial from '../components/CardConnectSocial'
 import '../styles/containers/ConnectSocial.scss'
 import { Link } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
+
+import linkAccount from '../services/link-accounts';
 
 function handleClick() {
   history.push("/home");
 }
 
+async function handleConnection(socialName, userSub, login, getCurrentToken, getNewToken) {
+  try {
+    const accessToken = await getCurrentToken();
+    await login({connection: socialName});
+    const targetUserIdToken = await getNewToken();
+    const resp = await linkAccount(userSub, accessToken, targetUserIdToken.__raw);
+    console.log(resp);
+  } catch(err) {
+    console.error(err);
+  }
+  
+}
+
 const ConnectSocial = () => {
+  const { loginWithPopup, getAccessTokenSilently, getIdTokenClaims, user } = useAuth0();
+
   return (
     <>
       <div>
@@ -24,6 +42,9 @@ const ConnectSocial = () => {
               <button className="go-profile">Go to my profile </button>
             </Link>
 
+          </div>
+          <div className='buttonContainer'>
+            <button onClick={() => handleConnection('facebook', user.sub, loginWithPopup, getAccessTokenSilently, getIdTokenClaims)}>Connect Facebook</button>
           </div>
         </div>
       </div>
