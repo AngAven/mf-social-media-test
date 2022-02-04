@@ -34,19 +34,16 @@ const theme = createTheme({
 
 import { useAuth0 } from "@auth0/auth0-react";
 
-function getToken() {
+async function getToken() {
   const { getAccessTokenSilently } = useAuth0();
-  getAccessTokenSilently()
-  .then((token) => {
-    console.log(token);
-  })
-  .catch(error => console.log(error));
-
+  const info = await getAccessTokenSilently(); 
+  console.log(info);
 }
 
 const App = () => {
   const initialState = useInitialState();
-  const { loginWithRedirect, user } = useAuth0();
+  const { loginWithRedirect } = useAuth0();
+  getToken();
 
   return (
     <ThemeProvider theme={theme}>
