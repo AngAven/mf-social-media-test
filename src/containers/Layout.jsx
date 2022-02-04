@@ -27,6 +27,7 @@ import {useHistory} from 'react-router-dom'
 import { styled, useTheme } from '@mui/material/styles';
 import MenuIcons from '@components/MenuIcons'
 
+
 const drawerWidth = 200;
 
 const openedMixin = (theme) => ({

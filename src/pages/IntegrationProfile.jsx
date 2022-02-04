@@ -14,6 +14,7 @@ import CardEducation from '@components/CardEducation'
 import CardWork from '@components/CardWork'
 import CardFollows from '@components/CardFollows'
 import CardInterest from '../components/CardInterest'
+import CardHeader from '../components/CardHeader'
 
 
 const useStyles = makeStyles({
@@ -53,6 +54,7 @@ const IntegrationProfile = () => {
 
   return (
     <Container>
+
       <Grid container spacing={4}>
 
         <Grid item xs={12} md={6} lg={6} >
