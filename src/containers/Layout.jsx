@@ -26,6 +26,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import {useHistory} from 'react-router-dom'
 import { styled, useTheme } from '@mui/material/styles';
 import MenuIcons from '@components/MenuIcons'
+import {Button} from '@mui/material'
 import { useAuth0 } from "@auth0/auth0-react";
 
 const drawerWidth = 200;
@@ -213,8 +214,11 @@ const Layout = ({children}) => {
                 </Typography>
                 <MenuIcons/>
                 <Typography color="primary">{state.facebook.name}</Typography>
-                {/* <Avatar className={classes.avatar}/> */}
-                <button onClick={() => logout({ returnTo: window.location.origin})}>Logout</button>
+                <Avatar
+                sx={{
+                marginRight: '15px'}}
+                className={classes.avatar}/>
+                <Button variant="contained" color="primary" onClick={() => logout({ returnTo: window.location.origin})}>Logout</Button>
               </>
 
             )}
