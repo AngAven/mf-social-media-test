@@ -6,9 +6,9 @@ const api_base_url = 'api';
 
 const API_Facebook = `${api_base_url}/v1/facebook/info`;
 // const API_Linkedin = `${api_base_url}/api/v1/linkedin/info`;
-// const API_Twitter = `${api_base_url}/api/v1/twitter/info`;
+const API_Twitter = `${api_base_url}/v1/twitter/info`;
 const API_Linkedin = 'http://localhost:8000/data'
-const API_Twitter = 'http://localhost:8000/data'
+// const API_Twitter = 'http://localhost:8000/data'
 
 const initialState = {
   facebook: {},
@@ -45,9 +45,15 @@ const useInitialState = () => {
   }, [])
 
   useEffect(async () => {
-    const {data} = await axios.get(API_Twitter)
-    const tw = {...data[0].tw}
-    setTwitterData({...tw[0]})
+    const token = await getAccessTokenSilently();
+
+    const {data} = await axios.get(API_Twitter, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      crossdomain: true
+    })
+    setTwitterData({...data.tw})
   }, [])
 
   state.facebook = facebookData
