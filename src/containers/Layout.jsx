@@ -27,7 +27,6 @@ import { useHistory } from 'react-router-dom'
 import { styled, useTheme } from '@mui/material/styles';
 import MenuIcons from '@components/MenuIcons'
 import {Button} from '@mui/material'
-import { useAuth0 } from "@auth0/auth0-react";
 import AccountMenu from '../components/AccountMenu'
 
 const drawerWidth = 200;
@@ -142,7 +141,7 @@ const Layout = ({ children }) => {
 
   const classes = useStyles()
   const { state } = useContext(AppContext)
-  const { facebook, linkedin, twitter } = state
+  const { facebook, linkedin, twitter, isAuthenticated } = state
   const history = useHistory()
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -153,8 +152,6 @@ const Layout = ({ children }) => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
-  const { isAuthenticated, logout } = useAuth0();
 
   const menuItems = [
     {

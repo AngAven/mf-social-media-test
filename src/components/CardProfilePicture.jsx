@@ -10,7 +10,6 @@ export default function CardProfilePicture({ state }) {
             {
                 <CardMedia
                     component="img"
-                    minHeight="100%"
                     image={facebook.picture_large}
                     alt="Profile Picture"
 

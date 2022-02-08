@@ -5,17 +5,19 @@ import { useAuth0 } from "@auth0/auth0-react";
 const api_base_url = 'api';
 
 const API_Facebook = `${api_base_url}/v1/facebook/info`;
-// const API_Linkedin = `${api_base_url}/api/v1/linkedin/info`;
+const API_Linkedin = `${api_base_url}/api/v1/linkedin/info`;
 const API_Twitter = `${api_base_url}/v1/twitter/info`;
-const API_Linkedin = 'http://localhost:8000/data'
-// const API_Twitter = 'http://localhost:8000/data'
+const API_Custom = `${api_base_url}/v1/twitter/info`;
 
 const initialState = {
   facebook: {},
   twitter: {},
   linkedin: {},
   custom: {},
-  // isLogged: true,
+  isLogged: false,
+  dashboardSelected: '',
+  socialNetworks: ['facebook', 'twitter', 'linkedin', 'custom'],
+  isAuthenticated: false,
 }
 
 const useInitialState = () => {
@@ -23,67 +25,82 @@ const useInitialState = () => {
   const [facebookData, setFacebookData] = useState({})
   const [linkedinData, setLinkedinData] = useState({})
   const [twitterData, setTwitterData] = useState({})
+  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
 
-  const { getAccessTokenSilently } = useAuth0();
+  const authSelection = (authSelected) => {
+    setState({
+      ...state,
+      dashboardSelected: authSelected
+    })
+  }
 
   useEffect(async () => {
     const token = await getAccessTokenSilently();
 
-    const {data} = await axios.get(API_Facebook, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      },
-      crossdomain: true
-    })
-    setFacebookData({...data.fb})
-  }, [])
-
-  
-
-  useEffect(async () => {
-    const {data} = await axios.get(API_Linkedin)
-    const li = {...data[0].lk}
-    setLinkedinData({...li[0]})
-  }, [])
-
-  useEffect(async () => {
-    const token = await getAccessTokenSilently();
-
-    const {data} = await axios.get(API_Twitter, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      },
-      crossdomain: true
-    })
-    setTwitterData({...data.tw})
-  }, [])
-
-  state.facebook = facebookData
-  state.linkedin = linkedinData
-  state.twitter = twitterData
-
-  const addSocialData = (payload, socialNetwork) => {
-    if (socialNetwork === 'facebook') {
-      setState({
-        ...state,
-        facebook: payload,
+    try {
+      const {data} = await axios.get(API_Facebook, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        crossdomain: true
       })
-    } else if (socialNetwork === 'linkedin') {
+      setFacebookData({...data.fb})
+    } catch (error) {
+      console.error(error)
       setState({
         ...state,
-        linkedin: payload,
-      })
-    } else if (socialNetwork === 'twitter') {
-      setState({
-        ...state,
-        twitter: payload,
+        facebook: {},
       })
     }
-  }
+  }, [])
+
+  useEffect(async () => {
+    try {
+      const {data} = await axios.get(API_Linkedin)
+      const li = {...data[0].lk}
+      setLinkedinData({...li[0]})
+    } catch (e) {
+      console.error(e)
+      setState({
+        ...state,
+        linkedin: {},
+      })
+    }
+  }, [])
+
+  useEffect(async () => {
+    const token = await getAccessTokenSilently();
+
+    try {
+      const {data} = await axios.get(API_Twitter, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        crossdomain: true
+      })
+      setTwitterData({...data.tw})
+    } catch (error) {
+      console.error(error)
+      setState({
+        ...state,
+        twitter: {},
+      })
+    }
+  }, [])
+
+  useEffect(() => {
+    setState({
+      ...state,
+      facebook: {...facebookData},
+      twitter: {...twitterData},
+      linkedin: {...linkedinData},
+      isAuthenticated: isAuthenticated
+    })
+  }, [facebookData, twitterData, linkedinData, isAuthenticated])
 
   return {
     state,
-    addSocialData,
+    authSelection,
   }
 }
 

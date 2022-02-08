@@ -39,7 +39,6 @@ const theme = createTheme({
 import { useAuth0 } from "@auth0/auth0-react";
 
 const App = () => {
-  // const initialState = getInitialState();
   const initialState = useInitialState();
   const { loginWithRedirect } = useAuth0();
 
