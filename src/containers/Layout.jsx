@@ -1,5 +1,5 @@
-import React, {useContext} from 'react'
-import {Link} from "react-router-dom"
+import React, { useContext } from 'react'
+import { Link } from "react-router-dom"
 import AppContext from '@context/AppContext'
 import Divider from '@mui/material/Divider'
 import MuiAppBar from '@mui/material/AppBar'
@@ -13,21 +13,22 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import WebIcon from '@mui/icons-material/Web'
-import {ListItemIcon} from '@material-ui/core'
-import {deepPurple, purple} from '@material-ui/core/colors'
+import { ListItemIcon } from '@material-ui/core'
+import { deepPurple, purple } from '@material-ui/core/colors'
 import MuiDrawer from '@material-ui/core/Drawer'
-import {makeStyles} from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import logo from '@logos/logo.svg'
-import {Box} from '@mui/system'
+import { Box } from '@mui/system'
 import { IconButton } from '@mui/material'
 import Menu from '@mui/icons-material/Menu'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { styled, useTheme } from '@mui/material/styles';
 import MenuIcons from '@components/MenuIcons'
 import {Button} from '@mui/material'
 import { useAuth0 } from "@auth0/auth0-react";
+import AccountMenu from '../components/AccountMenu'
 
 const drawerWidth = 200;
 
@@ -137,11 +138,11 @@ const useStyles = makeStyles((theme) => {
   }
 })
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
 
   const classes = useStyles()
-  const {state} = useContext(AppContext)
-  const {facebook, linkedin, twitter} = state
+  const { state } = useContext(AppContext)
+  const { facebook, linkedin, twitter } = state
   const history = useHistory()
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -158,22 +159,22 @@ const Layout = ({children}) => {
   const menuItems = [
     {
       text: 'Dashboard',
-      icon: <WebIcon color="primary" style={{fontSize: 30}}/>,
-      path: '/integration_profile',
+      icon: <WebIcon color="primary" style={{ fontSize: 30 }} />,
+      path: '/dashboard',
     },
     {
       text: 'Facebook',
-      icon: <FacebookIcon color="primary" style={{fontSize: 30}}/>,
+      icon: <FacebookIcon color="primary" style={{ fontSize: 30 }} />,
       path: '/facebook'
     },
     {
       text: 'Twitter',
-      icon: <TwitterIcon color="primary" style={{fontSize: 30}}/>,
+      icon: <TwitterIcon color="primary" style={{ fontSize: 30 }} />,
       path: '/twitter',
     },
     {
       text: 'LinkedIn',
-      icon: <LinkedInIcon color="primary" style={{fontSize: 30}}/>,
+      icon: <LinkedInIcon color="primary" style={{ fontSize: 30 }} />,
       path: '/linkedin',
     }
   ]
@@ -192,33 +193,29 @@ const Layout = ({children}) => {
         <Toolbar>
           {
             isAuthenticated && (
-            <IconButton
-              color="primary"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              sx={{
-                marginRight: '3px',
-                ...(open && { display: 'none' }),
-              }}
-            >
-              <MenuOpenIcon style={{ fontSize: 40 }}/>
-            </IconButton>)
+              <IconButton
+                color="primary"
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                edge="start"
+                sx={{
+                  marginRight: '3px',
+                  ...(open && { display: 'none' }),
+                }}
+              >
+                <MenuOpenIcon style={{ fontSize: 40 }} />
+              </IconButton>)
           }
-          <img src={logo} alt="logo"/>
+          <img src={logo} alt="logo" />
           {
             isAuthenticated && (
               <>
 
                 <Typography className={classes.toolbarTitle}>
                 </Typography>
-                <MenuIcons/>
-                <Typography color="primary">{state.facebook.name}</Typography>
-                <Avatar
-                sx={{
-                marginRight: '15px'}}
-                className={classes.avatar}/>
-                <Button variant="contained" color="primary" onClick={() => logout({ returnTo: window.location.origin})}>Logout</Button>
+                <MenuIcons />
+                <AccountMenu state={state}/>
+              {/*   <button onClick={() => logout({ returnTo: window.location.origin })}>Logout</button> */}
               </>
 
             )}
@@ -237,29 +234,29 @@ const Layout = ({children}) => {
                 paper: classes.drawerPaper,
               }}
             >
-            <DrawerHeader>
-            <IconButton onClick={handleDrawerClose} color="primary"  >
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <Menu style={{ fontSize: 40 }} />}
-          </IconButton>
-            </DrawerHeader>
+              <DrawerHeader>
+                <IconButton onClick={handleDrawerClose} color="primary"  >
+                  {theme.direction === 'rtl' ? <ChevronRightIcon /> : <Menu style={{ fontSize: 40 }} />}
+                </IconButton>
+              </DrawerHeader>
               <div>
                 {/* <Typography variant="h4" className={classes.editionTitle} color="primary">
                   Edition
                 </Typography> */}
               </div>
-              <Divider/>
+              <Divider />
               <List>
                 {
                   menuItems.map(item => (
                     <ListItem
                       button
                       key={item.text}
-                      component={Link} to ={item.path}
+                      component={Link} to={item.path}
                     >
                       <ListItemIcon>{item.icon}</ListItemIcon>
                       <ListItemText
                         primary={item.text}
-                        primaryTypographyProps={{fontSize: '1.7rem'}}/>
+                        primaryTypographyProps={{ fontSize: '1.7rem' }} />
                     </ListItem>
                   ))
                 }

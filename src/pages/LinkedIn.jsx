@@ -1,4 +1,4 @@
-import React, { useContext} from 'react'
+import React, { useContext } from 'react'
 import AppContext from '@context/AppContext'
 import { Container } from '@mui/material'
 import { makeStyles } from '@material-ui/core'
@@ -14,7 +14,6 @@ import CardEducation from '@components/CardEducation'
 import CardWork from '@components/CardWork'
 import CardFollows from '@components/CardFollows'
 import CardInterest from '../components/CardInterest'
-import CardHeader from '../components/CardHeader'
 
 
 const useStyles = makeStyles({
@@ -24,7 +23,7 @@ const useStyles = makeStyles({
 })
 
 
-const IntegrationProfile = () => {
+const LinkedIn = () => {
   const classes = useStyles()
   const {state} = useContext(AppContext)
   const {facebook, linkedin, twitter} = state
@@ -54,11 +53,10 @@ const IntegrationProfile = () => {
 
   return (
     <Container>
-
       <Grid container spacing={4}>
 
         <Grid item xs={12} md={6} lg={6} >
-          <CardProfilePicture state={state}/>
+          <CardProfilePicture/>
         </Grid>
 
         <Grid item xs={12} md={6} lg={6}>
@@ -81,4 +79,4 @@ const IntegrationProfile = () => {
   )
 }
 
-export default IntegrationProfile
+export default LinkedIn

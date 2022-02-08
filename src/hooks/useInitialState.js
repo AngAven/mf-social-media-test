@@ -28,6 +28,7 @@ const useInitialState = () => {
 
   useEffect(async () => {
     const token = await getAccessTokenSilently();
+    console.log(token)
 
     const {data} = await axios.get(API_Facebook, {
       headers: {
@@ -37,6 +38,8 @@ const useInitialState = () => {
     })
     setFacebookData({...data.fb})
   }, [])
+
+  
 
   useEffect(async () => {
     const {data} = await axios.get(API_Linkedin)

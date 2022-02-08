@@ -23,10 +23,10 @@ export default function SimpleBottomNavigation() {
 
         }}
       >
-      <BottomNavigationAction label={<Typography sx={{fontSize:14}}>Integrations</Typography>} icon={<DynamicFeedIcon sx={{fontSize:23}} />}/>
-      <BottomNavigationAction label={<Typography sx={{fontSize:14}}>Statistic</Typography>} icon={<ExtensionOutlinedIcon  sx={{fontSize:23}}/>}/>
-      <BottomNavigationAction label={<Typography sx={{fontSize:14}}>Tracker</Typography>} icon={<SavedSearchIcon  sx={{fontSize:23}}/>}/>
-      <BottomNavigationAction label={<Typography sx={{fontSize:14}}>Analytics</Typography>} icon={<TrackerIcon sx={{fontSize:23}} />}/>
+      <BottomNavigationAction label={<Typography sx={{fontSize:12}}>Integrations</Typography>} icon={<DynamicFeedIcon sx={{fontSize:23}} />}/>
+      <BottomNavigationAction label={<Typography sx={{fontSize:12}}>Statistic</Typography>} icon={<ExtensionOutlinedIcon  sx={{fontSize:23}}/>}/>
+      <BottomNavigationAction label={<Typography sx={{fontSize:12}}>Tracker</Typography>} icon={<SavedSearchIcon  sx={{fontSize:23}}/>}/>
+      <BottomNavigationAction label={<Typography sx={{fontSize:12}}>Analytics</Typography>} icon={<TrackerIcon sx={{fontSize:23}} />}/>
       </BottomNavigation>
     </Box>
   );
