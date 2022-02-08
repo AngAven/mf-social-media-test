@@ -14,7 +14,6 @@ import TwitterBoard from '@pages/TwitterBoard'
 import LinkedIn from '@pages/LinkedIn'
 import NotFound from '@containers/NotFound'
 
-
 import '@styles/global.css'
 import {ThemeProvider} from '@emotion/react'
 

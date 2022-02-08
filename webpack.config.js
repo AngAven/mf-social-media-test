@@ -75,6 +75,7 @@ module.exports = {
     proxy: {
       '/api/**': {
         target: 'https://ms-social-media.vercel.app',
+        // target: 'http://localhost:4000',
         changeOrigin: true,
         secure: true
       }
