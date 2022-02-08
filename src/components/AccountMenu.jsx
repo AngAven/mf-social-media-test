@@ -23,18 +23,16 @@ export default function AccountMenu({ state }) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const { isAuthenticated, logout } = useAuth0();
+  const { isAuthenticated, logout, user } = useAuth0();
 
   const handleLogOut = () => {
     logout({ returnTo: window.location.origin })
   };
 
-
-
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-        <Typography color="primary">{state.facebook.name}</Typography>
+        <Typography color="primary">{user.name}</Typography>
         <Tooltip title="Account settings">
           <IconButton
             onClick={handleClick}
@@ -45,7 +43,7 @@ export default function AccountMenu({ state }) {
             aria-expanded={open ? 'true' : undefined}
           >
             {
-              state.facebook.name && (<Avatar > {state.facebook.name[0].toUpperCase() } </Avatar>)
+              user.name && (<Avatar src={user.picture}> {user.name[0].toUpperCase() } </Avatar>)
             }
             
             {/*  <Avatar className={classes.avatar} /> */}
