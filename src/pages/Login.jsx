@@ -1,29 +1,18 @@
-import { Container } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import React from 'react';
 import LoginSocialButtons from '../components/LoginSocialButtons';
-import { useAuth0 } from "@auth0/auth0-react";
 import { Redirect } from 'react-router-dom'
-import '../styles/pages/Login.scss';
-
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Login = () => {
   const { isAuthenticated, isLoading } = useAuth0();
 
   if(isLoading) {
-    return <Container>Loading...</Container>
+    return <Box>Loading...</Box> ;
   } else if (isAuthenticated) {
-    return <Redirect to="/dashboard"></Redirect>
+    return <Redirect to="/dashboard"></Redirect>;
   } else {
-    return (<Container>
-        <div className="login">
-          <div className="form-container">
-            <form action="/" className="form">
-              <label className="label" >Login with: </label>
-              <LoginSocialButtons />
-            </form>
-          </div>
-        </div>
-      </Container>)
+    return <Box><LoginSocialButtons/></Box>;
   }
 }
 
