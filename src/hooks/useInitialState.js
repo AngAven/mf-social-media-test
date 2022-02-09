@@ -5,7 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const api_base_url = 'api';
 
 const API_Facebook = `${api_base_url}/v1/facebook/info`;
-const API_Linkedin = `${api_base_url}/api/v1/linkedin/info`;
+const API_Linkedin = `${api_base_url}/v1/linkedin/info`;
 const API_Twitter = `${api_base_url}/v1/twitter/info`;
 const API_Custom = `${api_base_url}/v1/twitter/info`;
 
@@ -55,10 +55,16 @@ const useInitialState = () => {
   }, [])
 
   useEffect(async () => {
+    const token = await getAccessTokenSilently();
+    
     try {
-      const {data} = await axios.get(API_Linkedin)
-      const li = {...data[0].lk}
-      setLinkedinData({...li[0]})
+      const {data} = await axios.get(API_Linkedin, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        crossdomain: true
+      })
+      setLinkedinData({...data.lk})
     } catch (e) {
       console.error(e)
       setState({
