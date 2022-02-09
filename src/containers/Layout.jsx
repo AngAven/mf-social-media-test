@@ -140,7 +140,7 @@ const useStyles = makeStyles((theme) => {
 const Layout = ({ children }) => {
 
   const classes = useStyles()
-  const { state } = useContext(AppContext)
+  const { state, authSelection } = useContext(AppContext)
   const { facebook, linkedin, twitter, isAuthenticated } = state
   const history = useHistory()
   const theme = useTheme();
@@ -158,21 +158,25 @@ const Layout = ({ children }) => {
       text: 'Dashboard',
       icon: <WebIcon color="primary" style={{ fontSize: 30 }} />,
       path: '/dashboard',
+      name: 'dashboard',
     },
     {
       text: 'Facebook',
       icon: <FacebookIcon color="primary" style={{ fontSize: 30 }} />,
-      path: '/facebook'
+      path: '/facebook',
+      name: 'facebook',
     },
     {
       text: 'Twitter',
       icon: <TwitterIcon color="primary" style={{ fontSize: 30 }} />,
       path: '/twitter',
+      name: 'twitter',
     },
     {
       text: 'LinkedIn',
       icon: <LinkedInIcon color="primary" style={{ fontSize: 30 }} />,
       path: '/linkedin',
+      name: 'linkedin',
     }
   ]
 
@@ -247,6 +251,7 @@ const Layout = ({ children }) => {
                   menuItems.map(item => (
                     <ListItem
                       button
+                      onClick={() => authSelection(item.name)}
                       key={item.text}
                       component={Link} to={item.path}
                     >
