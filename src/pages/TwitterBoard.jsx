@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext,useState } from 'react'
 import AppContext from '@context/AppContext'
 import { Container } from '@mui/material'
 import { makeStyles } from '@material-ui/core'
@@ -24,10 +24,13 @@ const useStyles = makeStyles({
 })
 
 
+
+
 const TwitterBoard = () => {
   const classes = useStyles()
   const {state} = useContext(AppContext)
   const {twitter} = state
+
 
   const IconCards = [
     {
@@ -52,11 +55,17 @@ const TwitterBoard = () => {
     }
   ]
 
+  const [data, setData] = useState()
+  const childToParent=(childdata) =>{
+    setData(childdata)
+  }
+
+
   return (
     <Container>
       <Grid container spacing={4}>
       <Grid item xs ={12} md={12} lg={12} >
-          <CardHeader/>
+          <CardHeader />
         </Grid>
         <Grid item xs={12} md={6} lg={6} >
           {/*<CardProfilePicture/>*/}
@@ -65,7 +74,7 @@ const TwitterBoard = () => {
         <Grid item xs={12} md={6} lg={6}>
           <div>
             <div>
-              <CardBasicInfo/>
+              <CardBasicInfo childToParent={childToParent} />
             </div>
           </div>
         </Grid>
@@ -73,7 +82,7 @@ const TwitterBoard = () => {
         {
           IconCards.map(item => (
             <Grid item xs={12} md={4} lg={6} key={item.text}>
-              <CardIntegration item={item}/>
+              <CardIntegration item={item} childToParent={childToParent}/>
             </Grid>
           ))
         }

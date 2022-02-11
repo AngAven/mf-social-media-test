@@ -56,7 +56,7 @@ const useInitialState = () => {
 
   useEffect(async () => {
     const token = await getAccessTokenSilently();
-    
+
     try {
       const {data} = await axios.get(API_Linkedin, {
         headers: {
