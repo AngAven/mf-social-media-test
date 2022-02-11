@@ -55,17 +55,15 @@ const TwitterBoard = () => {
     }
   ]
 
-  const [data, setData] = useState()
-  const childToParent=(childdata) =>{
-    setData(childdata)
-  }
+  const [selectedMode,setSelectedMode] = useState(false)
+
 
 
   return (
     <Container>
       <Grid container spacing={4}>
       <Grid item xs ={12} md={12} lg={12} >
-          <CardHeader />
+          <CardHeader setSelectedMode={setSelectedMode} />
         </Grid>
         <Grid item xs={12} md={6} lg={6} >
           {/*<CardProfilePicture/>*/}
@@ -74,7 +72,7 @@ const TwitterBoard = () => {
         <Grid item xs={12} md={6} lg={6}>
           <div>
             <div>
-              <CardBasicInfo childToParent={childToParent} />
+              <CardBasicInfo  selectedMode={selectedMode} />
             </div>
           </div>
         </Grid>
@@ -82,7 +80,7 @@ const TwitterBoard = () => {
         {
           IconCards.map(item => (
             <Grid item xs={12} md={4} lg={6} key={item.text}>
-              <CardIntegration item={item} childToParent={childToParent}/>
+              <CardIntegration item={item} />
             </Grid>
           ))
         }

@@ -9,7 +9,7 @@ import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
-export default function CardHeader({childToParent}) {
+export default function CardHeader({setSelectedMode}) {
     const EditSwitch = styled(Switch)(({ theme }) => ({
         padding: 8,
         '& .MuiSwitch-track': {
@@ -48,6 +48,7 @@ export default function CardHeader({childToParent}) {
     const data=checked
 
     const handleChange = (event) => {
+      setSelectedMode(event.target.checked)
       setChecked(event.target.checked);
   }
 
@@ -64,11 +65,11 @@ export default function CardHeader({childToParent}) {
         label="Edit mode"
         labelPlacement='start'
         checked={checked}
-        onChange={()=>childToParent(data),handleChange}
+        onChange={handleChange}
     />
     </FormGroup>
     <Button variant="contained" sx={{height:30 ,marginTop:1.5, marginLeft:3}}
-    onClick={()=>setChecked(false)}
+    onClick={()=>{setChecked(false),setSelectedMode(false)}}
     endIcon={<AutoFixHighIcon />}> Preview
     </Button>
     </Grid>

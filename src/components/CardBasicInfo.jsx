@@ -34,7 +34,7 @@ const useStyles = makeStyles({
 
 
 
-export default function CardBasicInfo({childToParent}) {
+export default function CardBasicInfo({selectedMode}) {
   const classes = useStyles(facebook)
   const { state } = useContext(AppContext)
   const { facebook, linkedin, twitter } = state
@@ -71,7 +71,7 @@ export default function CardBasicInfo({childToParent}) {
 
       <Card elevation={1}>
         <CardContent >
-        {console.log(childToParent)}
+
           <Typography variant="h4">
             {facebook.name}
           </Typography>
@@ -81,14 +81,13 @@ export default function CardBasicInfo({childToParent}) {
             {/* <IconButton >
               {/* <VisibilityIcon  sx={{display:'none'}} visibility='hidden' />
             </IconButton> */}
-            <Box display= {childToParent ? 'inherit' : 'none'}>
+            <Box display= {selectedMode ? 'inherit' : 'none'}>
               <IconButton
               onClick={handleClick(i)}>
               {clicked[i] ? <VisibilityIcon /> : <VisibilityOff />}
               </IconButton>
               </Box>
               <IconButton
-              onClick={childToParent ? console.log("dfgdf"): console.log("sfsdfsdf")}
               color= {clicked[i] ? 'default': 'secondary'}>
               {item.icon } </IconButton>
               <Typography variant='h5' >{item.text} </Typography>
