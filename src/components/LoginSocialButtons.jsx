@@ -80,7 +80,8 @@ export default function LoginSocialButtons(){
         style={{textDecoration: 'none'}}>
         <SocialButtonsStyle
           name="linkedin"
-          onClick={() => alert('Selected')}
+          /* onClick={() => alert('Selected')} */
+          onClick={loginAuthSelection}
           sx={{
             backgroundColor: '#0e76a8',
             '&:hover': {

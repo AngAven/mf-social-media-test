@@ -1,4 +1,4 @@
-import React, { useContext} from 'react'
+import React, { useContext } from 'react'
 import AppContext from '@context/AppContext'
 import { Container } from '@mui/material'
 import { makeStyles } from '@material-ui/core'
@@ -15,6 +15,7 @@ import CardWork from '@components/CardWork'
 import CardFollows from '@components/CardFollows'
 import CardInterest from '../components/CardInterest'
 import CardHeader from '../components/CardHeader'
+import { display } from '@mui/system'
 
 
 const useStyles = makeStyles({
@@ -26,29 +27,31 @@ const useStyles = makeStyles({
 
 const IntegrationProfile = () => {
   const classes = useStyles()
-  const {state} = useContext(AppContext)
-  const {facebook, linkedin, twitter} = state
+  const { state } = useContext(AppContext)
+  const { facebook, linkedin, twitter } = state
+
+
 
   const IconCards = [
     {
       text: 'Education',
-      icon: <SchoolIcon color="primary" style={{fontSize: 30}}/>,
-      comp: <CardEducation state={state}/>
+      icon: <SchoolIcon color="primary" style={{ fontSize: 30 }} />,
+      comp: <CardEducation state={state} />
     },
     {
       text: 'Work',
-      icon: <WorkIcon color="primary" style={{fontSize: 30}}/>,
-      comp: <CardWork/>
+      icon: <WorkIcon color="primary" style={{ fontSize: 30 }} />,
+      comp: <CardWork />
     },
     {
       text: 'Follows',
-      icon: <ThumbUpAltIcon color="primary" style={{fontSize: 30}}/>,
-      comp: <CardFollows/>
+      icon: <ThumbUpAltIcon color="primary" style={{ fontSize: 30 }} />,
+      comp: <CardFollows />
     },
     {
       text: 'Interest',
-      icon: <InterestsIcon color="primary" style={{fontSize: 30}}/>,
-      comp: <CardInterest/>
+      icon: <InterestsIcon color="primary" style={{ fontSize: 30 }} />,
+      comp: '<CardInterest/>'
     }
   ]
 
@@ -56,26 +59,29 @@ const IntegrationProfile = () => {
     <Container>
 
       <Grid container spacing={4}>
-
-        <Grid item xs={12} md={6} lg={6} >
-          <CardProfilePicture state={state}/>
+        <Grid item xs={12} md={12} lg={12} >
+          <CardHeader />
         </Grid>
 
-        <Grid item xs={12} md={6} lg={6}>
+        <Grid item xs={12} md={4} lg={4} >
+          <CardProfilePicture state={state} />
+        </Grid>
+
+        <Grid item xs={12} md={8} lg={8}>
           <div>
             <div>
-              <CardBasicInfo/>
+              <CardBasicInfo />
             </div>
           </div>
         </Grid>
 
-        {
+      {/*   {
           IconCards.map(item => (
             <Grid item xs={12} md={4} lg={6} key={item.text}>
-              <CardIntegration item={item}/>
+              <CardIntegration item={item} />
             </Grid>
           ))
-        }
+        } */}
       </Grid>
     </Container>
   )
