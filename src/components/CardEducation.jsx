@@ -1,49 +1,54 @@
-import * as React from 'react';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
+import React from 'react'
+import {useContext} from 'react'
+import AppContext from '@context/AppContext'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import ListItemText from '@mui/material/ListItemText'
+import ListItemAvatar from '@mui/material/ListItemAvatar'
+import Avatar from '@mui/material/Avatar'
+import Typography from '@mui/material/Typography'
 
 
-export default function CardEducation({ state }) {
-    const { facebook, linkedin, twitter } = state
+export default function CardEducation(){
+  const {state} = useContext(AppContext)
+  const {currentNetworkObjectSelected} = state
 
-    return (
-        <List sx={{ width: '100%', maxWidth: 550, bgcolor: 'background.paper' }}>
-            {
-                linkedin.education && linkedin.education.map((item) => (
-                    <ListItem
-                        alignItems="flex-start"
-                        key={item.id}
-                    >
-                        <ListItemAvatar>
-                            <Avatar alt={item.institute} src={item.logo} />
-                        </ListItemAvatar>
+    console.log('currentNetworkObjectSelected => ', currentNetworkObjectSelected)
 
-                        <ListItemText
-                            primary={
-                                <Typography variant='h5' >{item.title}</Typography>}
-                            secondary={
-                                <React.Fragment>
-                                    <Typography
-                                        sx={{ display: 'inline' }}
-                                        component="span"
-                                        variant="h6"
-                                        color="text.primary"
-                                    >
-                                        {item.institute} -
-                                    </Typography>
-                                    {item.time_period} - {item.country}
-                                </React.Fragment>
-                            }
-                        >
-                        </ListItemText>
-                    </ListItem>
+  return (
+    <List sx={{width: '100%', maxWidth: 550, bgcolor: 'background.paper'}}>
+      {
+        Object.keys(currentNetworkObjectSelected).length > 0 && currentNetworkObjectSelected.education && currentNetworkObjectSelected.education.map((item) => (
+          <ListItem
+            alignItems="flex-start"
+            key={item.id}
+          >
+            <ListItemAvatar>
+              <Avatar alt={item.institute} src={item.logo}/>
+            </ListItemAvatar>
 
-                ))
-            }
-        </List>
-    )
+            <ListItemText
+              primary={
+                <Typography variant="h5">{item.title}</Typography>}
+              secondary={
+                <React.Fragment>
+                  <Typography
+                    sx={{display: 'inline'}}
+                    component="span"
+                    variant="h6"
+                    color="text.primary"
+                  >
+                    {item.institute} -
+                  </Typography>
+                  {item.time_period} - {item.country}
+                </React.Fragment>
+              }
+            >
+            </ListItemText>
+          </ListItem>
+
+        ))
+      }
+    </List>
+  )
 }

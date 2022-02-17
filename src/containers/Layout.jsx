@@ -1,11 +1,10 @@
-import React, { useContext } from 'react'
-import { Link } from "react-router-dom"
+import React, {useContext} from 'react'
+import {Link} from 'react-router-dom'
 import AppContext from '@context/AppContext'
 import Divider from '@mui/material/Divider'
 import MuiAppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-import Avatar from '@mui/material/Avatar'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
@@ -13,23 +12,22 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import WebIcon from '@mui/icons-material/Web'
-import { ListItemIcon } from '@material-ui/core'
-import { deepPurple, purple } from '@material-ui/core/colors'
+import {ListItemIcon} from '@material-ui/core'
+import {deepPurple, purple} from '@material-ui/core/colors'
 import MuiDrawer from '@material-ui/core/Drawer'
-import { makeStyles } from '@material-ui/core'
-import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import {makeStyles} from '@material-ui/core'
+import MenuOpenIcon from '@mui/icons-material/MenuOpen'
 import logo from '@logos/logo.svg'
-import { Box } from '@mui/system'
-import { IconButton } from '@mui/material'
+import {Box} from '@mui/system'
+import {IconButton} from '@mui/material'
 import Menu from '@mui/icons-material/Menu'
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { useHistory } from 'react-router-dom'
-import { styled, useTheme } from '@mui/material/styles';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight'
+import {useHistory} from 'react-router-dom'
+import {styled, useTheme} from '@mui/material/styles'
 import MenuIcons from '@components/MenuIcons'
-import {Button} from '@mui/material'
 import AccountMenu from '../components/AccountMenu'
 
-const drawerWidth = 200;
+const drawerWidth = 200
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -38,7 +36,7 @@ const openedMixin = (theme) => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: 'hidden',
-});
+})
 
 const closedMixin = (theme) => ({
   transition: theme.transitions.create('width', {
@@ -50,20 +48,20 @@ const closedMixin = (theme) => ({
   [theme.breakpoints.up('sm')]: {
     width: `calc(${theme.spacing(9)} + 1px)`,
   },
-});
+})
 
-const DrawerHeader = styled('div')(({ theme }) => ({
+const DrawerHeader = styled('div')(({theme}) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',
   padding: theme.spacing(0, 1),
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
-}));
+}))
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
+})(({theme, open}) => ({
   zIndex: theme.zIndex.drawer + 1,
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
@@ -77,10 +75,10 @@ const AppBar = styled(MuiAppBar, {
       duration: theme.transitions.duration.enteringScreen,
     }),
   }),
-}));
+}))
 
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
+const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== 'open'})(
+  ({theme, open}) => ({
     width: drawerWidth,
     flexShrink: 0,
     whiteSpace: 'nowrap',
@@ -94,9 +92,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
       '& .MuiDrawer-paper': closedMixin(theme),
     }),
   }),
-);
-
-
+)
 
 const useStyles = makeStyles((theme) => {
 
@@ -137,52 +133,50 @@ const useStyles = makeStyles((theme) => {
   }
 })
 
-const Layout = ({ children }) => {
-
+const Layout = ({children}) => {
   const classes = useStyles()
-  const { state, authSelection } = useContext(AppContext)
-  const { facebook, linkedin, twitter, isAuthenticated } = state
+  const {state, authSelection} = useContext(AppContext)
+  const {isAuthenticated} = state
   const history = useHistory()
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const theme = useTheme()
+  const [open, setOpen] = React.useState(false)
   const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   const handleDrawerClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   const menuItems = [
     {
       text: 'Dashboard',
-      icon: <WebIcon color="primary" style={{ fontSize: 30 }} />,
+      icon: <WebIcon color="primary" style={{fontSize: 30}}/>,
       path: '/dashboard',
       name: 'dashboard',
     },
     {
       text: 'Facebook',
-      icon: <FacebookIcon color="primary" style={{ fontSize: 30 }} />,
+      icon: <FacebookIcon color="primary" style={{fontSize: 30}}/>,
       path: '/facebook',
       name: 'facebook',
     },
     {
       text: 'Twitter',
-      icon: <TwitterIcon color="primary" style={{ fontSize: 30 }} />,
+      icon: <TwitterIcon color="primary" style={{fontSize: 30}}/>,
       path: '/twitter',
       name: 'twitter',
     },
     {
       text: 'LinkedIn',
-      icon: <LinkedInIcon color="primary" style={{ fontSize: 30 }} />,
+      icon: <LinkedInIcon color="primary" style={{fontSize: 30}}/>,
       path: '/linkedin',
       name: 'linkedin',
     }
   ]
 
   return (
-
-    <Box className={classes.root} sx={{ display: 'flex' }}>
+    <Box className={classes.root} sx={{display: 'flex'}}>
       <AppBar
         open={open}
         style={{
@@ -201,22 +195,22 @@ const Layout = ({ children }) => {
                 edge="start"
                 sx={{
                   marginRight: '3px',
-                  ...(open && { display: 'none' }),
+                  ...(open && {display: 'none'}),
                 }}
               >
-                <MenuOpenIcon style={{ fontSize: 40 }} />
+                <MenuOpenIcon style={{fontSize: 40}}/>
               </IconButton>)
           }
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="logo"/>
           {
             isAuthenticated && (
               <>
 
                 <Typography className={classes.toolbarTitle}>
                 </Typography>
-                <MenuIcons />
+                <MenuIcons/>
                 <AccountMenu state={state}/>
-              {/*   <button onClick={() => logout({ returnTo: window.location.origin })}>Logout</button> */}
+                {/*   <button onClick={() => logout({ returnTo: window.location.origin })}>Logout</button> */}
               </>
 
             )}
@@ -236,8 +230,8 @@ const Layout = ({ children }) => {
               }}
             >
               <DrawerHeader>
-                <IconButton onClick={handleDrawerClose} color="primary"  >
-                  {theme.direction === 'rtl' ? <ChevronRightIcon /> : <Menu style={{ fontSize: 40 }} />}
+                <IconButton onClick={handleDrawerClose} color="primary">
+                  {theme.direction === 'rtl' ? <ChevronRightIcon/> : <Menu style={{fontSize: 40}}/>}
                 </IconButton>
               </DrawerHeader>
               <div>
@@ -245,7 +239,7 @@ const Layout = ({ children }) => {
                   Edition
                 </Typography> */}
               </div>
-              <Divider />
+              <Divider/>
               <List>
                 {
                   menuItems.map(item => (
@@ -258,7 +252,7 @@ const Layout = ({ children }) => {
                       <ListItemIcon>{item.icon}</ListItemIcon>
                       <ListItemText
                         primary={item.text}
-                        primaryTypographyProps={{ fontSize: '1.7rem' }} />
+                        primaryTypographyProps={{fontSize: '1.7rem'}}/>
                     </ListItem>
                   ))
                 }
@@ -269,10 +263,11 @@ const Layout = ({ children }) => {
       }
 
       <div className={classes.page}>
-        <div className={classes.toolbar}></div>
+        <div className={classes.toolbar}/>
         {children}
       </div>
     </Box>
   )
 }
+
 export default Layout

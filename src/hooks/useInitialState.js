@@ -1,19 +1,20 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-import { useAuth0 } from "@auth0/auth0-react";
+import {useAuth0} from '@auth0/auth0-react'
 
-const api_base_url = 'api';
+const api_base_url = 'api'
 
-const API_Facebook = `${api_base_url}/v1/facebook/info`;
-const API_Linkedin = `${api_base_url}/v1/linkedin/info`;
-const API_Twitter = `${api_base_url}/v1/twitter/info`;
-const API_Custom = `${api_base_url}/v1/twitter/info`;
+const API_Facebook = `${api_base_url}/v1/facebook/info`
+const API_Linkedin = `${api_base_url}/v1/linkedin/info`
+const API_Twitter = `${api_base_url}/v1/twitter/info`
+const API_Custom = `${api_base_url}/v1/twitter/info`
 
 const initialState = {
   facebook: {},
   twitter: {},
   linkedin: {},
   custom: {},
+  currentNetworkObjectSelected: {},
   isLogged: false,
   dashboardSelected: '',
   socialNetworks: ['facebook', 'twitter', 'linkedin', 'custom'],
@@ -25,17 +26,44 @@ const useInitialState = () => {
   const [facebookData, setFacebookData] = useState({})
   const [linkedinData, setLinkedinData] = useState({})
   const [twitterData, setTwitterData] = useState({})
-  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
+  const {getAccessTokenSilently, isAuthenticated} = useAuth0()
+
+  // uodates the state in it's currentNetworkObjectSelected object
+  const setcurrentNetworkObjectSelectedNetworkSelectedObject = (authSelected) => {
+    if (authSelected === 'facebook') {
+      setState({
+        ...state,
+        currentNetworkObjectSelected: facebookData
+      })
+    } else if (authSelected === 'linkedin') {
+      setState({
+        ...state,
+        currentNetworkObjectSelected: linkedinData
+      })
+    } else if (authSelected === 'twitter') {
+      setState({
+        ...state,
+        currentNetworkObjectSelected: twitterData
+      })
+    } else if (authSelected === 'custom') {
+      setState({
+        ...state,
+        currentNetworkObjectSelected: state.custom
+      })
+    }
+  }
 
   const authSelection = (authSelected) => {
     setState({
       ...state,
       dashboardSelected: authSelected
     })
+
+    setcurrentNetworkObjectSelectedNetworkSelectedObject(authSelected)
   }
 
   useEffect(async () => {
-    const token = await getAccessTokenSilently();
+    const token = await getAccessTokenSilently()
 
     try {
       const {data} = await axios.get(API_Facebook, {
@@ -55,7 +83,7 @@ const useInitialState = () => {
   }, [])
 
   useEffect(async () => {
-    const token = await getAccessTokenSilently();
+    const token = await getAccessTokenSilently()
 
     try {
       const {data} = await axios.get(API_Linkedin, {
@@ -75,7 +103,7 @@ const useInitialState = () => {
   }, [])
 
   useEffect(async () => {
-    const token = await getAccessTokenSilently();
+    const token = await getAccessTokenSilently()
 
     try {
       const {data} = await axios.get(API_Twitter, {
@@ -102,7 +130,7 @@ const useInitialState = () => {
       linkedin: {...linkedinData},
       isAuthenticated: isAuthenticated
     })
-  }, [facebookData, twitterData, linkedinData, isAuthenticated])
+  }, [facebookData, twitterData, linkedinData])
 
   return {
     state,

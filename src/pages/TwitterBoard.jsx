@@ -1,9 +1,6 @@
-import React, { useContext,useState } from 'react'
-import AppContext from '@context/AppContext'
-import { Container } from '@mui/material'
-import { makeStyles } from '@material-ui/core'
-import { Grid } from '@mui/material'
-import CardProfilePicture from '@components/CardProfilePicture'
+import React, {useContext, useState} from 'react'
+import {Container} from '@mui/material'
+import {Grid} from '@mui/material'
 import CardBasicInfo from '@components/CardBasicInfo'
 import SchoolIcon from '@mui/icons-material/School'
 import WorkIcon from '@mui/icons-material/Work'
@@ -16,27 +13,12 @@ import CardFollows from '@components/CardFollows'
 import CardInterest from '../components/CardInterest'
 import CardHeader from '../components/CardHeader'
 
-
-const useStyles = makeStyles({
-  profilecard: {
-    margin: 20
-  }
-})
-
-
-
-
 const TwitterBoard = () => {
-  const classes = useStyles()
-  const {state} = useContext(AppContext)
-  const {twitter} = state
-
-
   const IconCards = [
     {
       text: 'Education',
       icon: <SchoolIcon color="primary" style={{fontSize: 30}}/>,
-      comp: <CardEducation state={state}/>
+      comp: <CardEducation/>
     },
     {
       text: 'Work',
@@ -55,24 +37,22 @@ const TwitterBoard = () => {
     }
   ]
 
-  const [selectedMode,setSelectedMode] = useState(false)
-
-
+  const [selectedMode, setSelectedMode] = useState(false)
 
   return (
     <Container>
       <Grid container spacing={4}>
-      <Grid item xs ={12} md={12} lg={12} >
-          <CardHeader setSelectedMode={setSelectedMode} />
+        <Grid item xs={12} md={12} lg={12}>
+          <CardHeader setSelectedMode={setSelectedMode}/>
         </Grid>
-        <Grid item xs={12} md={6} lg={6} >
+        <Grid item xs={12} md={6} lg={6}>
           {/*<CardProfilePicture/>*/}
         </Grid>
 
         <Grid item xs={12} md={6} lg={6}>
           <div>
             <div>
-              <CardBasicInfo  selectedMode={selectedMode} />
+              <CardBasicInfo selectedMode={selectedMode}/>
             </div>
           </div>
         </Grid>
@@ -80,7 +60,7 @@ const TwitterBoard = () => {
         {
           IconCards.map(item => (
             <Grid item xs={12} md={4} lg={6} key={item.text}>
-              <CardIntegration item={item} />
+              <CardIntegration item={item}/>
             </Grid>
           ))
         }

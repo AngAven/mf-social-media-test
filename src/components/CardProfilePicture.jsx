@@ -1,22 +1,22 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-/* import flag from '@icons/flag-col.svg'; */
-import CardMedia from '@mui/material/CardMedia';
+import React from 'react'
+import AppContext from '@context/AppContext'
+import {useContext} from 'react'
+import Card from '@mui/material/Card'
+import CardMedia from '@mui/material/CardMedia'
 
-export default function CardProfilePicture({ state }) {
-    const { facebook, linkedin, twitter } = state
-    return (
-        <Card sx={{ maxWidth: 345, mx: '17%'}}>
-            {
-                <CardMedia
-                    component="img"
-                    image={facebook.picture_large}
-                    alt="Profile Picture"
+export default function CardProfilePicture(){
+  const {state} = useContext(AppContext)
+  const {currentNetworkObjectSelected} = state
 
-                />
-            }
-            {/*  <img src={flag} width={32} alt="Col" position={'absolute'} /> */}
-        </Card>
+  return (<Card sx={{maxWidth: 345, mx: '17%'}}>
+      {
+        Object.keys(currentNetworkObjectSelected).length > 0 &&
+        (<CardMedia
+          component="img"
+          image={currentNetworkObjectSelected.picture_large}
+          alt="Profile Picture"
+        />)}
+    </Card>
 
-    );
+  )
 }
