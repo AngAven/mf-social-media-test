@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-import AppContext from '@context/AppContext'
+import React from 'react'
 import { Container } from '@mui/material'
 import { makeStyles } from '@material-ui/core'
 import { Grid } from '@mui/material'
@@ -22,17 +21,13 @@ const useStyles = makeStyles({
   }
 })
 
-
 const LinkedIn = () => {
-  const classes = useStyles()
-  const {state} = useContext(AppContext)
-  const {facebook, linkedin, twitter} = state
 
   const IconCards = [
     {
       text: 'Education',
       icon: <SchoolIcon color="primary" style={{fontSize: 30}}/>,
-      comp: <CardEducation state={state}/>
+      comp: <CardEducation/>
     },
     {
       text: 'Work',

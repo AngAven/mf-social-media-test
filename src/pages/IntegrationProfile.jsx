@@ -27,16 +27,14 @@ const useStyles = makeStyles({
 
 const IntegrationProfile = () => {
   const classes = useStyles()
-  const { state } = useContext(AppContext)
-  const { facebook, linkedin, twitter } = state
 
 
 
   const IconCards = [
     {
       text: 'Education',
-      icon: <SchoolIcon color="primary" style={{ fontSize: 30 }} />,
-      comp: <CardEducation state={state} />
+      icon: <SchoolIcon color="primary" style={{fontSize: 30}}/>,
+      comp: <CardEducation/>
     },
     {
       text: 'Work',
@@ -63,8 +61,8 @@ const IntegrationProfile = () => {
           <CardHeader />
         </Grid>
 
-        <Grid item xs={12} md={4} lg={4} >
-          <CardProfilePicture state={state} />
+        <Grid item xs={12} md={6} lg={6} >
+          <CardProfilePicture/>
         </Grid>
 
         <Grid item xs={12} md={8} lg={8}>

@@ -1,20 +1,18 @@
-import React, { useContext, useState} from 'react'
+import React, {useContext, useState} from 'react'
 import AppContext from '@context/AppContext'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@mui/material/Typography'
-import { IconButton, makeStyles } from '@material-ui/core'
-import { yellow, blue } from '@material-ui/core/colors'
+import {IconButton, makeStyles} from '@material-ui/core'
+import {yellow, blue} from '@material-ui/core/colors'
 import EmailIcon from '@mui/icons-material/Email'
 import CakeIcon from '@mui/icons-material/Cake'
-import FlagIcon from '@mui/icons-material/Flag';
+import FlagIcon from '@mui/icons-material/Flag'
 import LanguageIcon from '@mui/icons-material/Language'
 import ListItem from '@mui/material/ListItem'
-import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
-import { Box } from '@mui/material'
-
-
+import {Box} from '@mui/material'
 
 const useStyles = makeStyles({
   avatar: {
@@ -24,23 +22,20 @@ const useStyles = makeStyles({
       }
       return blue[500]
     },
-    button:{
+    button: {
       display: 'none',
       visibility: 'hidden'
     }
   }
 })
 
-
-
-
-export default function CardBasicInfo({selectedMode}) {
-  const classes = useStyles(facebook)
-  const { state } = useContext(AppContext)
-  const { facebook, linkedin, twitter } = state
-  const [clicked, setClicked]=useState({})
+export default function CardBasicInfo({selectedMode}){
+  const {state} = useContext(AppContext)
+  const {currentObject} = state
+  const [clicked, setClicked] = useState({})
 
   const handleClick = (i) => () => {
+    console.log('i => ', i)
     setClicked(state => ({
       ...state,
       [i]: !state[i]
@@ -49,20 +44,30 @@ export default function CardBasicInfo({selectedMode}) {
 
   const IconItems = [
     {
-      text: <>{facebook.email}</>,
-      icon: <EmailIcon color="primary" style={{ fontSize: 30 }} />,
+      text:
+        <>
+          {
+            Object.keys(currentObject).length > 0 &&
+            (
+              currentObject.email
+                ? currentObject.email
+                : 'No email'
+            )
+          }
+        </>,
+      icon: <EmailIcon color="primary" style={{fontSize: 30}}/>,
     },
     {
-      text: <>{facebook.birthday}</>,
-      icon: <CakeIcon color="primary" style={{ fontSize: 30 }} />,
+      text: <>{currentObject.birthday}</>,
+      icon: <CakeIcon color="primary" style={{fontSize: 30}}/>,
     },
     {
-      text: <>{facebook.nationality}</>,
-      icon: <FlagIcon color="primary" style={{ fontSize: 30 }} />,
+      text: <>{currentObject.nationality}</>,
+      icon: <FlagIcon color="primary" style={{fontSize: 30}}/>,
     },
     {
-      text: <>{facebook.languages}</>,
-      icon: <LanguageIcon color="primary" style={{ fontSize: 30 }} />,
+      text: <>{currentObject.languages}</>,
+      icon: <LanguageIcon color="primary" style={{fontSize: 30}}/>,
     }
   ]
 
@@ -70,27 +75,27 @@ export default function CardBasicInfo({selectedMode}) {
     <div>
 
       <Card elevation={1}>
-        <CardContent >
+        <CardContent>
 
           <Typography variant="h4">
-            {facebook.name}
+            {currentObject.name}
           </Typography>
 
           {IconItems.map((item, i) => (
             <ListItem key={i}>
-            {/* <IconButton >
+              {/* <IconButton >
               {/* <VisibilityIcon  sx={{display:'none'}} visibility='hidden' />
             </IconButton> */}
-            <Box display= {selectedMode ? 'inherit' : 'none'}>
-              <IconButton
-              onClick={handleClick(i)}>
-              {clicked[i] ? <VisibilityIcon /> : <VisibilityOff />}
-              </IconButton>
+              <Box display={selectedMode ? 'inherit' : 'none'}>
+                <IconButton
+                  onClick={handleClick(i)}>
+                  {clicked[i] ? <VisibilityIcon/> : <VisibilityOff/>}
+                </IconButton>
               </Box>
               <IconButton
-              color= {clicked[i] ? 'default': 'secondary'}>
-              {item.icon } </IconButton>
-              <Typography variant='h5' >{item.text} </Typography>
+                color={clicked[i] ? 'default' : 'secondary'}>
+                {item.icon} </IconButton>
+              <Typography variant="h5">{item.text} </Typography>
             </ListItem>
           ))
           }

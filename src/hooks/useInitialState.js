@@ -1,21 +1,21 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-import { useAuth0 } from "@auth0/auth0-react";
+import {useAuth0} from '@auth0/auth0-react'
 
-const api_base_url = 'api';
-
-const API_Facebook = `${api_base_url}/v1/facebook/info`;
-const API_Linkedin = `${api_base_url}/v1/linkedin/info`;
-const API_Twitter = `${api_base_url}/v1/twitter/info`;
-const API_Custom = `${api_base_url}/v1/twitter/info`;
+const api_base_url = 'api'
+const url_fake = 'https://4a5a-201-141-236-13.ngrok.io/data'
+const API_Facebook = `${url_fake}`
+const API_Linkedin = `${url_fake}`
+const API_Twitter = `${url_fake}`
+const API_Custom = `${url_fake}`
 
 const initialState = {
   facebook: {},
   twitter: {},
   linkedin: {},
   custom: {},
-  isLogged: false,
-  dashboardSelected: '',
+  currentObject: {},
+  dashBoardSelected: '',
   socialNetworks: ['facebook', 'twitter', 'linkedin', 'custom'],
   isAuthenticated: false,
 }
@@ -25,28 +25,52 @@ const useInitialState = () => {
   const [facebookData, setFacebookData] = useState({})
   const [linkedinData, setLinkedinData] = useState({})
   const [twitterData, setTwitterData] = useState({})
-  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
+  const [customData, setCustomData] = useState({})
+  const {getAccessTokenSilently, isAuthenticated} = useAuth0()
 
   const authSelection = (authSelected) => {
-    setState({
-      ...state,
-      dashboardSelected: authSelected
-    })
+    if (authSelected === 'facebook') {
+      setState({
+        ...state,
+        currentObject: facebookData,
+        dashBoardSelected: authSelected
+      })
+    } else if (authSelected === 'linkedin') {
+      setState({
+        ...state,
+        currentObject: linkedinData,
+        dashBoardSelected: authSelected
+      })
+    } else if (authSelected === 'twitter') {
+      setState({
+        ...state,
+        currentObject: twitterData,
+        dashBoardSelected: authSelected
+      })
+    } else if (authSelected === 'custom') {
+      setState({
+        ...state,
+        currentObject: state.custom,
+        dashBoardSelected: authSelected
+      })
+    }
   }
 
   useEffect(async () => {
-    const token = await getAccessTokenSilently();
+    const token = await getAccessTokenSilently()
 
     try {
-      const {data} = await axios.get(API_Facebook, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        },
-        crossdomain: true
-      })
-      setFacebookData({...data.fb})
+      // const {data} = await axios.get(API_Facebook, {
+      //   headers: {
+      //     Authorization: `Bearer ${token}`
+      //   },
+      //   crossdomain: true
+      // })
+      const {data} = await axios.get(API_Facebook)
+
+      setFacebookData({...data[0]})
     } catch (error) {
-      console.error(error)
+      console.error('error => ', error)
       setState({
         ...state,
         facebook: {},
@@ -55,18 +79,20 @@ const useInitialState = () => {
   }, [])
 
   useEffect(async () => {
-    const token = await getAccessTokenSilently();
+    const token = await getAccessTokenSilently()
 
     try {
-      const {data} = await axios.get(API_Linkedin, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        },
-        crossdomain: true
-      })
-      setLinkedinData({...data.lk})
-    } catch (e) {
-      console.error(e)
+      // const {data} = await axios.get(API_Linkedin, {
+      //   headers: {
+      //     Authorization: `Bearer ${token}`
+      //   },
+      //   crossdomain: true
+      // })
+      const {data} = await axios.get(API_Linkedin)
+
+      setLinkedinData({...data[0]})
+    } catch (error) {
+      console.error('error => ', error)
       setState({
         ...state,
         linkedin: {},
@@ -75,21 +101,45 @@ const useInitialState = () => {
   }, [])
 
   useEffect(async () => {
-    const token = await getAccessTokenSilently();
+    const token = await getAccessTokenSilently()
 
     try {
-      const {data} = await axios.get(API_Twitter, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        },
-        crossdomain: true
-      })
-      setTwitterData({...data.tw})
+      // const {data} = await axios.get(API_Linkedin, {
+      //   headers: {
+      //     Authorization: `Bearer ${token}`
+      //   },
+      //   crossdomain: true
+      // })
+      const {data} = await axios.get(API_Twitter)
+
+      setTwitterData({...data[0]})
     } catch (error) {
-      console.error(error)
+      console.error('error => ', error)
       setState({
         ...state,
         twitter: {},
+      })
+    }
+  }, [])
+
+  useEffect(async () => {
+    const token = await getAccessTokenSilently()
+
+    try {
+      // const {data} = await axios.get(API_Twitter, {
+      //   headers: {
+      //     Authorization: `Bearer ${token}`
+      //   },
+      //   crossdomain: true
+      // })
+      const {data} = await axios.get(API_Custom)
+
+      setCustomData({...data[0]})
+    } catch (error) {
+      console.error('error => ', error)
+      setState({
+        ...state,
+        custom: {},
       })
     }
   }, [])
@@ -100,9 +150,12 @@ const useInitialState = () => {
       facebook: {...facebookData},
       twitter: {...twitterData},
       linkedin: {...linkedinData},
-      isAuthenticated: isAuthenticated
+      custom: {...customData},
+      currentObject: {...customData},
+      isAuthenticated: isAuthenticated,
+      dashBoardSelected: 'custom',
     })
-  }, [facebookData, twitterData, linkedinData, isAuthenticated])
+  }, [facebookData, twitterData, linkedinData, customData, isAuthenticated])
 
   return {
     state,
