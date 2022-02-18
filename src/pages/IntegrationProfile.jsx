@@ -32,21 +32,25 @@ const IntegrationProfile = () => {
 
   const IconCards = [
     {
+      id: 1,
       text: 'Education',
       icon: <SchoolIcon color="primary" style={{fontSize: 30}}/>,
       comp: <CardEducation/>
     },
     {
+      id: 2,
       text: 'Work',
       icon: <WorkIcon color="primary" style={{ fontSize: 30 }} />,
       comp: <CardWork />
     },
     {
+      id: 3,
       text: 'Follows',
       icon: <ThumbUpAltIcon color="primary" style={{ fontSize: 30 }} />,
       comp: <CardFollows />
     },
     {
+      id: 4,
       text: 'Interest',
       icon: <InterestsIcon color="primary" style={{ fontSize: 30 }} />,
       comp: '<CardInterest/>'
@@ -73,13 +77,13 @@ const IntegrationProfile = () => {
           </div>
         </Grid>
 
-      {/*   {
+        {
           IconCards.map(item => (
-            <Grid item xs={12} md={4} lg={6} key={item.text}>
+            <Grid item xs={12} md={4} lg={6} key={item.id}>
               <CardIntegration item={item} />
             </Grid>
           ))
-        } */}
+        }
       </Grid>
     </Container>
   )

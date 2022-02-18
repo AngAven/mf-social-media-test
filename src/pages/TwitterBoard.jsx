@@ -12,6 +12,7 @@ import CardWork from '@components/CardWork'
 import CardFollows from '@components/CardFollows'
 import CardInterest from '../components/CardInterest'
 import CardHeader from '../components/CardHeader'
+import CardProfilePicture from '@components/CardProfilePicture'
 
 const TwitterBoard = () => {
   const IconCards = [
@@ -46,7 +47,7 @@ const TwitterBoard = () => {
           <CardHeader setSelectedMode={setSelectedMode}/>
         </Grid>
         <Grid item xs={12} md={6} lg={6}>
-          {/*<CardProfilePicture/>*/}
+          <CardProfilePicture/>
         </Grid>
 
         <Grid item xs={12} md={6} lg={6}>
