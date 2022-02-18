@@ -11,14 +11,12 @@ import Typography from '@mui/material/Typography'
 
 export default function CardEducation(){
   const {state} = useContext(AppContext)
-  const {currentNetworkObjectSelected} = state
-
-    console.log('currentNetworkObjectSelected => ', currentNetworkObjectSelected)
+  const {currentObject} = state
 
   return (
     <List sx={{width: '100%', maxWidth: 550, bgcolor: 'background.paper'}}>
       {
-        Object.keys(currentNetworkObjectSelected).length > 0 && currentNetworkObjectSelected.education && currentNetworkObjectSelected.education.map((item) => (
+        Object.keys(currentObject).length > 0 && currentObject.education && currentObject.education.map((item) => (
           <ListItem
             alignItems="flex-start"
             key={item.id}

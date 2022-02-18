@@ -31,10 +31,11 @@ const useStyles = makeStyles({
 
 export default function CardBasicInfo({selectedMode}){
   const {state} = useContext(AppContext)
-  const {currentNetworkObjectSelected} = state
+  const {currentObject} = state
   const [clicked, setClicked] = useState({})
 
   const handleClick = (i) => () => {
+    console.log('i => ', i)
     setClicked(state => ({
       ...state,
       [i]: !state[i]
@@ -46,10 +47,10 @@ export default function CardBasicInfo({selectedMode}){
       text:
         <>
           {
-            Object.keys(currentNetworkObjectSelected).length > 0 &&
+            Object.keys(currentObject).length > 0 &&
             (
-              currentNetworkObjectSelected.email
-                ? currentNetworkObjectSelected.email
+              currentObject.email
+                ? currentObject.email
                 : 'No email'
             )
           }
@@ -57,15 +58,15 @@ export default function CardBasicInfo({selectedMode}){
       icon: <EmailIcon color="primary" style={{fontSize: 30}}/>,
     },
     {
-      text: <>{'facebook.birthday'}</>,
+      text: <>{currentObject.birthday}</>,
       icon: <CakeIcon color="primary" style={{fontSize: 30}}/>,
     },
     {
-      text: <>{'facebook.nationality'}</>,
+      text: <>{currentObject.nationality}</>,
       icon: <FlagIcon color="primary" style={{fontSize: 30}}/>,
     },
     {
-      text: <>{'facebook.languages'}</>,
+      text: <>{currentObject.languages}</>,
       icon: <LanguageIcon color="primary" style={{fontSize: 30}}/>,
     }
   ]
@@ -77,7 +78,7 @@ export default function CardBasicInfo({selectedMode}){
         <CardContent>
 
           <Typography variant="h4">
-            {'facebook.name'}
+            {currentObject.name}
           </Typography>
 
           {IconItems.map((item, i) => (

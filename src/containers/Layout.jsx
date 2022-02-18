@@ -153,7 +153,7 @@ const Layout = ({children}) => {
       text: 'Dashboard',
       icon: <WebIcon color="primary" style={{fontSize: 30}}/>,
       path: '/dashboard',
-      name: 'dashboard',
+      name: 'custom',
     },
     {
       text: 'Facebook',
