@@ -19,12 +19,27 @@ const useStyles = makeStyles({
   }
 })
 
+async function handleConnection(socialName, userSub, login, getCurrentToken, getNewToken) {
+  try {
+    const accessToken = await getCurrentToken();
+    await login({connection: socialName});
+    const targetUserIdToken = await getNewToken();
+    const resp = await linkAccount(userSub, accessToken, targetUserIdToken.__raw);
+    console.log(resp);
+  } catch(err) {
+    console.error(err);
+  }
+  
+}
+
 export default function LinkedIn() {
 
   const {state} = useContext(AppContext)
-  const {currentObject} = state
+  const {currentObject, linkedin} = state
 
   const [education, setEducation] = useState(currentObject.education);
+
+  const { loginWithPopup, getAccessTokenSilently, getIdTokenClaims, user } = useAuth0();
 
 
   useEffect(() => {
@@ -36,6 +51,9 @@ export default function LinkedIn() {
  
   const [selectedMode, setSelectedMode] = useState(false)
 
+  if(Object.keys(linkedin).length === 0) {
+    return (<button onClick={() => handleConnection('linkedin', user.sub, loginWithPopup, getAccessTokenSilently, getIdTokenClaims)}>Conecta tu cuenta de linkedin</button>)
+  }
   return (
     <Container>
 
