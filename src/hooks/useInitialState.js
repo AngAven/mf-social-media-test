@@ -81,6 +81,7 @@ const useInitialState = () => {
       setFacebookData({...data.fb})
     } catch (error) {
       console.error('error => ', error)
+      console.log('isAuth: ', state.isAuthenticated);
       setState({
         ...state,
         facebook: {},
@@ -104,6 +105,7 @@ const useInitialState = () => {
       setLinkedinData({...data.lk})
     } catch (error) {
       console.error('error => ', error)
+      console.log('isAuth: ', state.isAuthenticated);
       setState({
         ...state,
         linkedin: {},
@@ -127,6 +129,7 @@ const useInitialState = () => {
       setTwitterData({...data.tw})
     } catch (error) {
       console.error('error => ', error)
+      console.log('isAuth: ', state.isAuthenticated);
       setState({
         ...state,
         twitter: {},
@@ -148,13 +151,13 @@ const useInitialState = () => {
     })
   }, [facebookData, twitterData, linkedinData, customData, isAuthenticated, user])
 
-  useEffect(async () => {
+  /* useEffect(async () => {
     const token = await getAccessTokenSilently();
     // const us = state.user.sub;
     // console.log(user);
-    /* if(!isLoading) {
+    if(!isLoading) {
       const API_Custom = `${api_base_url}/v1/users/customInfo/${us}`;
-    } */
+    }
     try {
       const data = await axios.get(API_Custom, {
         headers: {
@@ -168,12 +171,13 @@ const useInitialState = () => {
       setCustomData({...data})
     } catch (error) {
       console.error('error => ', error)
+      console.log('isAuth: ', state.isAuthenticated);
       setState({
         ...state,
         custom: {},
       })
     }
-  }, [])
+  }, []) */
 
   return {
     state,

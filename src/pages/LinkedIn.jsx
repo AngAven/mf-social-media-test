@@ -13,6 +13,8 @@ import FormDialog from '@components/FormDialog'
 import CardBasicInfo from '@components/CardBasicInfo'
 import CardProfilePicture from '@components/CardProfilePicture'
 
+import linkAccount from '../services/link-accounts';
+
 const useStyles = makeStyles({
   profilecard: {
     margin: 20
