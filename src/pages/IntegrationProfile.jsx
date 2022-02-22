@@ -24,11 +24,40 @@ const useStyles = makeStyles({
   }
 })
 
+useEffect(async () => {
+  const { getAccessTokenSilently, user } = useAuth0();
+  const api_base_url = 'api';
+
+  const token = await getAccessTokenSilently();
+
+  const API_Custom = `${api_base_url}/v1/users/customInfo/${user.sub}`;
+  /* try {
+    const data = await axios.get(API_Custom, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      crossdomain: true
+    })
+
+    setCustomData({...data})
+  } catch (error) {
+    console.error('error => ', error)
+    console.log('isAuth: ', state.isAuthenticated);
+    setState({
+      ...state,
+      custom: {},
+    })
+  } */
+}, [])
+
 
 const IntegrationProfile = () => {
   const classes = useStyles()
 
+  const {state} = useContext(AppContext)
+  const {currentObject, user} = state
 
+  console.log('usuario: ', user)
 
   const IconCards = [
     {

@@ -151,14 +151,18 @@ const useInitialState = () => {
     })
   }, [facebookData, twitterData, linkedinData, customData, isAuthenticated, user])
 
-  /* useEffect(async () => {
+  useEffect(async () => {
     const token = await getAccessTokenSilently();
+    const usr = await user;
     // const us = state.user.sub;
     // console.log(user);
-    if(!isLoading) {
+
+    console.log('custom');
+    if(state.user) {
+      console.log(state.user);
       const API_Custom = `${api_base_url}/v1/users/customInfo/${us}`;
     }
-    try {
+    /* try {
       const data = await axios.get(API_Custom, {
         headers: {
           Authorization: `Bearer ${token}`
@@ -176,8 +180,8 @@ const useInitialState = () => {
         ...state,
         custom: {},
       })
-    }
-  }, []) */
+    } */
+  }, [])
 
   return {
     state,
