@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import AppContext from '@context/AppContext'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
@@ -30,9 +30,14 @@ const useStyles = makeStyles({
 })
 
 export default function CardBasicInfo({selectedMode}){
-  const {state} = useContext(AppContext)
-  const {currentObject} = state
+  const {state, authSelection} = useContext(AppContext)
+  const {currentObject, user} = state
   const [clicked, setClicked] = useState({})
+  const route = window.location.href.split('/').slice(-1).toString()
+
+  useEffect(() => {
+    authSelection(route)
+  }, [])
 
   const handleClick = (i) => () => {
     console.log('i => ', i)
@@ -51,7 +56,7 @@ export default function CardBasicInfo({selectedMode}){
             (
               currentObject.email
                 ? currentObject.email
-                : 'No email'
+                : user.email
             )
           }
         </>,
