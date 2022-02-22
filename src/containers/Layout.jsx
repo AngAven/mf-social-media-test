@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import AppContext from '@context/AppContext'
 import Divider from '@mui/material/Divider'
@@ -136,10 +136,34 @@ const useStyles = makeStyles((theme) => {
 const Layout = ({children}) => {
   const classes = useStyles()
   const {state, authSelection} = useContext(AppContext)
-  const {isAuthenticated} = state
+  const {isAuthenticated, currentObject, facebook, twitter, linkedin} = state
   const history = useHistory()
   const theme = useTheme()
   const [open, setOpen] = React.useState(false)
+
+  const route = window.location.href.split('/').slice(-1).toString()
+
+  useEffect(() => {
+    if(Object.keys(currentObject).length === 0) {
+      // history.push('/')
+    }
+
+    if(Object.keys(facebook).length === 0) {
+      // history.push('/')
+    }
+
+    if(Object.keys(twitter).length === 0) {
+      // history.push('/')
+    }
+
+    if(Object.keys(linkedin).length === 0) {
+      // history.push('/')
+    }
+
+    authSelection(route)
+    console.log(route)
+  }, [])
+
   const handleDrawerOpen = () => {
     setOpen(true)
   }
@@ -153,7 +177,7 @@ const Layout = ({children}) => {
       text: 'Dashboard',
       icon: <WebIcon color="primary" style={{fontSize: 30}}/>,
       path: '/dashboard',
-      name: 'custom',
+      name: 'dashboard',
     },
     {
       text: 'Facebook',

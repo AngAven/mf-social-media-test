@@ -30,14 +30,9 @@ const useStyles = makeStyles({
 })
 
 export default function CardBasicInfo({selectedMode}){
-  const {state, authSelection} = useContext(AppContext)
+  const {state} = useContext(AppContext)
   const {currentObject, user} = state
   const [clicked, setClicked] = useState({})
-  const route = window.location.href.split('/').slice(-1).toString()
-
-  useEffect(() => {
-    authSelection(route)
-  }, [])
 
   const handleClick = (i) => () => {
     console.log('i => ', i)

@@ -13,6 +13,8 @@ export default function CardEducation(){
   const {state} = useContext(AppContext)
   const {currentObject} = state
 
+  console.log('Object.keys(currentObject).length => ', Object.keys(currentObject).length)
+
   return (
     <List sx={{width: '100%', maxWidth: 550, bgcolor: 'background.paper'}}>
       {

@@ -4,7 +4,6 @@ import AppContext from '@context/AppContext'
 import useInitialState from '@hooks/useInitialState'
 import {createTheme} from '@mui/material'
 import Layout from '@containers/Layout'
-import Home from '@pages/Home'
 import Login from '@pages/Login'
 import ConnectSocial from '@containers/ConnectSocial'
 import MainFeatures from '@pages/MainFeatures'
@@ -49,7 +48,6 @@ const App = () => {
           <Layout>
             <Switch>
               <Route exact path="/" component={Login}/>
-              <Route exact path="/home" component={Home}/>
               <Route exact path="/login" component={Login}/>
               <Route exact path="/connect-social" component={ConnectSocial}/>
               <Route exact path="/main_features" component={MainFeatures}/>
