@@ -10,7 +10,6 @@ export default function CardProfilePicture() {
     const { user } = useAuth0();
     const {state} = useContext(AppContext)
     const {currentObject} = state
-    
 
     return (
         <>
@@ -18,7 +17,7 @@ export default function CardProfilePicture() {
                 <Card /* sx={{ maxWidth: 345 }} */>
                     <CardMedia
                         component="img"
-                        image={currentObject.picture_large ? currentObject.picture_large : currentObject.picture_large}
+                        image={currentObject.picture_large }
                         alt="Profile Picture"
                     />
                 </Card >

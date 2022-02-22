@@ -12,6 +12,12 @@ import CardHeader from '../components/CardHeader'
 import FormDialog from '@components/FormDialog'
 import CardBasicInfo from '@components/CardBasicInfo'
 import CardProfilePicture from '@components/CardProfilePicture'
+import { styled } from '@mui/material/styles'
+import { Button } from '@mui/material'
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import { Box } from '@material-ui/core';
+import '../styles/global.css'
+
 
 import linkAccount from '../services/link-accounts';
 
@@ -24,37 +30,55 @@ const useStyles = makeStyles({
 async function handleConnection(socialName, userSub, login, getCurrentToken, getNewToken) {
   try {
     const accessToken = await getCurrentToken();
-    await login({connection: socialName});
+    await login({ connection: socialName });
     const targetUserIdToken = await getNewToken();
     const resp = await linkAccount(userSub, accessToken, targetUserIdToken.__raw);
     console.log(resp);
-  } catch(err) {
+  } catch (err) {
     console.error(err);
   }
-  
+
 }
 
 export default function LinkedIn() {
 
-  const {state} = useContext(AppContext)
-  const {currentObject, linkedin} = state
+  const { state } = useContext(AppContext)
+  const { currentObject, linkedin } = state
 
   const [education, setEducation] = useState(currentObject.education);
 
   const { loginWithPopup, getAccessTokenSilently, getIdTokenClaims, user } = useAuth0();
 
 
-  useEffect(() => {
-    fetch('http://localhost:8000/data')
-      .then(res => res.json())
-      .then(data => setEducation(data))
-  }, [])
+  /*   useEffect(() => {
+      fetch('http://localhost:8000/data')
+        .then(res => res.json())
+        .then(data => setEducation(data))
+    }, [])
+   */
 
- 
   const [selectedMode, setSelectedMode] = useState(false)
 
-  if(Object.keys(linkedin).length === 0) {
-    return (<button onClick={() => handleConnection('linkedin', user.sub, loginWithPopup, getAccessTokenSilently, getIdTokenClaims)}>Conecta tu cuenta de linkedin</button>)
+  if (Object.keys(linkedin).length === 0) {
+    return (
+
+
+      <Container>
+
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={12} lg={12} mt={'10px'} >
+            <Button
+              variant="contained"
+              startIcon={<LinkedInIcon />}
+              onClick={() => handleConnection('linkedin', user.sub, loginWithPopup, getAccessTokenSilently, getIdTokenClaims)}
+            >
+              Conecta tu cuenta de linkedin
+            </Button>
+          </Grid>
+        </Grid>
+      </Container>
+
+    )
   }
   return (
     <Container>
@@ -81,13 +105,13 @@ export default function LinkedIn() {
 
         <Grid item xs={12} md={6} lg={6} >
           <Card sx={{ maxWidth: 345 }}>
-           
+
           </Card>
         </Grid>
 
         <Grid item xs={12} md={6} lg={6}>
 
-          <CardEducation/>
+          <CardEducation />
 
           <div>
             <FormDialog></FormDialog>

@@ -1,19 +1,19 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import AppContext from '../context/AppContext'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import Grid from '@mui/material/Grid'
-import {Link} from 'react-router-dom'
-import {Button} from '@mui/material'
-import {Icon} from '@mui/material'
-import {Stack} from '@mui/material'
-import {styled} from '@mui/material/styles'
-import {Typography} from '@mui/material'
+import { Link } from 'react-router-dom'
+import { Button } from '@mui/material'
+import { Icon } from '@mui/material'
+import { Stack } from '@mui/material'
+import { styled } from '@mui/material/styles'
+import { Typography } from '@mui/material'
 
-export default function LoginSocialButtons(){
-  const {state, authSelection} = useContext(AppContext)
-  const {socialNetworks} = state
+export default function LoginSocialButtons() {
+  const { state, authSelection } = useContext(AppContext)
+  const { socialNetworks } = state
 
   // Select which social media dashboard to show by default
   const loginAuthSelection = (e) => {
@@ -40,12 +40,12 @@ export default function LoginSocialButtons(){
       justifyContent="center"
       height="87vh"
     >
-      <Typography sx={{color: '#Ae4EFF', fontSize: 22, padding: 2}}>
+      <Typography sx={{ color: '#Ae4EFF', fontSize: 22, padding: 2 }}>
         Login with:
       </Typography>
       <Link
         to="/authFacebook"
-        style={{textDecoration: 'none'}}>
+        style={{ textDecoration: 'none' }}>
         <SocialButtonsStyle
           name="facebook"
           onClick={loginAuthSelection}
@@ -55,13 +55,13 @@ export default function LoginSocialButtons(){
               borderColor: '#3b5998',
               color: '#3b5998',
             },
-          }} startIcon={<FacebookIcon/>}>
+          }} startIcon={<FacebookIcon />}>
           Facebook
         </SocialButtonsStyle>
       </Link>
       <Link
         to="/authTwitter"
-        style={{textDecoration: 'none'}}>
+        style={{ textDecoration: 'none' }}>
         <SocialButtonsStyle
           name="twitter"
           onClick={loginAuthSelection}
@@ -71,13 +71,13 @@ export default function LoginSocialButtons(){
               borderColor: '#00acee',
               color: '#00acee',
             },
-          }} startIcon={<TwitterIcon/>}>
+          }} startIcon={<TwitterIcon />}>
           Twitter
         </SocialButtonsStyle>
       </Link>
       <Link
         to="/authLinkedin"
-        style={{textDecoration: 'none'}}>
+        style={{ textDecoration: 'none' }}>
         <SocialButtonsStyle
           name="linkedin"
           /* onClick={() => alert('Selected')} */
@@ -89,7 +89,7 @@ export default function LoginSocialButtons(){
               color: '#0e76a8',
             },
           }}
-          startIcon={<LinkedInIcon/>}>
+          startIcon={<LinkedInIcon />}>
           LinkedIn
         </SocialButtonsStyle>
       </Link>

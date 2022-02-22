@@ -28,8 +28,6 @@ const useStyles = makeStyles({
 const IntegrationProfile = () => {
   const classes = useStyles()
 
-
-
   const IconCards = [
     {
       id: 1,
