@@ -17,19 +17,14 @@ import CardInterest from '../components/CardInterest'
 import CardHeader from '../components/CardHeader'
 import { display } from '@mui/system'
 
-
 const useStyles = makeStyles({
   profilecard: {
     margin: 20
   }
 })
 
-
 const IntegrationProfile = () => {
   const classes = useStyles()
-
-
-
   const IconCards = [
     {
       id: 1,

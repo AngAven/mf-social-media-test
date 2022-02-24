@@ -22,8 +22,7 @@ const initialState = {
   currentObject: {},
   dashBoardSelected: '',
   socialNetworks: ['facebook', 'twitter', 'linkedin', 'custom'],
-  isAuthenticated: false,
-  user: null
+  isAuthenticated: false
 }
 
 const useInitialState = () => {
@@ -33,7 +32,7 @@ const useInitialState = () => {
   const [twitterData, setTwitterData] = useState({})
   const [customData, setCustomData] = useState({})
 
-  const {getAccessTokenSilently, isAuthenticated, user, isLoading} = useAuth0();
+  const {getAccessTokenSilently, isAuthenticated, user} = useAuth0();
 
   // const API_Custom = `${api_base_url}/v1/users/customInfo/${user.sub}`;
 
@@ -66,7 +65,7 @@ const useInitialState = () => {
   }
 
   useEffect(async () => {
-    const token = await getAccessTokenSilently()
+    const token = await getAccessTokenSilently();
 
     try {
       const {data} = await axios.get(API_Facebook, {
@@ -138,6 +137,33 @@ const useInitialState = () => {
   }, [])
 
   useEffect(() => {
+
+    const callAPI = async () => {
+      const token = await getAccessTokenSilently();
+      const API_Custom = `api/v1/users/customInfo/${user.sub}`;
+      try {
+        const {data} = await axios.get(API_Custom, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          },
+          crossdomain: true
+        })
+        
+        setCustomData({...data})
+      } catch (error) {
+        console.error('error => ', error);
+        setState({
+          ...state,
+          custom: {},
+        })
+      }
+    };
+    if (isAuthenticated) {
+      callAPI();
+    }
+  }, [isAuthenticated])
+
+  useEffect(() => {
     setState({
       ...state,
       facebook: {...facebookData},
@@ -146,38 +172,9 @@ const useInitialState = () => {
       custom: {...customData},
       currentObject: {...customData},
       isAuthenticated: isAuthenticated,
-      user: user,
       dashBoardSelected: 'custom',
     })
-  }, [facebookData, twitterData, linkedinData, customData, isAuthenticated, user])
-
-  /* useEffect(async () => {
-    const token = await getAccessTokenSilently();
-    // const us = state.user.sub;
-    // console.log(user);
-    if(!isLoading) {
-      const API_Custom = `${api_base_url}/v1/users/customInfo/${us}`;
-    }
-    try {
-      const data = await axios.get(API_Custom, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        },
-        crossdomain: true
-      })
-      // const {data} = await axios.get(API_Custom)
-
-      // setCustomData({...data[0]})
-      setCustomData({...data})
-    } catch (error) {
-      console.error('error => ', error)
-      console.log('isAuth: ', state.isAuthenticated);
-      setState({
-        ...state,
-        custom: {},
-      })
-    }
-  }, []) */
+  }, [facebookData, twitterData, linkedinData, customData, isAuthenticated])
 
   return {
     state,
