@@ -31,7 +31,7 @@ async function handleConnection(socialName, userSub, login, getCurrentToken, get
   } catch(err) {
     console.error(err);
   }
-  
+
 }
 
 export default function LinkedIn() {
@@ -50,7 +50,7 @@ export default function LinkedIn() {
       .then(data => setEducation(data))
   }, [])
 
- 
+
   const [selectedMode, setSelectedMode] = useState(false)
 
   if(Object.keys(linkedin).length === 0) {
@@ -81,13 +81,13 @@ export default function LinkedIn() {
 
         <Grid item xs={12} md={6} lg={6} >
           <Card sx={{ maxWidth: 345 }}>
-           
+
           </Card>
         </Grid>
 
         <Grid item xs={12} md={6} lg={6}>
 
-          <CardEducation/>
+          {/*<CardEducation/>*/}
 
           <div>
             <FormDialog></FormDialog>
