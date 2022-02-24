@@ -15,9 +15,8 @@ import CardWork from '@components/CardWork'
 import CardFollows from '@components/CardFollows'
 import CardInterest from '../components/CardInterest'
 import CardHeader from '../components/CardHeader'
-import {useAuth0} from '@auth0/auth0-react'
+import SocialButtonLinkAuth0 from '../components/SocialButtonLinkAuth0'
 
-import linkAccount from '../services/link-accounts';
 
 
 const useStyles = makeStyles({
@@ -26,25 +25,10 @@ const useStyles = makeStyles({
   }
 })
 
-async function handleConnection(socialName, userSub, login, getCurrentToken, getNewToken) {
-  try {
-    const accessToken = await getCurrentToken();
-    await login({connection: socialName});
-    const targetUserIdToken = await getNewToken();
-    const resp = await linkAccount(userSub, accessToken, targetUserIdToken.__raw);
-    console.log(resp);
-  } catch(err) {
-    console.error(err);
-  }
-  
-}
-
 const TwitterBoard = () => {
   const classes = useStyles()
   const {state} = useContext(AppContext)
   const {twitter} = state
-
-  const { loginWithPopup, getAccessTokenSilently, getIdTokenClaims, user } = useAuth0();
 
   const IconCards = [
     {
@@ -71,10 +55,10 @@ const TwitterBoard = () => {
 
   const [selectedMode,setSelectedMode] = useState(false)
 
-
-
   if(Object.keys(twitter).length === 0) {
-    return (<button onClick={() => handleConnection('twitter', user.sub, loginWithPopup, getAccessTokenSilently, getIdTokenClaims)}>Conecta tu cuenta de twitter</button>)
+    return (
+      <SocialButtonLinkAuth0 props='Twitter' />
+    )
   } else {
     return (
       <Container>

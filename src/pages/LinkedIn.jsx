@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core'
 import { Grid } from '@mui/material'
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import { useAuth0, User } from "@auth0/auth0-react";
 import Typography from '@mui/material/Typography';
 import CardEducation from '@components/CardEducation_'
 import CardHeader from '../components/CardHeader'
@@ -13,36 +12,15 @@ import FormDialog from '@components/FormDialog'
 import CardBasicInfo from '@components/CardBasicInfo'
 import CardProfilePicture from '@components/CardProfilePicture'
 
-import linkAccount from '../services/link-accounts';
+import SocialButtonLinkAuth0 from '../components/SocialButtonLinkAuth0'
 
-const useStyles = makeStyles({
-  profilecard: {
-    margin: 20
-  }
-})
-
-async function handleConnection(socialName, userSub, login, getCurrentToken, getNewToken) {
-  try {
-    const accessToken = await getCurrentToken();
-    await login({connection: socialName});
-    const targetUserIdToken = await getNewToken();
-    const resp = await linkAccount(userSub, accessToken, targetUserIdToken.__raw);
-    console.log(resp);
-  } catch(err) {
-    console.error(err);
-  }
-
-}
 
 export default function LinkedIn() {
 
-  const {state} = useContext(AppContext)
-  const {currentObject, linkedin} = state
+  const { state } = useContext(AppContext)
+  const { currentObject, linkedin } = state
 
   const [education, setEducation] = useState(currentObject.education);
-
-  const { loginWithPopup, getAccessTokenSilently, getIdTokenClaims, user } = useAuth0();
-
 
   useEffect(() => {
     fetch('http://localhost:8000/data')
@@ -53,8 +31,10 @@ export default function LinkedIn() {
 
   const [selectedMode, setSelectedMode] = useState(false)
 
-  if(Object.keys(linkedin).length === 0) {
-    return (<button onClick={() => handleConnection('linkedin', user.sub, loginWithPopup, getAccessTokenSilently, getIdTokenClaims)}>Conecta tu cuenta de linkedin</button>)
+  if (Object.keys(linkedin).length === 0) {
+    return (
+      <SocialButtonLinkAuth0 props='LinkedIn' />
+    )
   }
   return (
     <Container>
@@ -76,8 +56,6 @@ export default function LinkedIn() {
             </div>
           </div>
         </Grid>
-
-
 
         <Grid item xs={12} md={6} lg={6} >
           <Card sx={{ maxWidth: 345 }}>
