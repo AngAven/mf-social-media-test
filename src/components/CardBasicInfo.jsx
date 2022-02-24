@@ -31,7 +31,7 @@ const useStyles = makeStyles({
 
 export default function CardBasicInfo({selectedMode}){
   const {state} = useContext(AppContext)
-  const {currentObject, user} = state
+  const {currentObject} = state
   const [clicked, setClicked] = useState({})
 
   const handleClick = (i) => () => {
@@ -51,7 +51,7 @@ export default function CardBasicInfo({selectedMode}){
             (
               currentObject.email
                 ? currentObject.email
-                : user.email
+                : ''
             )
           }
         </>,
