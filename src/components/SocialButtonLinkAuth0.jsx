@@ -7,6 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import TwitterIcon from '@mui/icons-material/Twitter'
+import linkAccount from '../services/link-accounts';
 
 
 async function handleConnection(socialName, userSub, login, getCurrentToken, getNewToken) {
