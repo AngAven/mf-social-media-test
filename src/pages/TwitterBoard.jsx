@@ -79,11 +79,11 @@ const TwitterBoard = () => {
           </Grid>
   
           {
-            IconCards.map(item => (
+           /*  IconCards.map(item => (
               <Grid item xs={12} md={4} lg={6} key={item.text}>
                 <CardIntegration item={item} />
               </Grid>
-            ))
+            )) */
           }
         </Grid>
       </Container>

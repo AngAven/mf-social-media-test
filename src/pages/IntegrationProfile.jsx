@@ -56,9 +56,6 @@ const IntegrationProfile = () => {
     <Container>
 
       <Grid container spacing={4}>
-        <Grid item xs={12} md={12} lg={12} >
-           <CardHeader />
-        </Grid>
 
         <Grid item xs={12} md={6} lg={6} >
           <CardProfilePicture/>
@@ -72,13 +69,12 @@ const IntegrationProfile = () => {
           </div>
         </Grid>
 
-        {/*{*/}
-        {/*  IconCards.map(item => (*/}
-        {/*    <Grid item xs={12} md={4} lg={6} key={item.id}>*/}
-        {/*      <CardIntegration item={item} />*/}
-        {/*    </Grid>*/}
-        {/*  ))*/}
-        {/*}*/}
+     {/*    {
+         IconCards.map(item => (
+           <Grid item xs={12} md={4} lg={6} key={item.id}>
+            <CardIntegration item={item} />
+           </Grid>
+         ))} */}
       </Grid>
     </Container>
   )
