@@ -29,7 +29,7 @@ const FacebookBoard = () => {
     {
       text: 'Follows',
       icon: <ThumbUpAltIcon color="primary" style={{fontSize: 30}}/>,
-      comp: <CardFollows/>
+      comp: '<CardFollows/>'
     },
     {
       text: 'Interest',
