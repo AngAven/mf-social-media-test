@@ -55,7 +55,7 @@ const useInitialState = () => {
     } else if (authSelected === 'dashboard') {
       setState({
         ...state,
-        currentObject: state.custom,
+        currentObject: state.dashboard,
         dashBoardSelected: authSelected
       })
     }
@@ -163,10 +163,10 @@ const useInitialState = () => {
       facebook: {...facebookData},
       twitter: {...twitterData},
       linkedin: {...linkedinData},
-      custom: {...customData},
+      dashboard: {...customData},
       currentObject: {...customData},
       isAuthenticated: isAuthenticated,
-      dashBoardSelected: 'custom',
+      dashBoardSelected: 'dashboard',
     })
   }, [facebookData, twitterData, linkedinData, customData, isAuthenticated])
 

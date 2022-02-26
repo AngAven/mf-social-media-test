@@ -1,32 +1,46 @@
 import React, { useEffect, useState, useContext } from 'react'
 import AppContext from '@context/AppContext'
 import { Container } from '@mui/material'
-import { makeStyles } from '@material-ui/core'
 import { Grid } from '@mui/material'
 import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import CardEducation from '@components/CardEducation_'
+import CardEducation from '@components/CardEducation'
 import CardHeader from '../components/CardHeader'
 import FormDialog from '@components/FormDialog'
 import CardBasicInfo from '@components/CardBasicInfo'
 import CardProfilePicture from '@components/CardProfilePicture'
-
 import SocialButtonLinkAuth0 from '../components/SocialButtonLinkAuth0'
-
+import CardAbout from '../components/CardAbout';
+import InfoIcon from '@mui/icons-material/Info';
+import SchoolIcon from '@mui/icons-material/School'
+import CardIntegration from '@components/CardIntegration'
 
 export default function LinkedIn() {
 
   const { state } = useContext(AppContext)
   const { currentObject, linkedin } = state
 
-  const [education, setEducation] = useState(currentObject.education);
+  const IconCards = [
+    {
+      id: 1,
+      text: 'About',
+      icon: <InfoIcon color="primary" style={{ fontSize: 30 }} />,
+      comp: <CardAbout />
+    },
+    {
+      id: 2,
+      text: 'Education',
+      icon: <SchoolIcon color="primary" style={{ fontSize: 30 }} />,
+      comp: <CardEducation />
+    }
+  ]
 
-  useEffect(() => {
-    fetch('http://localhost:8000/data')
-      .then(res => res.json())
-      .then(data => setEducation(data))
-  }, [])
+  /*   const [education, setEducation] = useState(currentObject.education);
+  
+    useEffect(() => {
+      fetch('http://localhost:8000/data')
+        .then(res => res.json())
+        .then(data => setEducation(data))
+    }, []) */
 
 
   const [selectedMode, setSelectedMode] = useState(false)
@@ -45,32 +59,30 @@ export default function LinkedIn() {
           <CardHeader setSelectedMode={setSelectedMode} />
         </Grid>
 
-        <Grid item xs={12} md={6} lg={6} >
+        <Grid item xs={12} md={4} lg={4} >
           <CardProfilePicture />
         </Grid>
 
+        <Grid item xs={12} md={8} lg={8}>
+          <CardBasicInfo selectedMode={selectedMode} />
+        </Grid>
+
         <Grid item xs={12} md={6} lg={6}>
-          <div>
-            <div>
-              <CardBasicInfo selectedMode={selectedMode} />
+          <Card style={{ padding: '1em' }}  >
+            <CardAbout />
+            <CardEducation />
+            <div sx={{ mt: 5 }} >
+              <FormDialog selectedMode={selectedMode} ></FormDialog>
             </div>
-          </div>
-        </Grid>
-
-        <Grid item xs={12} md={6} lg={6} >
-          <Card sx={{ maxWidth: 345 }}>
-
           </Card>
+
         </Grid>
-
-        <Grid item xs={12} md={6} lg={6}>
-
-          {/*<CardEducation/>*/}
-
-          <div>
-            <FormDialog></FormDialog>
-          </div>
-        </Grid>
+         {
+          IconCards.map(item => (
+            <Grid item xs={12} md={4} lg={6} key={item.id}>
+              <CardIntegration item={item} />
+            </Grid>
+          ))}
 
       </Grid>
     </Container>

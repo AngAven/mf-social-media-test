@@ -47,7 +47,7 @@ export default function CardBasicInfo({selectedMode}){
       text:
         <>
           {
-            Object.keys(currentObject).length > 0 &&
+            currentObject &&
             (
               currentObject.email
                 ? currentObject.email
@@ -58,15 +58,15 @@ export default function CardBasicInfo({selectedMode}){
       icon: <EmailIcon color="primary" style={{fontSize: 30}}/>,
     },
     {
-      text: <>{currentObject.birthday}</>,
+      text: <>{ currentObject ? currentObject.birthday : '' }</>,
       icon: <CakeIcon color="primary" style={{fontSize: 30}}/>,
     },
     {
-      text: <>{currentObject.nationality}</>,
+      text: <>{ currentObject ? currentObject.nationality : '' }</>,
       icon: <FlagIcon color="primary" style={{fontSize: 30}}/>,
     },
     {
-      text: <>{currentObject.languages}</>,
+      text: <>{ currentObject ? currentObject.languages : '' }</>,
       icon: <LanguageIcon color="primary" style={{fontSize: 30}}/>,
     }
   ]
@@ -77,8 +77,8 @@ export default function CardBasicInfo({selectedMode}){
       <Card elevation={1}>
         <CardContent>
 
-          <Typography variant="h4">
-            {currentObject.name}
+          <Typography variant="h4" marginLeft={'1em'} >
+            {  currentObject ? currentObject.name : ''}
           </Typography>
 
           {IconItems.map((item, i) => (

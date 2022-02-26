@@ -29,8 +29,8 @@ const IntegrationProfile = () => {
     {
       id: 1,
       text: 'Education',
-      icon: <SchoolIcon color="primary" style={{fontSize: 30}}/>,
-      comp: <CardEducation/>
+      icon: <SchoolIcon color="primary" style={{ fontSize: 30 }} />,
+      comp: <CardEducation />
     },
     {
       id: 2,
@@ -38,43 +38,39 @@ const IntegrationProfile = () => {
       icon: <WorkIcon color="primary" style={{ fontSize: 30 }} />,
       comp: <CardWork />
     },
-    {
-      id: 3,
-      text: 'Follows',
-      icon: <ThumbUpAltIcon color="primary" style={{ fontSize: 30 }} />,
-      comp: <CardFollows />
-    },
+     {
+       id: 3,
+       text: 'Follows',
+       icon: <ThumbUpAltIcon color="primary" style={{ fontSize: 30 }} />,
+       comp: '<CardFollows />'
+     },
     {
       id: 4,
       text: 'Interest',
       icon: <InterestsIcon color="primary" style={{ fontSize: 30 }} />,
-      comp: '<CardInterest/>'
+      comp: <CardInterest />
     }
   ]
 
   return (
-    <Container>
+    <Container sx={{ mt: 5 }} >
 
       <Grid container spacing={4}>
 
-        <Grid item xs={12} md={6} lg={6} >
-          <CardProfilePicture/>
+        <Grid item xs={12} md={4} lg={4} >
+          <CardProfilePicture />
         </Grid>
 
         <Grid item xs={12} md={8} lg={8}>
-          <div>
-            <div>
-              <CardBasicInfo />
-            </div>
-          </div>
+          <CardBasicInfo />
         </Grid>
 
-     {/*    {
-         IconCards.map(item => (
-           <Grid item xs={12} md={4} lg={6} key={item.id}>
-            <CardIntegration item={item} />
-           </Grid>
-         ))} */}
+        {
+          IconCards.map(item => (
+            <Grid item xs={12} md={4} lg={6} key={item.id}>
+              <CardIntegration item={item} />
+            </Grid>
+          ))}
       </Grid>
     </Container>
   )

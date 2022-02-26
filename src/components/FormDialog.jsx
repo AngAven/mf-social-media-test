@@ -7,8 +7,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { makeStyles } from '@material-ui/core'
+import { Box } from '@mui/system';
 
-export default function FormDialog() {
+export default function FormDialog({ selectedMode }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -60,20 +61,23 @@ export default function FormDialog() {
       setCountryError(true)
     }
     if (institute && time_period && title && country) {
-      fetch('http://localhost:8000/data', {
+     /*  fetch('http://localhost:8000/data', {
         method: 'POST',
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({ logo, institute, time_period, title, country })
-      }).then(() =>setOpen(false))
+      }).then(() => setOpen(false)) */
     }
   }
 
   return (
 
-    <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Add
-      </Button>
+    <>
+      <Box display={selectedMode ? 'flex' : 'none'}  style={{ justifyContent: 'right' }} >
+        <Button variant="outlined" onClick={handleClickOpen}   >
+          Add
+        </Button>
+      </Box>
+
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Add Education</DialogTitle>
         <DialogContent>
@@ -120,6 +124,6 @@ export default function FormDialog() {
           <Button type="submit" onClick={handleSubmit}>Create</Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 }
