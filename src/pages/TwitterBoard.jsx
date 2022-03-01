@@ -16,6 +16,8 @@ import CardFollows from '@components/CardFollows'
 import CardInterest from '../components/CardInterest'
 import CardHeader from '../components/CardHeader'
 import SocialButtonLinkAuth0 from '../components/SocialButtonLinkAuth0'
+import InfoIcon from '@mui/icons-material/Info'
+import CardAbout from '../components/CardAbout'
 
 
 
@@ -32,9 +34,9 @@ const TwitterBoard = () => {
 
   const IconCards = [
     {
-      text: 'Education',
-      icon: <SchoolIcon color="primary" style={{fontSize: 30}}/>,
-      comp: <CardEducation state={state}/>
+      text: 'About',
+      icon: <InfoIcon color="primary" style={{fontSize: 30}}/>,
+      comp: <CardAbout state={state}/>
     },
     {
       text: 'Work',

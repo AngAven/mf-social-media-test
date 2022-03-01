@@ -1,10 +1,10 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import AppContext from '@context/AppContext'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@mui/material/Typography'
-import {IconButton, makeStyles} from '@material-ui/core'
-import {yellow, blue} from '@material-ui/core/colors'
+import { IconButton, makeStyles } from '@material-ui/core'
+import { yellow, blue } from '@material-ui/core/colors'
 import EmailIcon from '@mui/icons-material/Email'
 import CakeIcon from '@mui/icons-material/Cake'
 import FlagIcon from '@mui/icons-material/Flag'
@@ -12,7 +12,7 @@ import LanguageIcon from '@mui/icons-material/Language'
 import ListItem from '@mui/material/ListItem'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
-import {Box} from '@mui/material'
+import { Box } from '@mui/material'
 
 const useStyles = makeStyles({
   avatar: {
@@ -29,10 +29,17 @@ const useStyles = makeStyles({
   }
 })
 
-export default function CardBasicInfo({selectedMode}){
-  const {state} = useContext(AppContext)
-  const {currentObject} = state
+
+
+
+export default function CardBasicInfo({ selectedMode }) {
+  const { state } = useContext(AppContext)
+  const { currentObject, dashBoardSelected } = state
   const [clicked, setClicked] = useState({})
+
+
+  const profileName =
+    dashBoardSelected === "linkedin" ? currentObject.localizedFirstName + " " + currentObject.localizedLastName : currentObject.name;
 
   const handleClick = (i) => () => {
     console.log('i => ', i)
@@ -55,19 +62,19 @@ export default function CardBasicInfo({selectedMode}){
             )
           }
         </>,
-      icon: <EmailIcon color="primary" style={{fontSize: 30}}/>,
+      icon: <EmailIcon color="primary" style={{ fontSize: 30 }} />,
     },
     {
-      text: <>{ currentObject ? currentObject.birthday : '' }</>,
-      icon: <CakeIcon color="primary" style={{fontSize: 30}}/>,
+      text: <>{currentObject ? currentObject.birthday : ''}</>,
+      icon: <CakeIcon color="primary" style={{ fontSize: 30 }} />,
     },
     {
-      text: <>{ currentObject ? currentObject.nationality : '' }</>,
-      icon: <FlagIcon color="primary" style={{fontSize: 30}}/>,
+      text: <>{currentObject ? currentObject.nationality : ''}</>,
+      icon: <FlagIcon color="primary" style={{ fontSize: 30 }} />,
     },
     {
-      text: <>{ currentObject ? currentObject.languages : '' }</>,
-      icon: <LanguageIcon color="primary" style={{fontSize: 30}}/>,
+      text: <>{currentObject ? currentObject.languages : ''}</>,
+      icon: <LanguageIcon color="primary" style={{ fontSize: 30 }} />,
     }
   ]
 
@@ -78,7 +85,7 @@ export default function CardBasicInfo({selectedMode}){
         <CardContent>
 
           <Typography variant="h4" marginLeft={'1em'} >
-            {  currentObject ? currentObject.name : ''}
+            {currentObject ? profileName : ''}
           </Typography>
 
           {IconItems.map((item, i) => (
@@ -89,7 +96,7 @@ export default function CardBasicInfo({selectedMode}){
               <Box display={selectedMode ? 'inherit' : 'none'}>
                 <IconButton
                   onClick={handleClick(i)}>
-                  {clicked[i] ? <VisibilityIcon/> : <VisibilityOff/>}
+                  {clicked[i] ? <VisibilityIcon /> : <VisibilityOff />}
                 </IconButton>
               </Box>
               <IconButton

@@ -18,7 +18,7 @@ export default function CardEducation() {
     switch (dashBoardSelected) {
       case 'dashboard': return currentObject? currentObject.education : '';
       case 'facebook': return "";
-      case 'linkedin': return currentObject.localizedHeadline;
+      case 'linkedin': return "";
       case 'twitter': return "";
     }
   }

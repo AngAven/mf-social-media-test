@@ -16,6 +16,8 @@ import CardFollows from '@components/CardFollows'
 import CardInterest from '../components/CardInterest'
 import CardHeader from '../components/CardHeader'
 import { display } from '@mui/system'
+import InfoIcon from '@mui/icons-material/Info'
+import CardAbout from '../components/CardAbout'
 
 const useStyles = makeStyles({
   profilecard: {
@@ -28,24 +30,30 @@ const IntegrationProfile = () => {
   const IconCards = [
     {
       id: 1,
+      text: 'About',
+      icon: <InfoIcon color="primary" style={{ fontSize: 30 }} />,
+      comp: <CardAbout />
+    },
+    {
+      id: 2,
       text: 'Education',
       icon: <SchoolIcon color="primary" style={{ fontSize: 30 }} />,
       comp: <CardEducation />
     },
     {
-      id: 2,
+      id: 3,
       text: 'Work',
       icon: <WorkIcon color="primary" style={{ fontSize: 30 }} />,
       comp: <CardWork />
     },
      {
-       id: 3,
+       id: 4,
        text: 'Follows',
        icon: <ThumbUpAltIcon color="primary" style={{ fontSize: 30 }} />,
        comp: '<CardFollows />'
      },
     {
-      id: 4,
+      id: 5,
       text: 'Interest',
       icon: <InterestsIcon color="primary" style={{ fontSize: 30 }} />,
       comp: <CardInterest />
