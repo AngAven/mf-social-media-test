@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+
 async function linkAccount(sub, accessToken, targetUserIdToken) {
     const resp = await axios.post(
         `https://platzimaster.us.auth0.com/api/v2/users/${sub}/identities`,
