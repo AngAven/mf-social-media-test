@@ -1,5 +1,4 @@
 {
-    "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }],
     "rewrites": [
         {
           "source": "/api/:path*",
@@ -8,6 +7,10 @@
         {
           "source": "/api/:path*/",
           "destination": "https://ms-social-media.vercel.app/:path*/"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
         }
       ]
 }
