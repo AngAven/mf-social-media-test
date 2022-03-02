@@ -63,6 +63,7 @@ const useInitialState = () => {
 
   useEffect(async () => {
     const token = await getAccessTokenSilently();
+    console.log(token);
 
     try {
       const {data} = await axios.get(API_Facebook, {
