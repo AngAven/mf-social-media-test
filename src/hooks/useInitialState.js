@@ -2,8 +2,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import {useAuth0} from '@auth0/auth0-react'
 
-// const api_base_url = 'api' //development
-const api_base_url = 'https://ms-social-media.vercel.app/api' // production
+const api_base_url = 'api'
 const url_fake = 'http://localhost:8000/data'
 /* const API_Facebook = `${url_fake}`
 const API_Linkedin = `${url_fake}`
