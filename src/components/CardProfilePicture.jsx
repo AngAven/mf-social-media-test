@@ -16,7 +16,7 @@ export default function CardProfilePicture() {
         switch (dashBoardSelected) {
             case "dashboard": return  currentObject.picture ;
             case "facebook": return currentObject.picture_large;
-            case "linkedin": return currentObject.profilePicture.displayImage;
+            case "linkedin": return currentObject.profilePicture;
             case "twitter": return currentObject.profile_image_url;
         }
     }
