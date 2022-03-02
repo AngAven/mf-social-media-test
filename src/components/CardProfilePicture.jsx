@@ -21,8 +21,6 @@ export default function CardProfilePicture() {
         }
     }
 
-    console.log(profilePicture())
-
     return (
         <>
             {/*   {currentObject.name && (currentObject.picture_large) ? */}
@@ -35,7 +33,7 @@ export default function CardProfilePicture() {
                             image={profilePicture()}
                             alt="Profile Picture"
                         />
-                    </Card >
+                    </Card>
                     :
                     user && (
                         <CardContent style={{ justifyContent: 'center' }}>

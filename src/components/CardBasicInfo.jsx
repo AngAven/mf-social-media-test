@@ -29,12 +29,10 @@ const useStyles = makeStyles({
   }
 })
 
-
-
-
 export default function CardBasicInfo({ selectedMode }) {
   const { state } = useContext(AppContext)
   const { currentObject, dashBoardSelected } = state
+  const [unseen,setUnseen]=useState(true)
   const [clicked, setClicked] = useState({})
 
 
@@ -42,8 +40,11 @@ export default function CardBasicInfo({ selectedMode }) {
     dashBoardSelected === "linkedin" ? currentObject.localizedFirstName + " " + currentObject.localizedLastName : currentObject.name;
 
   const handleClick = (i) => () => {
-    console.log('i => ', i)
     setClicked(state => ({
+      ...state,
+      [i]: !state[i]
+    })),
+    setUnseen(state => ({
       ...state,
       [i]: !state[i]
     }))
@@ -80,29 +81,36 @@ export default function CardBasicInfo({ selectedMode }) {
 
   return (
     <div>
-
       <Card elevation={1}>
         <CardContent>
-
           <Typography variant="h4" marginLeft={'1em'} >
             {currentObject ? profileName : ''}
           </Typography>
-
           {IconItems.map((item, i) => (
             <ListItem key={i}>
-              {/* <IconButton >
-              {/* <VisibilityIcon  sx={{display:'none'}} visibility='hidden' />
-            </IconButton> */}
               <Box display={selectedMode ? 'inherit' : 'none'}>
                 <IconButton
                   onClick={handleClick(i)}>
-                  {clicked[i] ? <VisibilityIcon /> : <VisibilityOff />}
+                  {clicked[i]
+                  ? (<VisibilityOff />)
+                  : ( <VisibilityIcon />)}
                 </IconButton>
               </Box>
+              {unseen[i]
+              ? <>
+                </>
+              :<>
               <IconButton
+              style={{color:'#616'}}
                 color={clicked[i] ? 'default' : 'secondary'}>
                 {item.icon} </IconButton>
-              <Typography variant="h5">{item.text} </Typography>
+                <Typography variant="h5">{item.text} </Typography>
+</>
+              }
+
+
+
+
             </ListItem>
           ))
           }
