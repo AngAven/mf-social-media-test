@@ -33,7 +33,7 @@ export default function CardProfilePicture() {
                             image={profilePicture()}
                             alt="Profile Picture"
                         />
-                    </Card >
+                    </Card>
                     :
                     user && (
                         <CardContent style={{ justifyContent: 'center' }}>

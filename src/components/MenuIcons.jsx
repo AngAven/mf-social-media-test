@@ -28,8 +28,8 @@ export default function SimpleBottomNavigation() {
         onChange={handleChange}
       >
       <BottomNavigationAction value={""} label={<Typography sx={{ fontSize: 12 }}>Integrations</Typography>} icon={<DynamicFeedIcon sx={{ fontSize: 23 }} />} />
-        <BottomNavigationAction href={" https://get-hired-code-tracker.vercel.app/"} label={<Typography sx={{ fontSize: 12 }}>Code Tracker</Typography>} icon={<ExtensionOutlinedIcon sx={{ fontSize: 23 }} />} />
-        <BottomNavigationAction href="https://mf-extensions.vercel.app/" label={<Typography sx={{ fontSize: 12 }}>Tracker</Typography>} icon={<SavedSearchIcon sx={{ fontSize: 23 }} />} />
+        <BottomNavigationAction href={" https://get-hired-code-tracker.vercel.app/"} label={<Typography sx={{ fontSize: 12 }}>Tracker</Typography>} icon={<ExtensionOutlinedIcon sx={{ fontSize: 23 }} />} />
+        {/* <BottomNavigationAction href="https://mf-extensions.vercel.app/" label={<Typography sx={{ fontSize: 12 }}>Tracker</Typography>} icon={<SavedSearchIcon sx={{ fontSize: 23 }} />} /> */}
         <BottomNavigationAction href="https://dashboard-integrations.herokuapp.com/ " label={<Typography sx={{ fontSize: 12 }}>Analytics</Typography>} icon={<TrackerIcon sx={{ fontSize: 23 }} />} />
       </BottomNavigation>
     </Box>
