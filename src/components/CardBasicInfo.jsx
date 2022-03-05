@@ -38,7 +38,7 @@ export default function CardBasicInfo({ selectedMode }) {
   const [clicked, setClicked] = useState({})
 
   const profileName =
-    dashBoardSelected === "linkedin" ? currentObject.localizedFirstName + " " + currentObject.localizedLastName : currentObject.name;
+    dashBoardSelected === "linkedin" ? currentObject.localizedFirstName +  " " + currentObject.localizedLastName : currentObject.name;
 
   const profileLocation =
     dashBoardSelected === "twitter" ? currentObject.location : currentObject.nationality;
@@ -53,7 +53,6 @@ export default function CardBasicInfo({ selectedMode }) {
         [i]: !state[i]
       }))
   }
-  console.log(currentObject.email)
 
   const IconItems = [
     currentObject.email ?
