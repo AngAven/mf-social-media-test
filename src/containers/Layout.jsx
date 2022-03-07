@@ -138,15 +138,10 @@ const Layout = ({children}) => {
   const {state, authSelection} = useContext(AppContext)
   const {isAuthenticated} = state
   const theme = useTheme()
+  const history = useHistory();
   const [open, setOpen] = React.useState(false)
-  const route = window.location.href.split('/').slice(-1).toString()
-  const history = useHistory()
 
   window.onload = () => history.push('/dashboard')
-
-  useEffect(() => {
-    authSelection(route)
-  }, [])
 
   const handleDrawerOpen = () => {
     setOpen(true)
