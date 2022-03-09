@@ -136,33 +136,12 @@ const useStyles = makeStyles((theme) => {
 const Layout = ({children}) => {
   const classes = useStyles()
   const {state, authSelection} = useContext(AppContext)
-  const {isAuthenticated, currentObject, facebook, twitter, linkedin} = state
-  const history = useHistory()
+  const {isAuthenticated} = state
   const theme = useTheme()
+  const history = useHistory();
   const [open, setOpen] = React.useState(false)
 
-  const route = window.location.href.split('/').slice(-1).toString()
-
-  useEffect(() => {
-    if(Object.keys(currentObject).length === 0) {
-      // history.push('/')
-    }
-
-    if(Object.keys(facebook).length === 0) {
-      // history.push('/')
-    }
-
-    if(Object.keys(twitter).length === 0) {
-      // history.push('/')
-    }
-
-    if(Object.keys(linkedin).length === 0) {
-      // history.push('/')
-    }
-
-    authSelection(route)
-    console.log(route)
-  }, [])
+  window.onload = () => history.push('/dashboard')
 
   const handleDrawerOpen = () => {
     setOpen(true)

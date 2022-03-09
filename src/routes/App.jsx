@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route, useHistory} from 'react-router-dom'
 import AppContext from '@context/AppContext'
 import useInitialState from '@hooks/useInitialState'
 import {createTheme} from '@mui/material'
@@ -13,6 +13,7 @@ import TwitterBoard from '@pages/TwitterBoard'
 import FacebookBoard from '@pages/FacebookBoard'
 import LinkedIn from '@pages/LinkedIn'
 import NotFound from '@containers/NotFound'
+import { useAuth0 } from "@auth0/auth0-react";
 
 import '@styles/global.css'
 import {ThemeProvider} from '@emotion/react'
@@ -35,8 +36,6 @@ const theme = createTheme({
     fontWeightBold: 600,
   }
 })
-
-import { useAuth0 } from "@auth0/auth0-react";
 
 const App = () => {
   const initialState = useInitialState();

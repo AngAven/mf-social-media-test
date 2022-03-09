@@ -27,7 +27,7 @@ export default function CardProfilePicture() {
 
             {
                 profilePicture() ?
-                    <Card sx={{ maxWidth: 345 }} >
+                    <Card sx={{ maxWidth: 350 }} >
                         <CardMedia
                             component="img"
                             image={profilePicture()}

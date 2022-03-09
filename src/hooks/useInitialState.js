@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import {useAuth0} from '@auth0/auth0-react'
+import {useHistory} from 'react-router-dom'
 
 const api_base_url = 'api'
 const url_fake = 'http://localhost:8000/data'
@@ -29,40 +30,53 @@ const useInitialState = () => {
   const [facebookData, setFacebookData] = useState({})
   const [linkedinData, setLinkedinData] = useState({})
   const [twitterData, setTwitterData] = useState({})
-  const [customData, setCustomData] = useState({})
+  const [customData, setDashboardData] = useState({})
+  const history = useHistory()
+  const {getAccessTokenSilently, isAuthenticated, user} = useAuth0()
 
-  const {getAccessTokenSilently, isAuthenticated, user} = useAuth0();
-
+  // Select's the dashboard to show
   const authSelection = (authSelected) => {
-    if (authSelected === 'facebook') {
-      setState({
-        ...state,
-        currentObject: facebookData,
-        dashBoardSelected: authSelected
-      })
-    } else if (authSelected === 'linkedin') {
-      setState({
-        ...state,
-        currentObject: linkedinData,
-        dashBoardSelected: authSelected
-      })
-    } else if (authSelected === 'twitter') {
-      setState({
-        ...state,
-        currentObject: twitterData,
-        dashBoardSelected: authSelected
-      })
-    } else if (authSelected === 'dashboard') {
-      setState({
-        ...state,
-        currentObject: state.dashboard,
-        dashBoardSelected: authSelected
-      })
+    if (!authSelected) {
+      authSelected = window.location.href.split('/').slice(-1).toString()
+    }
+
+    switch (authSelected) {
+      case 'facebook':
+        setState({
+          ...state,
+          currentObject: facebookData,
+          dashBoardSelected: authSelected
+        })
+        break
+      case 'twitter':
+        setState({
+          ...state,
+          currentObject: twitterData,
+          dashBoardSelected: authSelected
+        })
+        break
+      case 'linkedin':
+        setState({
+          ...state,
+          currentObject: linkedinData,
+          dashBoardSelected: authSelected
+        })
+        break
+      case 'dashboard':
+        setState({
+          ...state,
+          currentObject: state.dashboard,
+          dashBoardSelected: authSelected
+        })
+        break
+      default:
+        break
     }
   }
 
+  // Get and set Facebook data
   useEffect(async () => {
-    const token = await getAccessTokenSilently();
+    const token = await getAccessTokenSilently()
 
     try {
       const {data} = await axios.get(API_Facebook, {
@@ -84,6 +98,7 @@ const useInitialState = () => {
     }
   }, [])
 
+  // Get and set Linkedin data
   useEffect(async () => {
     const token = await getAccessTokenSilently()
 
@@ -107,6 +122,7 @@ const useInitialState = () => {
     }
   }, [])
 
+  // Get and set Twitter data
   useEffect(async () => {
     const token = await getAccessTokenSilently()
 
@@ -130,11 +146,11 @@ const useInitialState = () => {
     }
   }, [])
 
+  // Get and set Dashboard data
   useEffect(() => {
-
     const callAPI = async () => {
-      const token = await getAccessTokenSilently();
-      const API_Custom = `api/v1/users/customInfo/${user.sub}`;
+      const token = await getAccessTokenSilently()
+      const API_Custom = `api/v1/users/customInfo/${user.sub}`
       try {
         const {data} = await axios.get(API_Custom, {
           headers: {
@@ -142,21 +158,22 @@ const useInitialState = () => {
           },
           crossdomain: true
         })
-        
-        setCustomData({...data})
+
+        setDashboardData({...data})
       } catch (error) {
-        console.error('error => ', error);
+        console.error('error => ', error)
         setState({
           ...state,
           custom: {},
         })
       }
-    };
+    }
     if (isAuthenticated) {
-      callAPI();
+      callAPI()
     }
   }, [isAuthenticated])
 
+  // Set the state
   useEffect(() => {
     setState({
       ...state,

@@ -66,16 +66,6 @@ export default function LinkedIn() {
         <Grid item xs={12} md={8} lg={8}>
           <CardBasicInfo selectedMode={selectedMode} />
         </Grid>
-{/* 
-        <Grid item xs={12} md={6} lg={6}>
-          <Card style={{ padding: '1em' }}  >
-            <CardAbout />
-            <CardEducation />
-            <div sx={{ mt: 5 }} >
-              <FormDialog selectedMode={selectedMode} ></FormDialog>
-            </div>
-          </Card>
-        </Grid> */}
 
          {
           IconCards.map(item => (
