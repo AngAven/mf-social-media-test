@@ -1,4 +1,4 @@
-import React, { useContext,useState } from 'react'
+import React, { useContext } from 'react'
 import AppContext from '@context/AppContext'
 import { Container } from '@mui/material'
 import { makeStyles } from '@material-ui/core'
@@ -15,11 +15,9 @@ import CardWork from '@components/CardWork'
 import CardFollows from '@components/CardFollows'
 import CardInterest from '../components/CardInterest'
 import CardHeader from '../components/CardHeader'
-import SocialButtonLinkAuth0 from '../components/SocialButtonLinkAuth0'
+import { display } from '@mui/system'
 import InfoIcon from '@mui/icons-material/Info'
 import CardAbout from '../components/CardAbout'
-
-
 
 const useStyles = makeStyles({
   profilecard: {
@@ -27,70 +25,63 @@ const useStyles = makeStyles({
   }
 })
 
-const TwitterBoard = () => {
+const IntegrationProfile = () => {
   const classes = useStyles()
-  const {state} = useContext(AppContext)
-  const {twitter} = state
-
   const IconCards = [
     {
+      id: 1,
       text: 'About',
-      icon: <InfoIcon color="primary" style={{fontSize: 30}}/>,
-      comp: <CardAbout state={state}/>
+      icon: <InfoIcon color="primary" style={{ fontSize: 30 }} />,
+      comp: <CardAbout />
     },
-    {
+    /* {
+      id: 2,
+      text: 'Education',
+      icon: <SchoolIcon color="primary" style={{ fontSize: 30 }} />,
+      comp: <CardEducation />
+    }, */
+    /* {
+      id: 3,
       text: 'Work',
-      icon: <WorkIcon color="primary" style={{fontSize: 30}}/>,
-      comp: <CardWork/>
-    },
+      icon: <WorkIcon color="primary" style={{ fontSize: 30 }} />,
+      comp: <CardWork />
+    } */,
+     {
+       id: 4,
+       text: 'Follows',
+       icon: <ThumbUpAltIcon color="primary" style={{ fontSize: 30 }} />,
+       comp: <CardFollows />
+     },
     {
-      text: 'Follows',
-      icon: <ThumbUpAltIcon color="primary" style={{fontSize: 30}}/>,
-      comp: <CardFollows/>
-    },
-    {
+      id: 5,
       text: 'Interest',
-      icon: <InterestsIcon color="primary" style={{fontSize: 30}}/>,
-      comp: <CardInterest/>
+      icon: <InterestsIcon color="primary" style={{ fontSize: 30 }} />,
+      comp: <CardInterest />
     }
   ]
 
-  const [selectedMode,setSelectedMode] = useState(false)
+  return (
+    <Container sx={{ mt: 5 }} >
 
-  if(Object.keys(twitter).length === 0) {
-    return (
-      <SocialButtonLinkAuth0 props='Twitter' />
-    )
-  } else {
-    return (
-      <Container>
-        <Grid container spacing={4}>
-        <Grid item xs ={12} md={12} lg={12} >
-            <CardHeader setSelectedMode={setSelectedMode} />
-          </Grid>
-          <Grid item xs={12} md={6} lg={6} >
-            <CardProfilePicture/>
-          </Grid>
+      <Grid container spacing={4}>
 
-          <Grid item xs={12} md={6} lg={6}>
-            <div>
-              <div>
-                <CardBasicInfo  selectedMode={selectedMode} />
-              </div>
-            </div>
-          </Grid>
-
-          {
-           IconCards.map(item => (
-              <Grid item xs={12} md={4} lg={6} key={item.text}>
-                <CardIntegration item={item} />
-              </Grid>
-            ))
-          }
+        <Grid item xs={12} md={4} lg={4} >
+          <CardProfilePicture />
         </Grid>
-      </Container>
-    )
-  }
+
+        <Grid item xs={12} md={8} lg={8}>
+          <CardBasicInfo />
+        </Grid>
+
+        {
+          IconCards.map(item => (
+            <Grid item xs={12} md={4} lg={6} key={item.id}>
+              <CardIntegration item={item} />
+            </Grid>
+          ))}
+      </Grid>
+    </Container>
+  )
 }
 
-export default TwitterBoard
+export default IntegrationProfile

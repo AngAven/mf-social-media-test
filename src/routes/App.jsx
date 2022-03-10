@@ -8,6 +8,7 @@ import Login from '@pages/Login'
 import ConnectSocial from '@containers/ConnectSocial'
 import MainFeatures from '@pages/MainFeatures'
 import IntegrationProfile from '@pages/IntegrationProfile'
+import Landing from '@pages/Landing'
 import DashBoard from '@pages/Dashboard'
 import TwitterBoard from '@pages/TwitterBoard'
 import FacebookBoard from '@pages/FacebookBoard'
@@ -55,6 +56,7 @@ const App = () => {
               <Route exact path="/twitter" component={TwitterBoard}/>
               <Route exact path="/linkedin" component={LinkedIn} />
               <Route exact path="/facebook" component={FacebookBoard} />
+              <Route exact path="/landing" component={Landing} />
               <Route exact path="/authLinkedin" component={() => {
                 loginWithRedirect({connection: 'linkedin'});
                 return null

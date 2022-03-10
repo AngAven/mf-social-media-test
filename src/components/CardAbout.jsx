@@ -12,10 +12,11 @@ const CardAbout = () => {
             case "dashboard": return  currentObject.about ;
             case "facebook": return " ";
             case "linkedin": return currentObject.localizedHeadline;
-            case "twitter": return currentObject.description;
+            case "twitter": return currentObject.username;
         }
     }
-
+{console.log(currentObject.email)}
+    {console.log(dashBoardSelected)}
     return (
         <div>
             <Typography variant='h6' align='justify' padding={'1.5em'}

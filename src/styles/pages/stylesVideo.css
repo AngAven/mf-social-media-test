@@ -1,0 +1,14 @@
+.video-responsive {
+    margin: 30 20 20 20 ;
+    padding-bottom: 35.25%;
+    padding-left: 10%;
+    padding-top: 5%;
+    height: 0;
+  }
+
+  .video-responsive iframe {
+
+    height: 490;
+    width: 872;
+    margin-left: 50;
+  }

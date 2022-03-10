@@ -19,7 +19,7 @@ export default function CardFollows() {
     const { facebook, linkedin, twitter } = state
     const { currentObject, dashBoardSelected } = state
 
-    console.log(currentObject)
+    console.log(dashBoardSelected)
 
     const followItems = [
         {
