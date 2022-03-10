@@ -50,7 +50,7 @@ const IntegrationProfile = () => {
        id: 4,
        text: 'Follows',
        icon: <ThumbUpAltIcon color="primary" style={{ fontSize: 30 }} />,
-       comp: '<CardFollows />'
+       comp: <CardFollows />
      },
     {
       id: 5,

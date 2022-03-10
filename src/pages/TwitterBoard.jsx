@@ -71,7 +71,7 @@ const TwitterBoard = () => {
           <Grid item xs={12} md={6} lg={6} >
             <CardProfilePicture/>
           </Grid>
-  
+
           <Grid item xs={12} md={6} lg={6}>
             <div>
               <div>
@@ -79,13 +79,13 @@ const TwitterBoard = () => {
               </div>
             </div>
           </Grid>
-  
+
           {
-           /*  IconCards.map(item => (
+           IconCards.map(item => (
               <Grid item xs={12} md={4} lg={6} key={item.text}>
                 <CardIntegration item={item} />
               </Grid>
-            )) */
+            ))
           }
         </Grid>
       </Container>

@@ -17,28 +17,31 @@ export default function CardFollows() {
 
     const { state } = useContext(AppContext)
     const { facebook, linkedin, twitter } = state
+    const { currentObject, dashBoardSelected } = state
+
+    console.log(currentObject)
 
     const followItems = [
         {
-          id: "1",
+          id: 1,
           socialmedia: "facebook",
-          following: <>{facebook.follow_people}</>,
-          followers: <>{facebook.followers}</>,
+          following: <>{currentObject ? "holi" : "se murio"}</>,
+          followers: <>{783}</>,
           icon:<FacebookIcon color="primary" style={{ fontSize: 25 }}/>
         },
         {
-            id: "2",
+            id: 2,
             socialmedia: "twitter",
-            following: <>{twitter.follow_people}</>,
-            followers: <>{twitter.followers}</>,
+            following: <>{342}</>,
+            followers: <>{458}</>,
             icon:<TwitterIcon color="primary" style={{ fontSize: 25 }}/>
           }
         ,
         {
-            id: "3",
+            id: 3,
             socialmedia: "linkedin",
-            following: <>{linkedin.follow_people}</>,
-            followers: <>{linkedin.followers}</>,
+            following: <>{250}</>,
+            followers: <>{300}</>,
             icon:<LinkedInIcon color="primary" style={{ fontSize: 25 }} />
           }
       ]
@@ -56,16 +59,16 @@ export default function CardFollows() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {followItems.map((item)=> (
+                        {currentObject ? currentObject.followsSM && currentObject.followsSM.map((fol)=> (
                             <TableRow
-                            key={item.id}
+                            key={fol.id}
                             sx={{ '&:last-child td, &:last-child th': { border: 0}}}
                             >
-                            <TableCell align="center">{item.icon}</TableCell>
-                            <TableCell align="center" sx={{fontSize:"1.25rem"}}>{item.followers}</TableCell>
-                            <TableCell align="center" sx={{fontSize:"1.25rem"}}>{item.following}</TableCell>
+                            <TableCell align="center">{fol.id==1? <FacebookIcon color="primary"/> : fol.id ==2 ? <TwitterIcon color="primary"/> : <LinkedInIcon color="primary"/>}</TableCell>
+                            <TableCell align="center" sx={{fontSize:"1.25rem"}}>{fol.followers}</TableCell>
+                            <TableCell align="center" sx={{fontSize:"1.25rem"}}>{fol.following}</TableCell>
                             </TableRow>
-                        ))}
+                        )): ''}
                     </TableBody>
                </Table>
             </TableContainer>

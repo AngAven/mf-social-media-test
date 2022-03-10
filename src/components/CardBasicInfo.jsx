@@ -53,11 +53,13 @@ export default function CardBasicInfo({ selectedMode }) {
         [i]: !state[i]
       }))
   }
-
+  {console.log("**")}
+  {console.log(dashBoardSelected)}/*
+  {console.log(currentObject.twitter.email)} */
   const IconItems = [
     currentObject.email ?
       {
-        text: <>{currentObject.email} </>,
+        text: <>{currentObject ? currentObject.email : ''} </>,
         icon: <EmailIcon color="primary" style={{ fontSize: 30 }} />,
       } : '',
     currentObject.birthday ?
@@ -88,12 +90,39 @@ export default function CardBasicInfo({ selectedMode }) {
   ]
 
   return (
+
     <div>
       <Card elevation={1}>
         <CardContent>
           <Typography variant="h4" marginLeft={'1em'} >
             {currentObject ? profileName : ''}
           </Typography>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           {IconItems.map((item, i) => (
             item !== '' ?
               <ListItem key={i}>
