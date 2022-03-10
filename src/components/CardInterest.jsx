@@ -9,6 +9,7 @@ export default function CardInterest() {
 
     const { state } = useContext(AppContext)
     const { facebook, linkedin, twitter } = state
+    const { currentObject, dashBoardSelected } = state
 
     const [clicked, setClicked] = useState(false);
     const handleClick=()=>{
@@ -18,7 +19,6 @@ export default function CardInterest() {
 
     return (
         <div>
-            <Divider style={{width:'100%',padding:1, fontSize:'1rem'}}>FACEBOOK</Divider>
             <Stack
                 direction="row"
                 justifyContent="space-around"
@@ -26,40 +26,11 @@ export default function CardInterest() {
                 spacing={1}
                 flexWrap='wrap'
             >
-                {facebook.groups && facebook.groups.map(group=>(
+                {currentObject ? currentObject.groups && currentObject.groups.map(group=>(
                     <Chip key={group.id} label={group.name} icon={<VisibilityIcon/>}>
                     </Chip>
-                ))}
+                )): ''}
             </Stack>
-            <Divider style={{width:'100%',padding:1, fontSize:'1rem'}}>TWITTER</Divider>
-            <Stack
-                direction="row"
-                justifyContent="space-around"
-                alignItems="center"
-                spacing={1}
-                flexWrap='wrap'
-            >
-                {twitter.groups && twitter.groups.map(group=>(
-                    <Chip key={group.id}
-                    label={group.name}
-                    icon={<VisibilityOffIcon/> }
-                    >
-                    </Chip>
-                ))}
-            </Stack>
-            <Divider style={{width:'100%',padding:1, fontSize:'1rem'}}>LINKEDIN</Divider>
-            <Stack
-                direction="row"
-                justifyContent="space-around"
-                alignItems="center"
-                spacing={1}
-                flexWrap='wrap'
-            >
-                {linkedin.groups && linkedin.groups.map(group=>(
-                    <Chip key={group.id} label={group.name} icon={<VisibilityIcon/>}>
-                    </Chip>
-                ))}
-            </Stack>
-        </div>
+                   </div>
     )
 }

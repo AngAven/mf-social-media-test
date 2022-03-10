@@ -141,7 +141,7 @@ const Layout = ({children}) => {
   const history = useHistory();
   const [open, setOpen] = React.useState(false)
 
-  window.onload = () => history.push('/dashboard')
+  /* window.onload = () => history.push('/dashboard') */
 
   const handleDrawerOpen = () => {
     setOpen(true)
